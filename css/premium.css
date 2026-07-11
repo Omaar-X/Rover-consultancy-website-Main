@@ -527,6 +527,127 @@ body.home-page footer {
   50% { transform: translateY(4px); opacity: 1; }
 }
 
+/* ─── ABOUT SPOTLIGHT ───────────────────────────────────────────────────── */
+.about-spotlight {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-spotlight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(201,163,42,0.08) 0%, transparent 28%),
+    radial-gradient(circle at 85% 20%, rgba(74,122,232,0.09) 0%, transparent 30%);
+  pointer-events: none;
+}
+
+.about-spotlight .container {
+  position: relative;
+  z-index: 1;
+}
+
+.about-spotlight__grid {
+  align-items: center;
+}
+
+.about-spotlight__story {
+  position: relative;
+}
+
+.about-spotlight__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 24px 0 28px;
+}
+
+.about-spotlight__actions {
+  margin-bottom: 0;
+}
+
+.about-spotlight__visual {
+  display: grid;
+  gap: 18px;
+}
+
+.about-spotlight__image-wrap {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 28px 70px rgba(13, 27, 76, 0.18);
+  background: linear-gradient(135deg, rgba(27,58,140,0.12), rgba(201,163,42,0.10));
+}
+
+.about-spotlight__image-wrap img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+  object-fit: cover;
+}
+
+.about-spotlight__image-overlay {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  padding: 20px 22px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(7,13,31,0.82), rgba(27,58,140,0.72));
+  color: #fff;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.22);
+}
+
+.about-spotlight__eyebrow {
+  display: inline-flex;
+  margin-bottom: 10px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.92);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+}
+
+.about-spotlight__image-overlay strong {
+  display: block;
+  line-height: 1.7;
+  font-size: 0.98rem;
+  font-weight: 500;
+}
+
+.about-spotlight__metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.about-spotlight__metric {
+  padding: 22px !important;
+  text-align: left;
+}
+
+.about-spotlight__metric-value {
+  display: block;
+  color: var(--t-primary);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.about-spotlight__metric-label {
+  display: block;
+  color: var(--t-text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
 /* ─── STATS BAR PREMIUM ──────────────────────────────────────────────────── */
 .stats-bar {
   position: relative;
@@ -597,10 +718,13 @@ body.home-page footer {
   .hero-visual-card--orbit,
   .hero-visual-card--stack { display: none; }
   .hero__scroll-hint { bottom: 14px; }
+  .about-spotlight__metrics { grid-template-columns: 1fr; }
+  .about-spotlight__image-wrap img { min-height: 260px; }
 }
 
 @media (max-width: 600px) {
   .hero__content { padding: 98px 0 80px; }
+  .hero__visual { min-height: 260px; }
   .hero__cta-group { flex-direction: column; }
   .hero__cta-group .btn { width: 100%; }
   .hero__search-wrap { max-width: 100%; }
@@ -610,6 +734,14 @@ body.home-page footer {
   .search-form__btn { border-top: 1px solid rgba(255,255,255,0.10); }
   .hero-visual-card__meta { grid-template-columns: 1fr; }
   .hero__scroll-hint { display: none; }
+  .about-spotlight__chips { gap: 10px; }
+  .about-spotlight__image-overlay {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    padding: 16px 18px;
+  }
+  .about-spotlight__metric { padding: 18px !important; }
 }
 
 /* ─── SERVICE CARDS PREMIUM ──────────────────────────────────────────────── */

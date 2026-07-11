@@ -753,3 +753,26 @@
     display: none;
   }
 }
+
+@media (max-width: 640px) {
+  .header-inner {
+    gap: 8px;
+  }
+  .nav-logo__img {
+    height: 40px;
+  }
+  .theme-toggle {
+    min-width: 40px;
+    width: 40px;
+    padding: 0;
+  }
+  .theme-toggle__label {
+    display: none;
+  }
+  .nav-cta {
+    display: none !important;
+  }
+  .site-header .header-inner > .flex.items-center.gap-4 > .btn.btn-gold.btn-sm {
+    display: none !important;
+  }
+}

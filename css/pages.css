@@ -819,6 +819,74 @@
   }
 }
 
+@media (max-width: 480px) {
+  .grid-cols-3,
+  .grid-cols-4,
+  .content-grid--2,
+  .content-grid--3,
+  .visa-cat-grid,
+  .route-grid,
+  .package-grid,
+  .service-overview-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .section-header h2,
+  .page-banner__title {
+    line-height: 1.08;
+  }
+}
+
+/* =============================================================================
+   14. PILGRIMAGE PAGE BANNERS
+============================================================================= */
+
+body.page--hajj .page-banner,
+body.page--umrah .page-banner {
+  position: relative;
+  background-size: cover !important;
+  background-position: center !important;
+  overflow: hidden;
+}
+
+body.page--hajj .page-banner::before,
+body.page--umrah .page-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(4,8,24,0.65) 0%, rgba(4,8,24,0.45) 45%, rgba(4,8,24,0.78) 100%);
+  z-index: 0;
+}
+
+body.page--hajj .page-banner::after,
+body.page--umrah .page-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(201,163,42,0.18), transparent 32%),
+    radial-gradient(circle at 82% 18%, rgba(74,122,232,0.16), transparent 30%);
+}
+
+body.page--hajj .page-breadcrumb-wrap,
+body.page--umrah .page-breadcrumb-wrap {
+  position: relative;
+  z-index: 1;
+}
+
+body.page--hajj .page-banner {
+  background-image:
+    linear-gradient(180deg, rgba(4,8,24,0.45), rgba(4,8,24,0.72)),
+    url('../images/hajj-banner.jpg') !important;
+}
+
+body.page--umrah .page-banner {
+  background-image:
+    linear-gradient(180deg, rgba(4,8,24,0.45), rgba(4,8,24,0.72)),
+    url('../images/umrah-banner.jpg') !important;
+}
+
 /* =============================================================================
    13. GENERIC PAGE PATTERNS
    Reusable for interior pages.

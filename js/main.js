@@ -311,6 +311,43 @@
   }
 
   /* ============================================================================
+     6C. PAGE NAV / HERO TWEAKS
+  ============================================================================ */
+
+  function moveAboutUsAfterHome(navRoot) {
+    if (!navRoot) return;
+    const items = qsa(':scope > .nav-item, :scope > .mobile-nav-item', navRoot);
+    if (!items.length) return;
+
+    const homeItem = items.find((item) => {
+      const link = qs('a', item);
+      return link && /home/i.test(link.textContent.trim());
+    });
+    const aboutItem = items.find((item) => {
+      const link = qs('a', item);
+      return link && /about us/i.test(link.textContent.trim());
+    });
+
+    if (homeItem && aboutItem && homeItem.nextElementSibling !== aboutItem) {
+      navRoot.insertBefore(aboutItem, homeItem.nextElementSibling);
+    }
+  }
+
+  function initPageTweaks() {
+    const path = (window.location.pathname || '').toLowerCase();
+    const body = document.body;
+
+    if (/\/hajj(\.html)?$/.test(path)) {
+      body.classList.add('page--hajj');
+    } else if (/\/umrah(\.html)?$/.test(path)) {
+      body.classList.add('page--umrah');
+    }
+
+    moveAboutUsAfterHome(qs('.nav-desktop'));
+    moveAboutUsAfterHome(qs('.mobile-menu__nav'));
+  }
+
+  /* ============================================================================
      7. STATS COUNTER ANIMATION
   ============================================================================ */
 
@@ -541,7 +578,8 @@
           alt="${escapeHtml(c.country_name)} travel destination"
           title="${escapeHtml(c.country_name)}"
           width="360" height="480"
-          loading="lazy" />
+          loading="eager"
+          decoding="async" />
         <div class="dest-card__overlay"></div>
         <div class="dest-card__badges">
           ${statusBadge(c.status)}
@@ -804,6 +842,7 @@
     initFloatingButtons();
     initScrollReveal();
     initHeroParticles();
+    initPageTweaks();
     initInquiryForms();
     initNewsletterForms();
 
