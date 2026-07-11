@@ -1,0 +1,44 @@
+{
+  "faqs": [
+    {
+      "id": "faq001",
+      "question": "How long does the visa processing take?",
+      "answer": "Processing time varies by country and visa type. E-Visas typically take 3-7 business days, while Sticker Visas for countries like the UK, USA, or Schengen countries may take 15-30 business days. We provide an estimated timeline for your specific destination during consultation."
+    },
+    {
+      "id": "faq002",
+      "question": "What documents do I need for a visa application?",
+      "answer": "Required documents vary based on the destination country and your applicant category (job holder, businessman, student, etc.). Common documents include passport copies, photographs, bank statements, and employment verification. Visit our Visa Services page for a detailed checklist specific to your destination."
+    },
+    {
+      "id": "faq003",
+      "question": "Do you offer consultation for tour packages?",
+      "answer": "Yes! While our tour package catalog is being finalized, our team is ready to provide personalized consultation for domestic and international tours. Contact us via WhatsApp or the inquiry form and we'll help plan your ideal trip."
+    },
+    {
+      "id": "faq004",
+      "question": "Can I apply for Hajj or Umrah through Rover Consultancy?",
+      "answer": "Absolutely. We offer dedicated Hajj and Umrah consultation services including visa processing and document guidance. Visit our Hajj & Umrah pages or contact us directly for current package availability."
+    },
+    {
+      "id": "faq005",
+      "question": "What is the service charge for visa processing?",
+      "answer": "Service charges vary by country and are separate from the government visa fee. Exact charges are listed on each country's visa page. For countries where pricing is being finalized, please contact us directly for an accurate quote."
+    },
+    {
+      "id": "faq006",
+      "question": "How can I contact Rover Consultancy Services?",
+      "answer": "You can reach us via phone or WhatsApp at 01726763326, email us at info@roverconsultancy.com, or use the inquiry form on any page of our website. Our office is located in Dhaka, Bangladesh."
+    },
+    {
+      "id": "faq007",
+      "question": "Is my personal information safe when I submit an inquiry?",
+      "answer": "Yes. All inquiry submissions are handled securely and used only for the purpose of processing your visa or travel consultation request. We do not share your information with third parties."
+    },
+    {
+      "id": "faq008",
+      "question": "What if my desired country shows 'Temporarily Unavailable'?",
+      "answer": "Some countries are temporarily paused due to processing changes on the embassy's end. Please contact us directly via WhatsApp for the latest status and estimated reactivation timeline for that destination."
+    }
+  ]
+}

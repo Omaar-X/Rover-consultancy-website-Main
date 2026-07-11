@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en-BD">
+<head>
+<script>
+  /* Prevent flash of unstyled content — apply theme before first paint */
+  (function(){var t=localStorage.getItem('rover-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ================================================================
+       PRIMARY SEO META TAGS
+       SRS Reference: Section 13.3 — Technical SEO
+  ================================================================= -->
+  <title>Rover Consultancy Services | Your Trusted Travel Partner — Visa, Tours &amp; Hajj/Umrah</title>
+  <meta name="description" content="Rover Consultancy Services offers expert visa consultation, tour packages, air tickets, hotel booking, and Hajj &amp; Umrah services in Dhaka, Bangladesh. Your trusted travel partner for 50+ countries worldwide.">
+  <meta name="keywords" content="visa from bangladesh, travel agency dhaka, thailand visa bangladesh, schengen visa bangladesh, uk visa bangladesh, hajj package bangladesh, umrah package dhaka, rover consultancy services">
+  <meta name="author" content="Rover Consultancy Services">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://www.roverconsultancy.com/">
+
+  <!-- ================================================================
+       OPEN GRAPH / FACEBOOK
+  ================================================================= -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.roverconsultancy.com/">
+  <meta property="og:title" content="Rover Consultancy Services | Your Trusted Travel Partner">
+  <meta property="og:description" content="Expert visa consultation, tour packages, air tickets, hotel booking, and Hajj &amp; Umrah services in Dhaka, Bangladesh.">
+  <meta property="og:image" content="https://www.roverconsultancy.com/images/hero/og-homepage.jpg">
+  <meta property="og:locale" content="en_BD">
+  <meta property="og:site_name" content="Rover Consultancy Services">
+
+  <!-- ================================================================
+       TWITTER CARD
+  ================================================================= -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rover Consultancy Services | Your Trusted Travel Partner">
+  <meta name="twitter:description" content="Expert visa consultation, tour packages, air tickets, hotel booking, and Hajj &amp; Umrah services in Dhaka, Bangladesh.">
+  <meta name="twitter:image" content="https://www.roverconsultancy.com/images/hero/og-homepage.jpg">
+
+  <!-- ================================================================
+       FAVICON PACKAGE
+  ================================================================= -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#1B3A8C">
+
+  <!-- ================================================================
+       PERFORMANCE — Preload critical assets
+       SRS Reference: Section 15 — Critical CSS / font preload
+  ================================================================= -->
+  <link rel="preload" href="fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/PlayfairDisplay-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="images/hero/hero-bg-premium.svg" as="image" type="image/svg+xml">
+
+  <!-- ================================================================
+       STYLESHEETS — loaded individually (parallel fetch) for performance
+  ================================================================= -->
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/premium.css">
+</head>
+<body class="home-page">
+
+  <!-- Skip link for keyboard/screen-reader users -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ==================================================================
+       HEADER / NAVIGATION
+       SRS Reference: Section 12.5 — Navigation
+       Reusable component — identical markup will be copied to every page
+       in API mode with the "active" class moved to the current page link.
+  =================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <div class="header-inner">
+
+        <!-- Logo -->
+        <a href="index.html" class="nav-logo" aria-label="Rover Consultancy Services — Home">
+          <img src="images/logo/rover-logo-white.svg"
+               class="nav-logo__img"
+               alt="Rover Consultancy Services logo"
+               title="Rover Consultancy Services"
+               width="240" height="60"
+               loading="eager">
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="nav-desktop" aria-label="Primary navigation">
+          <div class="nav-item">
+            <a href="index.html" class="nav-link active">Home</a>
+          </div>
+
+          <div class="nav-item">
+            <a href="html/visa-services.html" class="nav-link">
+              Visa Services
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+            </a>
+            <!-- Mega Menu — Visa Services by Region -->
+            <div class="nav-mega">
+              <div class="mega-header">
+                <span class="mega-title">Popular Visa Destinations</span>
+                <a href="html/visa-services.html" class="mega-see-all">
+                  See All 50 Countries
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+              <div class="mega-grid">
+                <div class="mega-region">
+                  <span class="mega-region__title">Asia</span>
+                  <a href="visa-services/?country=thailand" class="mega-country-link"><span class="flag">🇹🇭</span>Thailand</a>
+                  <a href="visa-services/?country=singapore" class="mega-country-link"><span class="flag">🇸🇬</span>Singapore</a>
+                  <a href="visa-services/?country=malaysia" class="mega-country-link"><span class="flag">🇲🇾</span>Malaysia</a>
+                  <a href="visa-services/?country=maldives" class="mega-country-link"><span class="flag">🇲🇻</span>Maldives</a>
+                </div>
+                <div class="mega-region">
+                  <span class="mega-region__title">Europe</span>
+                  <a href="visa-services/?country=united-kingdom" class="mega-country-link"><span class="flag">🇬🇧</span>United Kingdom</a>
+                  <a href="visa-services/?country=turkey" class="mega-country-link"><span class="flag">🇹🇷</span>Turkey</a>
+                  <a href="visa-services/?country=france" class="mega-country-link"><span class="flag">🇫🇷</span>France</a>
+                  <a href="visa-services/?country=germany" class="mega-country-link"><span class="flag">🇩🇪</span>Germany</a>
+                </div>
+                <div class="mega-region">
+                  <span class="mega-region__title">Americas</span>
+                  <a href="visa-services/?country=usa" class="mega-country-link"><span class="flag">🇺🇸</span>United States</a>
+                  <a href="visa-services/?country=canada" class="mega-country-link"><span class="flag">🇨🇦</span>Canada</a>
+                </div>
+                <div class="mega-region">
+                  <span class="mega-region__title">Oceania</span>
+                  <a href="visa-services/?country=australia" class="mega-country-link"><span class="flag">🇦🇺</span>Australia</a>
+                </div>
+                <div class="mega-region">
+                  <span class="mega-region__title">Middle East</span>
+                  <a href="visa-services/?country=uae" class="mega-country-link"><span class="flag">🇦🇪</span>UAE</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="nav-item">
+            <a href="html/tour-packages.html" class="nav-link">Tour Packages</a>
+          </div>
+
+          <div class="nav-item">
+            <a href="html/hajj.html" class="nav-link">
+              Hajj &amp; Umrah
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+            </a>
+            <div class="nav-dropdown">
+              <div class="dropdown-list">
+                <a href="html/hajj.html" class="dropdown-link">Hajj Services</a>
+                <a href="html/umrah.html" class="dropdown-link">Umrah Services</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="nav-item">
+            <a href="html/about-us.html" class="nav-link">About Us</a>
+          </div>
+
+          <div class="nav-item">
+            <a href="html/contact-us.html" class="nav-link">Contact</a>
+          </div>
+        </nav>
+
+        <!-- Right side: phone + CTA + hamburger -->
+        <div class="flex items-center gap-4">
+          <a href="tel:+8801726763326" class="nav-phone" data-bind="phone_href">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span data-bind="phone_display">01726-763326</span>
+          </a>
+
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle theme">
+            <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+
+          <div class="nav-cta">
+            <a href="html/contact-us.html" class="btn btn-gold btn-sm">Apply Now</a>
+          </div>
+
+          <!-- Hamburger (mobile only) -->
+          <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================================================================
+       MOBILE MENU DRAWER
+  =================================================================== -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu__overlay"></div>
+    <div class="mobile-menu__panel">
+      <div class="mobile-menu__header">
+        <div class="mobile-menu__logo">
+          <span class="mobile-menu__logo-name">ROVER CONSULTANCY</span>
+          <span class="mobile-menu__logo-sub">Your Trusted Travel Partner</span>
+        </div>
+        <button class="mobile-menu__close" aria-label="Close menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <nav class="mobile-menu__nav" aria-label="Mobile navigation">
+        <div class="mobile-nav-item">
+          <a href="index.html" class="mobile-nav-link active">Home</a>
+        </div>
+
+        <div class="mobile-nav-item" data-has-submenu>
+          <a href="#" class="mobile-nav-link" data-has-submenu-trigger>
+            Visa Services
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          </a>
+          <div class="mobile-submenu">
+            <a href="html/visa-services.html" class="mobile-submenu-link">All Countries</a>
+            <a href="visa-services/?country=thailand" class="mobile-submenu-link"><span>🇹🇭</span> Thailand</a>
+            <a href="visa-services/?country=united-kingdom" class="mobile-submenu-link"><span>🇬🇧</span> United Kingdom</a>
+            <a href="visa-services/?country=usa" class="mobile-submenu-link"><span>🇺🇸</span> United States</a>
+            <a href="visa-services/?country=australia" class="mobile-submenu-link"><span>🇦🇺</span> Australia</a>
+          </div>
+        </div>
+
+        <div class="mobile-nav-item">
+          <a href="html/tour-packages.html" class="mobile-nav-link">Tour Packages</a>
+        </div>
+
+        <div class="mobile-nav-item" data-has-submenu>
+          <a href="#" class="mobile-nav-link" data-has-submenu-trigger>
+            Hajj &amp; Umrah
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          </a>
+          <div class="mobile-submenu">
+            <a href="html/hajj.html" class="mobile-submenu-link">Hajj Services</a>
+            <a href="html/umrah.html" class="mobile-submenu-link">Umrah Services</a>
+          </div>
+        </div>
+
+        <div class="mobile-nav-item">
+          <a href="html/air-tickets.html" class="mobile-nav-link">Air Tickets</a>
+        </div>
+
+        <div class="mobile-nav-item">
+          <a href="html/hotel-booking.html" class="mobile-nav-link">Hotel Booking</a>
+        </div>
+
+        <div class="mobile-nav-item">
+          <a href="html/about-us.html" class="mobile-nav-link">About Us</a>
+        </div>
+
+        <div class="mobile-nav-item">
+          <a href="html/blog.html" class="mobile-nav-link">Blog</a>
+        </div>
+
+        <div class="mobile-nav-item">
+          <a href="html/contact-us.html" class="mobile-nav-link">Contact</a>
+        </div>
+      </nav>
+
+      <div class="mobile-menu__footer">
+        <div class="mobile-menu__contact">
+          <a href="tel:+8801726763326" class="mobile-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span data-bind="phone_display">01726-763326</span>
+          </a>
+          <a href="mailto:info@roverconsultancy.com" class="mobile-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+            <span data-bind="email">info@roverconsultancy.com</span>
+          </a>
+        </div>
+        <a href="html/contact-us.html" class="btn btn-primary btn-block">Apply Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================================================================
+       MAIN CONTENT
+  =================================================================== -->
+  <main id="main-content">
+
+    <!-- ================================================================
+         1. HERO SECTION
+         SRS Reference: FR-01 — Hero section with animated headline
+    ================================================================= -->
+    <section class="hero" aria-label="Introduction">
+      <div class="hero__bg">
+        <img src="images/hero/hero-bg-premium.svg"
+             alt="Premium abstract travel backdrop with blue and gold travel motifs"
+             title="Rover Consultancy Services — Explore the World"
+             width="1920" height="1080"
+             loading="eager"
+             fetchpriority="high">
+      </div>
+      <div class="hero__overlay"></div>
+      <div class="hero-particles" aria-hidden="true" id="heroParticles"></div>
+
+      <div class="container">
+        <div class="hero__content">
+          <div class="hero__layout">
+            <div class="hero__inner">
+              <span class="text-eyebrow text-eyebrow--pill hero__eyebrow">✈ Premium travel concierge</span>
+
+              <h1 class="text-display-1 hero__title">
+                Explore the World with <span class="accent">Confidence</span>
+              </h1>
+
+              <p class="hero__subtitle">
+                From visa consultation to tour packages, air tickets, hotel booking, and Hajj &amp; Umrah services — Rover Consultancy Services guides your journey to 50+ countries with expert care.
+              </p>
+
+              <div class="hero__cta-group">
+                <a href="html/visa-services.html" class="btn btn-gold btn-lg">
+                  Explore Visas
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="html/contact-us.html" class="btn btn-outline-white btn-lg">
+                  Free Consultation
+                </a>
+              </div>
+
+              <div class="hero__search-wrap">
+                <p class="hero__search-label">Search your destination country:</p>
+                <form class="search-form" role="search" onsubmit="return false;">
+                  <input
+                    type="text"
+                    class="search-form__input"
+                    placeholder="Try 'Thailand', 'UK', 'Australia'..."
+                    aria-label="Search country for visa information"
+                    data-country-search
+                    data-results-target="heroSearchResults"
+                    autocomplete="off">
+                  <button type="submit" class="btn btn-primary search-form__btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                    <span class="hide-mobile">Search</span>
+                  </button>
+                </form>
+                <div class="search-results-preview" id="heroSearchResults"></div>
+              </div>
+            </div>
+
+            <div class="hero__visual" aria-hidden="true">
+              <div class="hero-visual-card hero-visual-card--main">
+                <span class="hero-visual-card__eyebrow">Trusted by modern travelers</span>
+                <h2 class="hero-visual-card__title">Premium planning, clear guidance, elegant execution.</h2>
+                <p class="hero-visual-card__copy">A concierge-style experience for visas, tours, hotels, tickets, and sacred journeys.</p>
+                <div class="hero-visual-card__meta">
+                  <div>
+                    <strong>50+</strong>
+                    <span>Countries</span>
+                  </div>
+                  <div>
+                    <strong>24/7</strong>
+                    <span>Support</span>
+                  </div>
+                  <div>
+                    <strong>98%</strong>
+                    <span>Success</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hero-visual-card hero-visual-card--orbit">
+                <div class="hero-visual-orbit">
+                  <span class="hero-visual-orbit__ring"></span>
+                  <span class="hero-visual-orbit__ring hero-visual-orbit__ring--outer"></span>
+                  <span class="hero-visual-orbit__core">RCS</span>
+                </div>
+                <div class="hero-visual-pin hero-visual-pin--1"><span>🇹🇭</span><small>Thailand</small></div>
+                <div class="hero-visual-pin hero-visual-pin--2"><span>🇬🇧</span><small>UK</small></div>
+                <div class="hero-visual-pin hero-visual-pin--3"><span>🇦🇺</span><small>Australia</small></div>
+              </div>
+
+              <div class="hero-visual-card hero-visual-card--stack">
+                <div class="hero-visual-chip">
+                  <span>Visa support</span>
+                  <strong>Fast, precise, premium</strong>
+                </div>
+                <div class="hero-visual-chip">
+                  <span>Hajj &amp; Umrah</span>
+                  <strong>Respectful, complete care</strong>
+                </div>
+                <div class="hero-visual-chip">
+                  <span>Tour planning</span>
+                  <strong>Tailored to your style</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__scroll-hint">
+        <span>Scroll</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         2. STATISTICS COUNTER BAR
+         SRS Reference: FR-01 — Live statistics bar
+    ================================================================= -->
+    <section class="stats-bar" aria-label="Company statistics">
+      <div class="container">
+        <div class="stats-bar__inner">
+          <div class="stat-card reveal">
+            <span class="stat-card__number" data-stat="countries_covered">0</span>
+            <span class="stat-card__label">Countries Covered</span>
+          </div>
+          <div class="stat-card reveal delay-100">
+            <span class="stat-card__number" data-stat="visas_processed">0</span>
+            <span class="stat-card__label">Visas Processed</span>
+          </div>
+          <div class="stat-card reveal delay-200">
+            <span class="stat-card__number" data-stat="happy_clients">0</span>
+            <span class="stat-card__label">Happy Clients</span>
+          </div>
+          <div class="stat-card reveal delay-300">
+            <span class="stat-card__number" data-stat="years_experience">0</span>
+            <span class="stat-card__label">Years of Experience</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         3. OUR SERVICES
+         SRS Reference: FR-01 — Featured services grid
+    ================================================================= -->
+    <section class="section section--light" aria-labelledby="servicesHeading">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="text-eyebrow text-eyebrow--pill">What We Offer</span>
+          <h2 id="servicesHeading">Our Services</h2>
+          <p class="section-subtitle">Comprehensive travel solutions designed around your journey — from visa paperwork to your final destination.</p>
+        </div>
+
+        <div class="grid grid-cols-3" data-render="services">
+          <div class="service-card reveal">
+            <div class="service-card__icon-wrap">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M9 17h6"/></svg>
+            </div>
+            <h3 class="service-card__title">Visa Services</h3>
+            <p class="service-card__desc">Expert visa consultation and complete documentation support for 50+ countries worldwide, from E-Visa to Sticker Visa.</p>
+            <a href="visa-services/index.html" class="btn btn-outline btn-sm">
+              Explore Visas
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <div class="service-card reveal delay-100">
+            <div class="service-card__icon-wrap">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M9 20l-5.447-2.724A1 1 0 0 1 3 16.382V5.618a1 1 0 0 1 1.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0 0 21 18.382V7.618a1 1 0 0 0-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+            </div>
+            <h3 class="service-card__title">Tour Packages</h3>
+            <p class="service-card__desc">Curated domestic and international tour packages for families, honeymooners, and group travelers.</p>
+            <a href="tour-packages/index.html" class="btn btn-outline btn-sm">
+              View Packages
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <div class="service-card reveal delay-200">
+            <div class="service-card__icon-wrap">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-1 .1-1.3.5l-.4.6c-.4.5-.2 1.2.3 1.5L9 12l-2 3H4l-1 1.5 3.5 1L8 21l1.5-1v-3l3-2 3.4 5.4c.3.5 1 .7 1.5.3l.6-.4c.4-.3.6-.8.5-1.3z"/></svg>
+            </div>
+            <h3 class="service-card__title">Air Tickets</h3>
+            <p class="service-card__desc">Best-fare air ticket booking assistance to all major destinations with dedicated support.</p>
+            <a href="html/air-tickets.html" class="btn btn-outline btn-sm">
+              Book Tickets
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <div class="service-card reveal delay-300">
+            <div class="service-card__icon-wrap">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="4" y="2" width="16" height="20" rx="1"/><path d="M9 22v-4h6v4M9 6h1M14 6h1M9 10h1M14 10h1M9 14h1M14 14h1"/></svg>
+            </div>
+            <h3 class="service-card__title">Hotel Booking</h3>
+            <p class="service-card__desc">Handpicked hotel reservations worldwide that fit your budget and comfort needs.</p>
+            <a href="html/hotel-booking.html" class="btn btn-outline btn-sm">
+              Find Hotels
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <div class="service-card reveal delay-400">
+            <div class="service-card__icon-wrap">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 9h16M4 4l16 16"/></svg>
+            </div>
+            <h3 class="service-card__title">Hajj Services</h3>
+            <p class="service-card__desc">Complete Hajj package guidance and visa processing with dedicated spiritual journey support.</p>
+            <a href="html/hajj.html" class="btn btn-outline btn-sm">
+              Learn More
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <div class="service-card reveal delay-500">
+            <div class="service-card__icon-wrap">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 21v-7a8 8 0 0 1 16 0v7M4 21h16M9 21v-5a3 3 0 0 1 6 0v5M12 3v3"/></svg>
+            </div>
+            <h3 class="service-card__title">Umrah Services</h3>
+            <p class="service-card__desc">Affordable and reliable Umrah packages with full visa and documentation assistance.</p>
+            <a href="umrah/index.html" class="btn btn-outline btn-sm">
+              Learn More
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         4. POPULAR DESTINATIONS
+         SRS Reference: FR-01 — Popular destinations carousel
+    ================================================================= -->
+    <section class="section section--white" aria-labelledby="destinationsHeading">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="text-eyebrow text-eyebrow--pill">Top Picks</span>
+          <h2 id="destinationsHeading">Popular Destinations</h2>
+          <p class="section-subtitle">Discover our most requested visa destinations, complete with fees and processing times.</p>
+        </div>
+
+        <div class="grid grid-cols-4" data-render="destinations">
+          <!-- Populated dynamically by main.js from assets/data/countries.json -->
+        </div>
+
+        <div class="text-center mt-8">
+          <a href="html/visa-services.html" class="btn btn-primary btn-lg">
+            View All 50 Countries
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         5. WHY CHOOSE US
+         SRS Reference: FR-01 — Why Choose Rover section
+    ================================================================= -->
+    <section class="section section--alt" aria-labelledby="whyUsHeading">
+      <div class="container">
+        <div class="why-us">
+          <div class="why-us__image-wrap reveal-left">
+            <div class="why-us__art" aria-hidden="true">
+              <svg class="why-us__art-svg" viewBox="0 0 1000 750" role="presentation">
+                <defs>
+                  <linearGradient id="whyArtBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#EEF4FF"/>
+                    <stop offset="50%" stop-color="#DCE6FF"/>
+                    <stop offset="100%" stop-color="#CFC4EA"/>
+                  </linearGradient>
+                  <linearGradient id="whyArtBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#1B3A8C"/>
+                    <stop offset="100%" stop-color="#4A7AE8"/>
+                  </linearGradient>
+                  <linearGradient id="whyArtGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#F2D56E"/>
+                    <stop offset="100%" stop-color="#C9A32A"/>
+                  </linearGradient>
+                  <filter id="whyArtShadow" x="-30%" y="-30%" width="160%" height="160%">
+                    <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#0D1B4B" flood-opacity="0.18"/>
+                  </filter>
+                </defs>
+
+                <rect x="0" y="0" width="1000" height="750" rx="42" fill="url(#whyArtBg)"/>
+                <circle cx="130" cy="130" r="90" fill="#FFFFFF" opacity="0.35"/>
+                <circle cx="870" cy="120" r="130" fill="#4A7AE8" opacity="0.12"/>
+                <circle cx="840" cy="610" r="160" fill="#C9A32A" opacity="0.12"/>
+
+                <g opacity="0.7">
+                  <path d="M70 205C160 150 250 150 350 195" fill="none" stroke="#1B3A8C" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 14"/>
+                  <path d="M640 120C730 95 830 95 930 140" fill="none" stroke="#C9A32A" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 14"/>
+                  <path d="M120 640C220 575 330 565 425 600" fill="none" stroke="#4A7AE8" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 14"/>
+                </g>
+
+                <g filter="url(#whyArtShadow)">
+                  <rect x="90" y="120" width="460" height="530" rx="34" fill="rgba(255,255,255,0.78)"/>
+                  <rect x="120" y="150" width="400" height="70" rx="22" fill="#EEF4FF"/>
+                  <circle cx="168" cy="185" r="22" fill="url(#whyArtBlue)"/>
+                  <path d="M158 186l7 7 16-18" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <rect x="150" y="245" width="300" height="24" rx="12" fill="#D9E3FF"/>
+                  <rect x="150" y="285" width="360" height="16" rx="8" fill="#C7D4F8"/>
+                  <rect x="150" y="315" width="330" height="16" rx="8" fill="#D5DCF4"/>
+                  <rect x="150" y="375" width="260" height="150" rx="28" fill="url(#whyArtBlue)"/>
+                  <circle cx="280" cy="450" r="72" fill="none" stroke="#ffffff" stroke-width="4" opacity="0.5"/>
+                  <circle cx="280" cy="450" r="38" fill="none" stroke="#ffffff" stroke-width="4" opacity="0.65"/>
+                  <path d="M220 448c44-54 90-74 136-60" fill="none" stroke="#F2D56E" stroke-width="5" stroke-linecap="round"/>
+                  <path d="M228 468c58 26 108 26 164 4" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+
+                  <rect x="440" y="360" width="160" height="200" rx="28" fill="#FFFFFF"/>
+                  <rect x="468" y="392" width="104" height="22" rx="11" fill="#D9E3FF"/>
+                  <rect x="468" y="432" width="84" height="12" rx="6" fill="#C7D4F8"/>
+                  <rect x="468" y="458" width="114" height="12" rx="6" fill="#D5DCF4"/>
+                  <rect x="468" y="484" width="72" height="12" rx="6" fill="#D5DCF4"/>
+
+                  <rect x="150" y="560" width="160" height="70" rx="22" fill="#fff"/>
+                  <circle cx="188" cy="595" r="22" fill="url(#whyArtGold)"/>
+                  <path d="M180 595h16M188 587v16" stroke="#1B3A8C" stroke-width="4" stroke-linecap="round"/>
+                  <rect x="340" y="560" width="118" height="70" rx="22" fill="#fff"/>
+                </g>
+
+                <g filter="url(#whyArtShadow)">
+                  <g transform="translate(640 220)">
+                    <circle cx="120" cy="120" r="92" fill="#FFFFFF" opacity="0.7"/>
+                    <circle cx="120" cy="120" r="82" fill="none" stroke="#1B3A8C" stroke-width="4" opacity="0.32"/>
+                    <circle cx="120" cy="120" r="58" fill="none" stroke="#C9A32A" stroke-width="4" stroke-dasharray="16 14" opacity="0.6"/>
+                    <path d="M40 124c32-30 72-46 120-48 48-2 94 10 138 34" fill="none" stroke="#4A7AE8" stroke-width="6" stroke-linecap="round" opacity="0.6"/>
+                    <path d="M74 70l140 86-88 8 20 72z" fill="url(#whyArtGold)"/>
+                  </g>
+                </g>
+
+                <g filter="url(#whyArtShadow)">
+                  <rect x="650" y="500" width="240" height="130" rx="28" fill="rgba(255,255,255,0.78)"/>
+                  <rect x="684" y="532" width="168" height="18" rx="9" fill="#D9E3FF"/>
+                  <rect x="684" y="562" width="120" height="12" rx="6" fill="#C7D4F8"/>
+                  <rect x="684" y="584" width="140" height="12" rx="6" fill="#D5DCF4"/>
+                  <circle cx="822" cy="556" r="24" fill="url(#whyArtBlue)"/>
+                </g>
+              </svg>
+            </div>
+            <div class="why-us__badge">
+              <div class="why-us__badge-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+              </div>
+              <div>
+                <div class="why-us__badge-title">98%</div>
+                <div class="why-us__badge-sub">Visa Success Rate</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal-right">
+            <span class="text-eyebrow text-eyebrow--pill">Why Rover Consultancy</span>
+            <h2 id="whyUsHeading" class="text-h2" style="color:var(--clr-primary); margin-top:var(--sp-3);">Your Journey, Our Priority</h2>
+            <p class="subtitle" style="color:var(--clr-text-secondary); margin-top:var(--sp-4);">
+              With over a decade of experience, we've helped thousands of travelers navigate visa requirements with confidence, transparency, and genuine care.
+            </p>
+
+            <div class="why-us__list">
+              <div class="why-us__item">
+                <div class="why-us__item-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                </div>
+                <div>
+                  <div class="why-us__item-title">10+ Years of Experience</div>
+                  <div class="why-us__item-desc">A decade of expertise navigating visa regulations across 50+ countries.</div>
+                </div>
+              </div>
+
+              <div class="why-us__item">
+                <div class="why-us__item-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                </div>
+                <div>
+                  <div class="why-us__item-title">Transparent Pricing</div>
+                  <div class="why-us__item-desc">No hidden fees — every visa fee and service charge is clearly listed upfront.</div>
+                </div>
+              </div>
+
+              <div class="why-us__item">
+                <div class="why-us__item-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <div>
+                  <div class="why-us__item-title">24/7 WhatsApp Support</div>
+                  <div class="why-us__item-desc">Real humans ready to answer your questions any time, any day.</div>
+                </div>
+              </div>
+
+              <div class="why-us__item">
+                <div class="why-us__item-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div>
+                  <div class="why-us__item-title">Trusted &amp; Secure</div>
+                  <div class="why-us__item-desc">Your documents and personal data are always handled with strict confidentiality.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         6. VISA CATEGORIES
+         SRS Reference: FR-01 — Visa Categories
+    ================================================================= -->
+    <section class="section section--light" aria-labelledby="visaCatHeading">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="text-eyebrow text-eyebrow--pill">Visa Types We Handle</span>
+          <h2 id="visaCatHeading">Visa Categories</h2>
+          <p class="section-subtitle">We process every major visa category with dedicated documentation support.</p>
+        </div>
+
+        <div class="visa-cat-grid">
+          <div class="visa-cat-card reveal">
+            <span class="visa-cat-card__number">01</span>
+            <div class="visa-cat-card__content">
+              <h3 class="visa-cat-card__title">E-Visa</h3>
+              <p class="visa-cat-card__desc">Fully online visa applications with fast digital approval — ideal for short business or leisure trips.</p>
+              <div class="visa-cat-card__countries"><strong>12+</strong> countries including Thailand, Singapore, UK, Australia</div>
+            </div>
+          </div>
+
+          <div class="visa-cat-card reveal delay-100">
+            <span class="visa-cat-card__number">02</span>
+            <div class="visa-cat-card__content">
+              <h3 class="visa-cat-card__title">Sticker Visa</h3>
+              <p class="visa-cat-card__desc">Traditional embassy-issued visas requiring in-person submission — we manage the entire documentation process.</p>
+              <div class="visa-cat-card__countries"><strong>25+</strong> countries including USA, Schengen Zone, Japan, Turkey</div>
+            </div>
+          </div>
+
+          <div class="visa-cat-card reveal delay-200">
+            <span class="visa-cat-card__number">03</span>
+            <div class="visa-cat-card__content">
+              <h3 class="visa-cat-card__title">Electronic Visa</h3>
+              <p class="visa-cat-card__desc">Simplified visa-on-arrival style processing with minimal documentation — fastest turnaround available.</p>
+              <div class="visa-cat-card__countries"><strong>3+</strong> countries including Maldives, Sri Lanka, Nepal</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         7. SUCCESS STORIES / CTA BANNER
+         SRS Reference: FR-01 — Full-width CTA banner
+    ================================================================= -->
+    <section class="section section--white">
+      <div class="container">
+        <div class="cta-banner reveal">
+          <div class="cta-banner__content">
+            <h2 class="cta-banner__title">Ready to Start Your Journey?</h2>
+            <p class="cta-banner__subtitle">Join over 3,000 happy clients who trusted Rover Consultancy Services with their travel dreams.</p>
+            <div class="cta-banner__actions">
+              <a href="html/contact-us.html" class="btn btn-primary btn-lg">Get Free Consultation</a>
+              <a href="https://wa.me/8801726763326" target="_blank" rel="noopener" class="btn btn-outline-white btn-lg">Chat on WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         8. TESTIMONIALS
+         SRS Reference: FR-01 — Testimonials slider
+    ================================================================= -->
+    <section class="section section--light" aria-labelledby="testimonialsHeading">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="text-eyebrow text-eyebrow--pill">Client Stories</span>
+          <h2 id="testimonialsHeading">Success Stories &amp; Testimonials</h2>
+          <p class="section-subtitle">Real experiences from travelers we've had the honor of assisting.</p>
+        </div>
+
+        <div class="slider-nav-row">
+          <span class="text-sm text-muted">Swipe or use arrows to see more</span>
+          <div class="flex gap-3">
+            <button class="slider-arrow slider-arrow--prev" aria-label="Previous testimonial">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <button class="slider-arrow slider-arrow--next" aria-label="Next testimonial">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="testimonial-slider">
+          <div class="testimonial-track" data-render="testimonials">
+            <!-- Populated dynamically by main.js from assets/data/testimonials.json -->
+          </div>
+          <div class="slider-controls"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         9. PARTNERS / AIRLINES STRIP
+         SRS Reference: FR-01 — Partner/airline logos strip
+    ================================================================= -->
+    <section class="section section--white" style="padding-block: var(--sp-12);" aria-label="Our airline and travel partners">
+      <div class="container">
+        <p class="text-center text-sm text-muted mb-8" style="text-transform:uppercase; letter-spacing:var(--tracking-wider);">Trusted Airline &amp; Travel Partners</p>
+        <div class="partners-strip">
+          <div class="partner-card reveal"><img src="images/partners/partner-1.png" alt="Emirates airline partner logo" title="Emirates" width="160" height="60" loading="lazy"></div>
+          <div class="partner-card reveal delay-100"><img src="images/partners/partner-2.png" alt="Qatar Airways partner logo" title="Qatar Airways" width="160" height="60" loading="lazy"></div>
+          <div class="partner-card reveal delay-200"><img src="images/partners/partner-3.png" alt="Biman Bangladesh Airlines partner logo" title="Biman Bangladesh" width="160" height="60" loading="lazy"></div>
+          <div class="partner-card reveal delay-300"><img src="images/partners/partner-4.png" alt="US-Bangla Airlines partner logo" title="US-Bangla" width="160" height="60" loading="lazy"></div>
+          <div class="partner-card reveal delay-400"><img src="images/partners/partner-5.png" alt="Turkish Airlines partner logo" title="Turkish Airlines" width="160" height="60" loading="lazy"></div>
+          <div class="partner-card reveal delay-500"><img src="images/partners/partner-6.png" alt="Singapore Airlines partner logo" title="Singapore Airlines" width="160" height="60" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         10. FAQ SECTION
+         SRS Reference: FR-01 — FAQ accordion
+    ================================================================= -->
+    <section class="section section--alt" aria-labelledby="faqHeading">
+      <div class="container">
+        <div class="container-narrow" style="max-width:800px; margin-inline:auto;">
+          <div class="section-header reveal">
+            <span class="text-eyebrow text-eyebrow--pill">Got Questions?</span>
+            <h2 id="faqHeading">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Answers to the most common questions about our visa and travel services.</p>
+          </div>
+
+          <div class="faq-list" data-render="faq">
+            <!-- Populated dynamically by main.js from assets/data/faq.json -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         11. CONTACT SECTION
+         SRS Reference: FR-08 — Contact form + WhatsApp CTA + address
+    ================================================================= -->
+    <section class="section section--white" aria-labelledby="contactHeading" id="contact">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="text-eyebrow text-eyebrow--pill">Get In Touch</span>
+          <h2 id="contactHeading">Start Your Consultation Today</h2>
+          <p class="section-subtitle">Fill out the form below or reach us directly — we typically respond within 24 hours.</p>
+        </div>
+
+        <div class="contact-section-grid">
+          <div class="contact-info-card reveal-left">
+            <h3 class="contact-info-card__title">Contact Information</h3>
+            <p class="contact-info-card__desc">Reach out through any channel below and our travel experts will assist you promptly.</p>
+
+            <div class="contact-info-list">
+              <a href="tel:+8801726763326" class="contact-info-item">
+                <div class="contact-info-item__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div>
+                  <div class="contact-info-item__label">Phone / WhatsApp</div>
+                  <div class="contact-info-item__value" data-bind="phone_display">01726-763326</div>
+                </div>
+              </a>
+
+              <a href="mailto:info@roverconsultancy.com" class="contact-info-item">
+                <div class="contact-info-item__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+                </div>
+                <div>
+                  <div class="contact-info-item__label">Email Address</div>
+                  <div class="contact-info-item__value" data-bind="email">info@roverconsultancy.com</div>
+                </div>
+              </a>
+
+              <div class="contact-info-item">
+                <div class="contact-info-item__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                  <div class="contact-info-item__label">Office Location</div>
+                  <div class="contact-info-item__value" data-bind="address">Dhaka, Bangladesh</div>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-info-item__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                </div>
+                <div>
+                  <div class="contact-info-item__label">Business Hours</div>
+                  <div class="contact-info-item__value" data-bind="office_hours" style="font-size:var(--text-sm);">Sat–Thu: 10AM–7PM</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="footer-social" style="margin-top:var(--sp-8);">
+              <a href="#" data-social="facebook" target="_blank" rel="noopener" class="footer-social__link" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+              <a href="#" data-social="instagram" target="_blank" rel="noopener" class="footer-social__link" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+              </a>
+              <a href="#" data-social="linkedin" target="_blank" rel="noopener" class="footer-social__link" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a2 2 0 1 1-4-.002 2 2 0 0 1 4 .002zM7 8.48H3V21h4zM13.5 8.48h-3.83V21h3.83v-6.57c0-1.74.33-3.42 2.48-3.42 2.12 0 2.15 1.98 2.15 3.53V21H22v-7.93c0-3.66-.79-6.47-5.06-6.47-2.05 0-3.43 1.12-4 2.19h-.05z"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-form-card reveal-right">
+            <form data-form="inquiry" novalidate>
+              <div class="form-row form-row--2">
+                <div class="form-group">
+                  <label for="cf-name" class="form-label">Full Name <span class="required-star">*</span></label>
+                  <input type="text" id="cf-name" name="name" class="form-control" placeholder="Your full name" required>
+                  <span class="form-error-msg" data-error-for="name"></span>
+                </div>
+                <div class="form-group">
+                  <label for="cf-phone" class="form-label">Phone Number <span class="required-star">*</span></label>
+                  <input type="tel" id="cf-phone" name="phone" class="form-control" placeholder="01XXXXXXXXX" required>
+                  <span class="form-error-msg" data-error-for="phone"></span>
+                </div>
+              </div>
+
+              <div class="form-row form-row--2" style="margin-top:var(--sp-4);">
+                <div class="form-group">
+                  <label for="cf-email" class="form-label">Email Address <span class="required-star">*</span></label>
+                  <input type="email" id="cf-email" name="email" class="form-control" placeholder="you@example.com" required>
+                  <span class="form-error-msg" data-error-for="email"></span>
+                </div>
+                <div class="form-group">
+                  <label for="cf-service" class="form-label">Service Interested In</label>
+                  <select id="cf-service" name="service" class="form-control">
+                    <option value="visa">Visa Services</option>
+                    <option value="tour">Tour Packages</option>
+                    <option value="air-ticket">Air Tickets</option>
+                    <option value="hotel">Hotel Booking</option>
+                    <option value="hajj">Hajj</option>
+                    <option value="umrah">Umrah</option>
+                    <option value="general">General Inquiry</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-top:var(--sp-4);">
+                <label for="cf-message" class="form-label">Message <span class="required-star">*</span></label>
+                <textarea id="cf-message" name="message" class="form-control" placeholder="Tell us about your travel plans..." required></textarea>
+                <span class="form-error-msg" data-error-for="message"></span>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg btn-block" style="margin-top:var(--sp-6);">
+                <span class="btn-text">Submit Inquiry</span>
+              </button>
+
+              <p class="form-hint text-center" style="margin-top:var(--sp-3);">
+                We respect your privacy. Your information will only be used to process your inquiry.
+              </p>
+            </form>
+
+            <div class="form-success-box" data-form-success style="display:none;">
+              <div class="form-success-box__icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              </div>
+              <div class="form-success-box__title">Inquiry Received!</div>
+              <p class="text-sm text-secondary">Thank you for reaching out. Our team will contact you within 24 hours.</p>
+              <div class="form-success-box__ref">Reference: <span data-ref-number>RCS-2026-00000</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         12. OFFICE LOCATION
+         SRS Reference: Contact info — Office location section
+    ================================================================= -->
+    <section class="section section--light" style="padding-top:0;" aria-label="Office location map">
+      <div class="container">
+        <div class="content-grid content-grid--2">
+          <article class="content-panel">
+            <h2 class="panel-heading">Office location</h2>
+            <p class="panel-subheading">Visit our Dhaka office for in-person support or contact us first so we can arrange the right consultation.</p>
+            <ul class="feature-list">
+              <li>Visa consultation and travel planning</li>
+              <li>Phone, WhatsApp, and email support</li>
+              <li>Friendly guidance for new travelers</li>
+            </ul>
+          </article>
+          <div class="map-embed" aria-label="Rover Consultancy Services office map">
+            <iframe
+              title="Rover Consultancy Services office location"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=90.401%2C23.801%2C90.421%2C23.821&layer=mapnik&marker=23.811%2C90.411"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================================================================
+       FOOTER
+       SRS Reference: Section 6 — Footer with quick links, services,
+       contact info, social media, newsletter, office location, copyright
+  =================================================================== -->
+  <footer class="site-footer">
+    <div class="footer-stripe"></div>
+
+    <div class="footer-main">
+      <div class="container">
+        <div class="footer-grid">
+
+          <!-- Column 1: Brand + Contact -->
+          <div class="footer-brand">
+            <a href="index.html" class="footer-logo">
+              <img src="images/logo/rover-logo-white.svg"
+                   class="footer-logo__img"
+                   alt="Rover Consultancy Services logo"
+                   title="Rover Consultancy Services"
+                   width="240" height="60"
+                   loading="lazy">
+            </a>
+            <p class="footer-brand__desc">
+              Your trusted travel partner for visa consultation, tour packages, air tickets, hotel booking, and Hajj &amp; Umrah services across 50+ countries.
+            </p>
+
+            <div class="footer-contact-list">
+              <a href="tel:+8801726763326" class="footer-contact-item">
+                <span class="footer-contact-item__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </span>
+                <span data-bind="phone_display">01726-763326</span>
+              </a>
+              <a href="mailto:info@roverconsultancy.com" class="footer-contact-item">
+                <span class="footer-contact-item__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+                </span>
+                <span data-bind="email">info@roverconsultancy.com</span>
+              </a>
+              <div class="footer-contact-item">
+                <span class="footer-contact-item__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </span>
+                <span data-bind="address">Dhaka, Bangladesh</span>
+              </div>
+            </div>
+
+            <div class="footer-social">
+              <a href="#" data-social="facebook" target="_blank" rel="noopener" class="footer-social__link" aria-label="Follow us on Facebook">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+              <a href="#" data-social="instagram" target="_blank" rel="noopener" class="footer-social__link" aria-label="Follow us on Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+              </a>
+              <a href="#" data-social="linkedin" target="_blank" rel="noopener" class="footer-social__link" aria-label="Follow us on LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a2 2 0 1 1-4-.002 2 2 0 0 1 4 .002zM7 8.48H3V21h4zM13.5 8.48h-3.83V21h3.83v-6.57c0-1.74.33-3.42 2.48-3.42 2.12 0 2.15 1.98 2.15 3.53V21H22v-7.93c0-3.66-.79-6.47-5.06-6.47-2.05 0-3.43 1.12-4 2.19h-.05z"/></svg>
+              </a>
+              <a href="#" data-social="youtube" target="_blank" rel="noopener" class="footer-social__link" aria-label="Subscribe on YouTube">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.25z"/><path d="M9.75 15.02l5.75-3.27-5.75-3.27z" fill="var(--clr-dark)"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Column 2: Quick Links -->
+          <div>
+            <h3 class="footer-col-title">Quick Links</h3>
+            <div class="footer-links">
+              <a href="index.html" class="footer-link">Home</a>
+              <a href="html/about-us.html" class="footer-link">About Us</a>
+              <a href="html/blog.html" class="footer-link">Blog</a>
+              <a href="html/contact-us.html" class="footer-link">Contact Us</a>
+              <a href="html/privacy-policy.html" class="footer-link">Privacy Policy</a>
+              <a href="html/terms-of-service.html" class="footer-link">Terms of Service</a>
+            </div>
+          </div>
+
+          <!-- Column 3: Services -->
+          <div>
+            <h3 class="footer-col-title">Services</h3>
+            <div class="footer-links">
+              <a href="html/visa-services.html" class="footer-link">Visa Services</a>
+              <a href="html/tour-packages.html" class="footer-link">Tour Packages</a>
+              <a href="html/air-tickets.html" class="footer-link">Air Tickets</a>
+              <a href="html/hotel-booking.html" class="footer-link">Hotel Booking</a>
+              <a href="html/hajj.html" class="footer-link">Hajj Services</a>
+              <a href="html/umrah.html" class="footer-link">Umrah Services</a>
+            </div>
+          </div>
+
+          <!-- Column 4: Newsletter + Map -->
+          <div class="footer-newsletter">
+            <h3 class="footer-col-title">Stay Updated</h3>
+            <p class="footer-newsletter__desc">Subscribe for visa updates, travel tips, and exclusive offers.</p>
+
+            <form class="newsletter-form" data-form="newsletter">
+              <input type="email" class="form-control" placeholder="Your email address" aria-label="Email address for newsletter" required>
+              <button type="submit" class="btn btn-gold">Subscribe</button>
+            </form>
+
+            <a href="html/contact-us.html#map" class="footer-map">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span class="footer-map__text">View Office Location<br>(Location Details)</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <hr class="footer-divider">
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="footer-bottom-inner">
+          <p class="footer-copyright">
+            &copy; <span data-current-year>2026</span> <a href="index.html">Rover Consultancy Services</a>. All rights reserved. | Your Trusted Travel Partner
+          </p>
+          <ul class="footer-legal-links">
+            <li><a href="html/privacy-policy.html" class="footer-legal-link">Privacy Policy</a></li>
+            <li><a href="html/terms-of-service.html" class="footer-legal-link">Terms of Service</a></li>
+            <li><a href="sitemap.xml" class="footer-legal-link">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================================================================
+       FLOATING CONTACT BUTTONS
+       SRS Reference: Section 7.2 — WhatsApp, Messenger, Phone, Back-to-Top
+  =================================================================== -->
+  <div class="float-buttons">
+    <a href="#" class="float-btn float-btn--top" id="backToTopBtn" aria-label="Back to top" data-tooltip="Back to Top">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </a>
+    <a href="#" class="float-btn float-btn--phone" aria-label="Call us" data-tooltip="Call Us">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    </a>
+    <a href="#" class="float-btn float-btn--messenger" target="_blank" rel="noopener" aria-label="Message us on Facebook Messenger" data-tooltip="Messenger">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.1 2 11.5c0 3.1 1.5 5.9 3.9 7.7V22l3.6-2c.8.2 1.7.3 2.5.3 5.5 0 10-4.1 10-9.5S17.5 2 12 2zm1 12.8-2.6-2.7-4.9 2.7 5.4-5.7 2.6 2.7 4.9-2.7z"/></svg>
+    </a>
+    <a href="#" class="float-btn float-btn--whatsapp" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp" data-tooltip="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.9-1.4A10 10 0 1 0 12 2zm5.6 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.2-.7-2.7-1.1-4.5-3.8-4.6-4-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 1-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.5c-.1.2-.3.3-.1.6.2.4.9 1.5 1.9 2.4 1.3 1.2 2.4 1.5 2.8 1.7.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l1.8.9c.3.1.5.2.5.4.1.2.1.9-.1 1.5z"/></svg>
+    </a>
+  </div>
+
+  <!-- ==================================================================
+       JAVASCRIPT
+       Loaded with defer so parsing never blocks rendering (SRS Section 15)
+  =================================================================== -->
+  <script src="js/theme.js"></script>
+  <script src="js/config.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/schema.js" defer></script>
+
+</body>
+</html>

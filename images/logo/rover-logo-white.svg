@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60" role="img" aria-labelledby="roverLogoWhiteTitle">
+  <title id="roverLogoWhiteTitle">Rover Consultancy Services Logo</title>
+  <defs>
+    <linearGradient id="rcsGoldGradW" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8C84A"/>
+      <stop offset="50%" stop-color="#C9A32A"/>
+      <stop offset="100%" stop-color="#9A7A10"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Globe + Airplane emblem -->
+  <g transform="translate(4,6)">
+    <circle cx="24" cy="24" r="22" fill="rgba(255,255,255,0.12)" stroke="url(#rcsGoldGradW)" stroke-width="1.5"/>
+    <path d="M6 20h36M6 28h36" stroke="rgba(255,255,255,0.30)" stroke-width="1"/>
+    <path d="M24 2c6 6 6 34 0 44M24 2c-6 6-6 34 0 44" stroke="rgba(255,255,255,0.30)" stroke-width="1" fill="none"/>
+    <path d="M10 27l10-3 4-9 2 .5-2 8.5 8-1 3 2-9 3 2 5-2-.5-2-4-6 2z"
+          fill="#ffffff" stroke="url(#rcsGoldGradW)" stroke-width="0.5"/>
+  </g>
+
+  <!-- Wordmark -->
+  <g transform="translate(58,14)">
+    <text x="0" y="16" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="900" fill="#ffffff" letter-spacing="0.5">ROVER</text>
+    <text x="0" y="32" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="600" fill="#E8C84A" letter-spacing="2.5">CONSULTANCY SERVICES</text>
+  </g>
+</svg>

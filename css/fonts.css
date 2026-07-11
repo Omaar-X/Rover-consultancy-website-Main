@@ -1,0 +1,45 @@
+/* =============================================================================
+   ROVER CONSULTANCY SERVICES
+   Self-Hosted Font Declarations
+   Version: 1.0.0
+   SRS Reference: Section 15 (NFR-P06/P07) — No external CDN, self-hosted fonts,
+   font-display: swap, preload critical fonts.
+   Variable fonts used — a single file covers the entire weight range (300-900),
+   reducing HTTP requests versus loading a separate file per weight.
+   ============================================================================= */
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter-Variable.woff2') format('woff2-variations'),
+       url('../fonts/Inter-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('../fonts/PlayfairDisplay-Variable.woff2') format('woff2-variations'),
+       url('../fonts/PlayfairDisplay-Variable.woff2') format('woff2');
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('../fonts/PlayfairDisplay-Italic-Variable.woff2') format('woff2-variations'),
+       url('../fonts/PlayfairDisplay-Italic-Variable.woff2') format('woff2');
+  font-weight: 400 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fira Code';
+  src: url('../fonts/FiraCode-Variable.woff2') format('woff2-variations'),
+       url('../fonts/FiraCode-Variable.woff2') format('woff2');
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}

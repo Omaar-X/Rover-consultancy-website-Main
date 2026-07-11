@@ -1,0 +1,12 @@
+# =============================================================================
+# ROVER CONSULTANCY SERVICES — robots.txt
+# SRS Reference: Section 13.3 — Technical SEO
+# =============================================================================
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /assets/data/
+
+# Sitemap location
+Sitemap: https://www.roverconsultancy.com/sitemap.xml

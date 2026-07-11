@@ -1,0 +1,42 @@
+{
+  "company": {
+    "name": "Rover Consultancy Services",
+    "tagline": "Your Trusted Travel Partner",
+    "short_name": "Rover Consultancy"
+  },
+  "contact": {
+    "phone": "01726763326",
+    "phone_display": "+880 1726-763326",
+    "whatsapp": "8801726763326",
+    "email": "info@roverconsultancy.com",
+    "address": "Dhaka, Bangladesh",
+    "address_full": "Dhaka, Bangladesh (Full office address to be added)",
+    "office_hours": "Saturday - Thursday: 10:00 AM - 7:00 PM"
+  },
+  "social": {
+    "facebook": "https://facebook.com/roverconsultancy",
+    "messenger_page": "roverconsultancy",
+    "instagram": "https://instagram.com/roverconsultancy",
+    "linkedin": "https://linkedin.com/company/roverconsultancy",
+    "youtube": "https://youtube.com/@roverconsultancy"
+  },
+  "stats": {
+    "countries_covered": "50+",
+    "visas_processed": "5,000+",
+    "happy_clients": "3,000+",
+    "years_experience": "10+"
+  },
+  "seo_defaults": {
+    "site_title": "Rover Consultancy Services | Your Trusted Travel Partner",
+    "meta_description": "Rover Consultancy Services offers expert visa consultation, tour packages, air tickets, hotel booking, and Hajj & Umrah services in Dhaka, Bangladesh. Your trusted travel partner for 50+ countries worldwide.",
+    "og_image": "images/hero/og-homepage.jpg"
+  },
+  "integrations": {
+    "ga4_measurement_id": "G-XXXXXXXXXX",
+    "recaptcha_site_key": "",
+    "google_maps_embed_url": ""
+  },
+  "apps_script": {
+    "api_url": ""
+  }
+}

@@ -1,0 +1,262 @@
+/* =============================================================================
+   ROVER CONSULTANCY SERVICES
+   Design System — CSS Custom Properties (Variables)
+   Version: 1.0.0
+   Brand: Royal Blue #1B3A8C + Gold #C9A32A
+   SRS Reference: Section 12.2 — Brand & Color System
+   ============================================================================= */
+
+:root {
+
+  /* ---------------------------------------------------------------------------
+     BRAND COLORS — Primary Palette
+     Derived from the official Rover Consultancy Services logo
+  --------------------------------------------------------------------------- */
+  --clr-primary:          #1B3A8C;   /* Royal Blue  — nav, headings, buttons   */
+  --clr-primary-dark:     #0D1F52;   /* Deep Navy   — footer bg, hover states  */
+  --clr-primary-mid:      #1E4BAD;   /* Mid Blue    — button hover             */
+  --clr-primary-light:    #2E5FD9;   /* Bright Blue — links, accents           */
+  --clr-primary-subtle:   #E8EDF7;   /* Pale Blue   — card backgrounds, rows   */
+  --clr-primary-xs:       #F0F4FC;   /* Very Pale   — section backgrounds      */
+
+  --clr-gold:             #C9A32A;   /* Heritage Gold — accents, badges        */
+  --clr-gold-light:       #E8C84A;   /* Bright Gold   — hover, shine           */
+  --clr-gold-dark:        #9A7A10;   /* Deep Gold     — pressed, text on gold  */
+  --clr-gold-subtle:      #FDF6E3;   /* Cream         — gold-tinted bg         */
+  --clr-gold-xs:          #FFFDF5;   /* Near white cream                       */
+
+  /* ---------------------------------------------------------------------------
+     NEUTRALS
+  --------------------------------------------------------------------------- */
+  --clr-dark:             #0D1B4B;   /* Near-black navy  — footer              */
+  --clr-text:             #1A1A2E;   /* Primary body text                      */
+  --clr-text-secondary:   #4B5563;   /* Secondary text                         */
+  --clr-muted:            #9CA3AF;   /* Muted captions                         */
+  --clr-border:           #E5E7EB;   /* Dividers, input borders                */
+  --clr-border-dark:      #D1D5DB;   /* Stronger borders                       */
+  --clr-bg:               #F4F7FF;   /* Page background                        */
+  --clr-bg-alt:           #F9FAFB;   /* Alternate section background           */
+  --clr-surface:          #FFFFFF;   /* Cards, panels, inputs                  */
+
+  /* ---------------------------------------------------------------------------
+     STATUS / SEMANTIC COLORS
+  --------------------------------------------------------------------------- */
+  --clr-success:          #10B981;   /* Active visa status badge               */
+  --clr-success-bg:       #ECFDF5;
+  --clr-success-border:   #A7F3D0;
+  --clr-warning:          #F59E0B;   /* Warning badge                          */
+  --clr-warning-bg:       #FFFBEB;
+  --clr-warning-border:   #FDE68A;
+  --clr-danger:           #EF4444;   /* Unavailable badge, error states        */
+  --clr-danger-bg:        #FEF2F2;
+  --clr-danger-border:    #FECACA;
+  --clr-info:             #3B82F6;   /* Info messages                          */
+  --clr-info-bg:          #EFF6FF;
+  --clr-info-border:      #BFDBFE;
+
+  /* ---------------------------------------------------------------------------
+     SOCIAL MEDIA BRAND COLORS
+  --------------------------------------------------------------------------- */
+  --clr-whatsapp:         #25D366;
+  --clr-whatsapp-dark:    #1DA851;
+  --clr-messenger:        #0084FF;
+  --clr-messenger-dark:   #006ACC;
+  --clr-facebook:         #1877F2;
+  --clr-instagram:        #E1306C;
+
+  /* ---------------------------------------------------------------------------
+     OVERLAYS
+  --------------------------------------------------------------------------- */
+  --clr-overlay-hero:     rgba(13, 27, 76, 0.74);   /* Hero image overlay     */
+  --clr-overlay-card:     rgba(13, 27, 76, 0.82);   /* Card image overlay     */
+  --clr-overlay-light:    rgba(255, 255, 255, 0.92); /* Light modal overlay   */
+
+  /* ---------------------------------------------------------------------------
+     TYPOGRAPHY
+     SRS Section 12.3
+  --------------------------------------------------------------------------- */
+  --font-display:   'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body:      'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:      'Fira Code', 'Courier New', Courier, monospace;
+
+  /* Type Scale */
+  --text-2xs:   0.625rem;   /*  10px */
+  --text-xs:    0.75rem;    /*  12px */
+  --text-sm:    0.875rem;   /*  14px */
+  --text-base:  1rem;       /*  16px */
+  --text-lg:    1.125rem;   /*  18px */
+  --text-xl:    1.25rem;    /*  20px */
+  --text-2xl:   1.5rem;     /*  24px */
+  --text-3xl:   1.875rem;   /*  30px */
+  --text-4xl:   2.25rem;    /*  36px */
+  --text-5xl:   3rem;       /*  48px */
+  --text-6xl:   3.75rem;    /*  60px */
+  --text-7xl:   4.5rem;     /*  72px */
+
+  /* Line Heights */
+  --leading-none:     1;
+  --leading-tight:    1.25;
+  --leading-snug:     1.375;
+  --leading-normal:   1.5;
+  --leading-relaxed:  1.625;
+  --leading-loose:    2;
+
+  /* Letter Spacing */
+  --tracking-tighter: -0.05em;
+  --tracking-tight:   -0.025em;
+  --tracking-normal:   0;
+  --tracking-wide:     0.025em;
+  --tracking-wider:    0.05em;
+  --tracking-widest:   0.1em;
+
+  /* Font Weights */
+  --weight-thin:      100;
+  --weight-light:     300;
+  --weight-normal:    400;
+  --weight-medium:    500;
+  --weight-semibold:  600;
+  --weight-bold:      700;
+  --weight-extrabold: 800;
+  --weight-black:     900;
+
+  /* ---------------------------------------------------------------------------
+     SPACING — 8px base unit
+     SRS Section 12.4
+  --------------------------------------------------------------------------- */
+  --sp-px:   1px;
+  --sp-0-5:  0.125rem;   /*  2px  */
+  --sp-1:    0.25rem;    /*  4px  */
+  --sp-1-5:  0.375rem;   /*  6px  */
+  --sp-2:    0.5rem;     /*  8px  */
+  --sp-2-5:  0.625rem;   /* 10px  */
+  --sp-3:    0.75rem;    /* 12px  */
+  --sp-3-5:  0.875rem;   /* 14px  */
+  --sp-4:    1rem;       /* 16px  */
+  --sp-5:    1.25rem;    /* 20px  */
+  --sp-6:    1.5rem;     /* 24px  */
+  --sp-7:    1.75rem;    /* 28px  */
+  --sp-8:    2rem;       /* 32px  */
+  --sp-9:    2.25rem;    /* 36px  */
+  --sp-10:   2.5rem;     /* 40px  */
+  --sp-11:   2.75rem;    /* 44px  */
+  --sp-12:   3rem;       /* 48px  */
+  --sp-14:   3.5rem;     /* 56px  */
+  --sp-16:   4rem;       /* 64px  */
+  --sp-20:   5rem;       /* 80px  */
+  --sp-24:   6rem;       /* 96px  */
+  --sp-28:   7rem;       /* 112px */
+  --sp-32:   8rem;       /* 128px */
+  --sp-36:   9rem;       /* 144px */
+  --sp-40:   10rem;      /* 160px */
+
+  /* ---------------------------------------------------------------------------
+     BORDER RADIUS
+     SRS Section 12.4 — Card: 12px, Button: 8px
+  --------------------------------------------------------------------------- */
+  --radius-none:  0;
+  --radius-xs:    2px;
+  --radius-sm:    4px;
+  --radius-md:    8px;    /* Buttons                                          */
+  --radius-lg:    12px;   /* Cards                                            */
+  --radius-xl:    16px;   /* Large cards                                      */
+  --radius-2xl:   20px;
+  --radius-3xl:   24px;
+  --radius-full:  9999px; /* Pills, circular elements                         */
+
+  /* ---------------------------------------------------------------------------
+     SHADOWS — Blue-tinted for brand consistency
+  --------------------------------------------------------------------------- */
+  --shadow-xs:    0 1px 2px  rgba(27, 58, 140, 0.06);
+  --shadow-sm:    0 1px 4px  rgba(27, 58, 140, 0.08), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md:    0 4px 12px rgba(27, 58, 140, 0.10), 0 2px 4px  rgba(0,0,0,0.04);
+  --shadow-lg:    0 8px 24px rgba(27, 58, 140, 0.14), 0 4px 8px  rgba(0,0,0,0.04);
+  --shadow-xl:    0 16px 40px rgba(27, 58, 140, 0.16), 0 8px 16px rgba(0,0,0,0.04);
+  --shadow-2xl:   0 24px 60px rgba(27, 58, 140, 0.22), 0 12px 24px rgba(0,0,0,0.06);
+  --shadow-inner: inset 0 2px 6px rgba(0, 0, 0, 0.08);
+  --shadow-gold:  0 4px 20px rgba(201, 163, 42, 0.35);
+  --shadow-gold-lg: 0 8px 32px rgba(201, 163, 42, 0.45);
+  --shadow-focus: 0 0 0 3px rgba(27, 58, 140, 0.20);
+  --shadow-focus-gold: 0 0 0 3px rgba(201, 163, 42, 0.30);
+
+  /* ---------------------------------------------------------------------------
+     TRANSITIONS
+  --------------------------------------------------------------------------- */
+  --ease-linear:  linear;
+  --ease-in:      cubic-bezier(0.4, 0, 1, 1);
+  --ease-out:     cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out:  cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring:  cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-bounce:  cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  --duration-75:   75ms;
+  --duration-100:  100ms;
+  --duration-150:  150ms;
+  --duration-200:  200ms;
+  --duration-300:  300ms;
+  --duration-500:  500ms;
+  --duration-700:  700ms;
+  --duration-1000: 1000ms;
+
+  --transition-fast:    var(--duration-150) var(--ease-in-out);
+  --transition-base:    var(--duration-300) var(--ease-in-out);
+  --transition-slow:    var(--duration-500) var(--ease-in-out);
+  --transition-spring:  var(--duration-300) var(--ease-spring);
+
+  /* ---------------------------------------------------------------------------
+     Z-INDEX LAYERS
+  --------------------------------------------------------------------------- */
+  --z-behind:    -1;
+  --z-base:       0;
+  --z-raised:     10;
+  --z-dropdown:   100;
+  --z-sticky:     200;
+  --z-overlay:    300;
+  --z-modal:      400;
+  --z-toast:      500;
+  --z-float:      600;
+  --z-top:        9999;
+
+  /* ---------------------------------------------------------------------------
+     LAYOUT
+     SRS Section 12.4 — Max width 1280px, section padding 80px desktop
+  --------------------------------------------------------------------------- */
+  --container-max:    1280px;
+  --container-wide:   1440px;
+  --container-narrow: 860px;
+  --nav-height:       76px;
+  --nav-height-mobile: 64px;
+
+  /* Section vertical padding */
+  --section-py:       var(--sp-20);   /* 80px desktop  */
+  --section-py-md:    var(--sp-16);   /* 64px tablet   */
+  --section-py-sm:    var(--sp-12);   /* 48px mobile   */
+
+  /* ---------------------------------------------------------------------------
+     GRADIENTS
+  --------------------------------------------------------------------------- */
+  --grad-primary:   linear-gradient(135deg, #1B3A8C 0%, #0D1F52 100%);
+  --grad-primary-h: linear-gradient(135deg, #1E4BAD 0%, #1B3A8C 100%);
+  --grad-gold:      linear-gradient(135deg, #C9A32A 0%, #E8C84A 50%, #C9A32A 100%);
+  --grad-gold-h:    linear-gradient(135deg, #E8C84A 0%, #C9A32A 100%);
+  --grad-hero:      linear-gradient(160deg, rgba(13,27,76,0.88) 0%, rgba(27,58,140,0.72) 60%, rgba(13,27,76,0.60) 100%);
+  --grad-card:      linear-gradient(180deg, transparent 0%, transparent 40%, rgba(13,27,76,0.90) 100%);
+  --grad-section:   linear-gradient(180deg, var(--clr-bg) 0%, var(--clr-surface) 100%);
+  --grad-shine:     linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.15) 50%, transparent 100%);
+  --grad-blue-gold: linear-gradient(135deg, #1B3A8C 0%, #C9A32A 100%);
+
+}/* end :root */
+
+/* =============================================================================
+   RESPONSIVE OVERRIDES — mobile-first adjustments
+   SRS Section 16 — Breakpoints
+============================================================================= */
+@media (max-width: 767px) {
+  :root {
+    --section-py: var(--section-py-sm);
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  :root {
+    --section-py: var(--section-py-md);
+  }
+}

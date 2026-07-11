@@ -1,0 +1,64 @@
+{
+  "testimonials": [
+    {
+      "id": "t001",
+      "name": "Rezaul Karim",
+      "role": "Business Traveler",
+      "country_flag": "🇹🇭",
+      "country_visited": "Thailand",
+      "rating": 5,
+      "text": "Rover Consultancy made my Thailand visa process incredibly smooth. Their team guided me through every document requirement and I got my visa in just 5 days. Highly professional service!",
+      "avatar_initial": "RK"
+    },
+    {
+      "id": "t002",
+      "name": "Farzana Akter",
+      "role": "Family Traveler",
+      "country_flag": "🇬🇧",
+      "country_visited": "United Kingdom",
+      "rating": 5,
+      "text": "I was nervous about the UK visa process but the Rover team handled everything with such care and expertise. They even helped organize my bank statements and documentation checklist.",
+      "avatar_initial": "FA"
+    },
+    {
+      "id": "t003",
+      "name": "Mohammad Hasan",
+      "role": "Student",
+      "country_flag": "🇦🇺",
+      "country_visited": "Australia",
+      "rating": 5,
+      "text": "Excellent consultancy service. They explained every step of my Australian visa application clearly and were always available on WhatsApp whenever I had questions. Truly trusted partners.",
+      "avatar_initial": "MH"
+    },
+    {
+      "id": "t004",
+      "name": "Nasrin Sultana",
+      "role": "Umrah Pilgrim",
+      "country_flag": "🇸🇦",
+      "country_visited": "Saudi Arabia",
+      "rating": 5,
+      "text": "Alhamdulillah, our Umrah journey was made so easy by Rover Consultancy. From visa processing to guidance on documents, everything was handled professionally and respectfully.",
+      "avatar_initial": "NS"
+    },
+    {
+      "id": "t005",
+      "name": "Imran Chowdhury",
+      "role": "Corporate Traveler",
+      "country_flag": "🇸🇬",
+      "country_visited": "Singapore",
+      "rating": 5,
+      "text": "As someone who travels frequently for business, I appreciate Rover's speed and reliability. My Singapore e-visa was processed within 3 days with zero complications.",
+      "avatar_initial": "IC"
+    },
+    {
+      "id": "t006",
+      "name": "Sabrina Islam",
+      "role": "Honeymoon Traveler",
+      "country_flag": "🇲🇻",
+      "country_visited": "Maldives",
+      "rating": 5,
+      "text": "Planning our honeymoon to the Maldives was effortless with Rover's help. Quick visa processing and genuinely caring customer service. We highly recommend them to every couple.",
+      "avatar_initial": "SI"
+    }
+  ]
+}

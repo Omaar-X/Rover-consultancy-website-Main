@@ -1,0 +1,667 @@
+/* =============================================================================
+   ROVER CONSULTANCY SERVICES
+   Base Styles — Reset, Typography, Layout Utilities
+   Version: 1.0.0
+   SRS Reference: Section 12, 15, 16
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   MODERN CSS RESET
+----------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-height); /* Offset for sticky nav */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  tab-size: 4;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--weight-normal);
+  line-height: var(--leading-normal);
+  color: var(--clr-text);
+  background-color: var(--clr-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  /* Prevent FOUC */
+  opacity: 1;
+}
+
+/* Prevent overflow when mobile menu is open */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* Ensure native hidden states stay hidden even when sections use custom display values */
+[hidden] {
+  display: none !important;
+}
+
+/* Media elements */
+img,
+video,
+svg,
+canvas,
+iframe {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  /* Prevent image dragging */
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
+/* Links */
+a {
+  color: var(--clr-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--clr-primary-light);
+}
+
+/* Lists */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Form elements inherit font */
+button,
+input,
+select,
+textarea,
+optgroup {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+/* Buttons */
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Horizontal rule */
+hr {
+  border: none;
+  height: 1px;
+  background: var(--clr-border);
+  margin-block: var(--sp-8);
+}
+
+/* Strong / Bold */
+strong, b {
+  font-weight: var(--weight-bold);
+}
+
+/* Italic */
+em, i {
+  font-style: italic;
+}
+
+/* Preformatted */
+pre, code, kbd, samp {
+  font-family: var(--font-mono);
+}
+
+/* Summary / Details */
+summary {
+  cursor: pointer;
+}
+
+/* SVG fill / stroke defaults */
+svg {
+  flex-shrink: 0;
+}
+
+/* Fieldset */
+fieldset {
+  border: none;
+}
+
+/* Textarea */
+textarea {
+  resize: vertical;
+}
+
+/* Select */
+select {
+  cursor: pointer;
+}
+
+/* Address */
+address {
+  font-style: normal;
+}
+
+/* Abbr */
+abbr[title] {
+  text-decoration: underline dotted;
+  cursor: help;
+}
+
+/* Mark */
+mark {
+  background: var(--clr-gold-subtle);
+  color: var(--clr-text);
+  padding: 0 var(--sp-1);
+  border-radius: var(--radius-xs);
+}
+
+/* Small */
+small {
+  font-size: var(--text-sm);
+}
+
+/* Sub / Sup */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sub { bottom: -0.25em; }
+sup { top: -0.5em; }
+
+/* Blockquote */
+blockquote {
+  padding-left: var(--sp-6);
+  border-left: 3px solid var(--clr-gold);
+  font-style: italic;
+  color: var(--clr-text-secondary);
+}
+
+/* -----------------------------------------------------------------------------
+   CUSTOM SCROLLBAR
+   SRS Section 15 — Performance
+----------------------------------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--clr-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--clr-primary);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--clr-bg);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--clr-primary-light);
+}
+
+/* -----------------------------------------------------------------------------
+   SELECTION COLOR
+----------------------------------------------------------------------------- */
+::selection {
+  background: rgba(27, 58, 140, 0.15);
+  color: var(--clr-primary);
+}
+
+/* -----------------------------------------------------------------------------
+   FOCUS STYLES — WCAG 2.1 AA
+   SRS Section 4.5 — Accessibility
+----------------------------------------------------------------------------- */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--clr-gold);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* Button focus */
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--clr-gold);
+  outline-offset: 3px;
+  border-radius: var(--radius-md);
+}
+
+/* -----------------------------------------------------------------------------
+   TYPOGRAPHY — Heading Hierarchy
+   SRS Section 12.3 — Typography, Section 7.6 — One H1 per page
+----------------------------------------------------------------------------- */
+
+/* Headings inherit body font; override with display font where needed */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-body);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  color: var(--clr-text);
+  letter-spacing: var(--tracking-tight);
+}
+
+/* Display — Hero headlines (Playfair Display) */
+.text-display-1 {
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-4xl), 7vw, var(--text-7xl));
+  font-weight: var(--weight-bold);
+  line-height: 1.08;
+  letter-spacing: var(--tracking-tighter);
+}
+
+.text-display-2 {
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-3xl), 5vw, var(--text-6xl));
+  font-weight: var(--weight-bold);
+  line-height: 1.12;
+  letter-spacing: var(--tracking-tight);
+}
+
+/* Section headings */
+.text-h1 {
+  font-size: clamp(var(--text-3xl), 4.5vw, var(--text-5xl));
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+}
+
+.text-h2 {
+  font-size: clamp(var(--text-2xl), 3.5vw, var(--text-4xl));
+  font-weight: var(--weight-bold);
+}
+
+.text-h3 {
+  font-size: clamp(var(--text-xl), 2.5vw, var(--text-3xl));
+  font-weight: var(--weight-semibold);
+}
+
+.text-h4 {
+  font-size: clamp(var(--text-lg), 2vw, var(--text-2xl));
+  font-weight: var(--weight-semibold);
+}
+
+/* Eyebrow — section labels above headings */
+.text-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--clr-gold);
+}
+
+.text-eyebrow--pill {
+  padding: var(--sp-1) var(--sp-4);
+  background: var(--clr-gold-subtle);
+  border: 1px solid rgba(201, 163, 42, 0.25);
+  border-radius: var(--radius-full);
+}
+
+.text-eyebrow--pill-light {
+  padding: var(--sp-1) var(--sp-4);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius-full);
+  color: var(--clr-gold-light);
+}
+
+/* Body text sizes */
+.text-xl    { font-size: var(--text-xl); }
+.text-lg    { font-size: var(--text-lg); }
+.text-base  { font-size: var(--text-base); }
+.text-sm    { font-size: var(--text-sm); }
+.text-xs    { font-size: var(--text-xs); }
+
+/* Text colors */
+.text-primary    { color: var(--clr-primary); }
+.text-gold       { color: var(--clr-gold); }
+.text-white      { color: #fff; }
+.text-dark       { color: var(--clr-dark); }
+.text-muted      { color: var(--clr-muted); }
+.text-secondary  { color: var(--clr-text-secondary); }
+
+/* Text weights */
+.font-normal    { font-weight: var(--weight-normal); }
+.font-medium    { font-weight: var(--weight-medium); }
+.font-semibold  { font-weight: var(--weight-semibold); }
+.font-bold      { font-weight: var(--weight-bold); }
+
+/* Text alignment */
+.text-left    { text-align: left; }
+.text-center  { text-align: center; }
+.text-right   { text-align: right; }
+
+/* Leading */
+.leading-tight   { line-height: var(--leading-tight); }
+.leading-normal  { line-height: var(--leading-normal); }
+.leading-relaxed { line-height: var(--leading-relaxed); }
+
+/* Tracking */
+.tracking-wide    { letter-spacing: var(--tracking-wide); }
+.tracking-wider   { letter-spacing: var(--tracking-wider); }
+.tracking-widest  { letter-spacing: var(--tracking-widest); }
+
+/* -----------------------------------------------------------------------------
+   LAYOUT — Container System
+   SRS Section 12.4 — Max width 1280px
+----------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--sp-4);
+}
+
+@media (min-width: 480px)  { .container { padding-inline: var(--sp-5); } }
+@media (min-width: 640px)  { .container { padding-inline: var(--sp-6); } }
+@media (min-width: 768px)  { .container { padding-inline: var(--sp-8); } }
+@media (min-width: 1024px) { .container { padding-inline: var(--sp-10); } }
+@media (min-width: 1280px) { .container { padding-inline: var(--sp-12); } }
+
+.container-narrow {
+  width: 100%;
+  max-width: var(--container-narrow);
+  margin-inline: auto;
+  padding-inline: var(--sp-4);
+}
+
+@media (min-width: 768px) { .container-narrow { padding-inline: var(--sp-6); } }
+
+/* -----------------------------------------------------------------------------
+   SECTION WRAPPER
+----------------------------------------------------------------------------- */
+.section {
+  padding-block: var(--section-py-sm);
+}
+
+@media (min-width: 768px)  { .section { padding-block: var(--section-py-md); } }
+@media (min-width: 1024px) { .section { padding-block: var(--section-py); } }
+
+/* Section theme variants */
+.section--white   { background: var(--clr-surface); }
+.section--light   { background: var(--clr-bg); }
+.section--alt     { background: var(--clr-primary-xs); }
+.section--dark    { background: var(--grad-primary); color: #fff; }
+.section--navy    { background: var(--clr-dark); color: #fff; }
+.section--gold-bg { background: var(--clr-gold-subtle); }
+
+/* -----------------------------------------------------------------------------
+   GRID SYSTEM — 12-column responsive
+   SRS Section 12.4
+----------------------------------------------------------------------------- */
+.grid {
+  display: grid;
+  gap: var(--sp-6);
+}
+
+/* Predefined column patterns */
+.grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+.grid-cols-2 { grid-template-columns: repeat(1, 1fr); }
+.grid-cols-3 { grid-template-columns: repeat(1, 1fr); }
+.grid-cols-4 { grid-template-columns: repeat(1, 1fr); }
+.grid-cols-6 { grid-template-columns: repeat(2, 1fr); }
+
+@media (min-width: 480px) {
+  .grid-cols-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-cols-6 { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 640px) {
+  .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-cols-3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 768px) {
+  .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-cols-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-cols-6 { grid-template-columns: repeat(6, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Gap variants */
+.gap-2  { gap: var(--sp-2); }
+.gap-4  { gap: var(--sp-4); }
+.gap-6  { gap: var(--sp-6); }
+.gap-8  { gap: var(--sp-8); }
+.gap-10 { gap: var(--sp-10); }
+.gap-12 { gap: var(--sp-12); }
+
+/* -----------------------------------------------------------------------------
+   FLEXBOX UTILITIES
+----------------------------------------------------------------------------- */
+.flex          { display: flex; }
+.flex-col      { display: flex; flex-direction: column; }
+.inline-flex   { display: inline-flex; }
+.flex-wrap     { flex-wrap: wrap; }
+.flex-center   { display: flex; align-items: center; justify-content: center; }
+.flex-between  { display: flex; align-items: center; justify-content: space-between; }
+.flex-start    { display: flex; align-items: center; justify-content: flex-start; }
+.flex-end      { display: flex; align-items: center; justify-content: flex-end; }
+.items-center  { align-items: center; }
+.items-start   { align-items: flex-start; }
+.items-end     { align-items: flex-end; }
+.justify-center  { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-end     { justify-content: flex-end; }
+.flex-1  { flex: 1; }
+.flex-shrink-0 { flex-shrink: 0; }
+
+/* Gap in flex */
+.gap-1 { gap: var(--sp-1); }
+.gap-2 { gap: var(--sp-2); }
+.gap-3 { gap: var(--sp-3); }
+.gap-4 { gap: var(--sp-4); }
+.gap-6 { gap: var(--sp-6); }
+.gap-8 { gap: var(--sp-8); }
+
+/* -----------------------------------------------------------------------------
+   SECTION HEADER — Reusable pattern used across all sections
+----------------------------------------------------------------------------- */
+.section-header {
+  text-align: center;
+  margin-bottom: var(--sp-12);
+}
+
+.section-header h2 {
+  font-size: clamp(var(--text-2xl), 3.5vw, var(--text-4xl));
+  color: var(--clr-primary);
+  margin-bottom: var(--sp-4);
+  letter-spacing: var(--tracking-tight);
+}
+
+.section-header .section-subtitle {
+  font-size: clamp(var(--text-base), 1.5vw, var(--text-lg));
+  color: var(--clr-text-secondary);
+  line-height: var(--leading-relaxed);
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+/* On dark backgrounds */
+.section-header--light h2             { color: #fff; }
+.section-header--light .section-subtitle { color: rgba(255, 255, 255, 0.78); }
+
+/* Gold accent line below section heading */
+.section-divider {
+  display: block;
+  width: 56px;
+  height: 3px;
+  background: var(--grad-gold);
+  border-radius: var(--radius-full);
+  margin: var(--sp-4) auto 0;
+}
+
+.section-divider--left {
+  margin-left: 0;
+}
+
+/* -----------------------------------------------------------------------------
+   ACCESSIBILITY
+   SRS Section 4.5 — WCAG 2.1 AA
+----------------------------------------------------------------------------- */
+
+/* Screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Skip to content link — keyboard navigation */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--sp-4);
+  z-index: var(--z-top);
+  padding: var(--sp-3) var(--sp-6);
+  background: var(--clr-primary);
+  color: #fff;
+  font-weight: var(--weight-semibold);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  text-decoration: none;
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid var(--clr-gold);
+  outline-offset: 2px;
+}
+
+/* -----------------------------------------------------------------------------
+   DISPLAY UTILITIES
+----------------------------------------------------------------------------- */
+.hidden        { display: none !important; }
+.block         { display: block; }
+.inline-block  { display: inline-block; }
+.invisible     { visibility: hidden; }
+
+/* Responsive show/hide */
+.hide-mobile  { display: none; }
+.hide-desktop { display: block; }
+
+@media (min-width: 768px) {
+  .hide-mobile  { display: block; }
+  .hide-desktop { display: none; }
+}
+
+/* -----------------------------------------------------------------------------
+   OVERFLOW
+----------------------------------------------------------------------------- */
+.overflow-hidden { overflow: hidden; }
+.overflow-auto   { overflow: auto; }
+
+/* -----------------------------------------------------------------------------
+   POSITION UTILITIES
+----------------------------------------------------------------------------- */
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed    { position: fixed; }
+.sticky   { position: sticky; }
+.inset-0  { inset: 0; }
+
+/* -----------------------------------------------------------------------------
+   SIZING UTILITIES
+----------------------------------------------------------------------------- */
+.w-full   { width: 100%; }
+.h-full   { height: 100%; }
+.min-h-screen { min-height: 100vh; }
+
+/* -----------------------------------------------------------------------------
+   MARGIN / PADDING SHORTHANDS
+----------------------------------------------------------------------------- */
+.mx-auto { margin-inline: auto; }
+.mt-4    { margin-top: var(--sp-4); }
+.mt-6    { margin-top: var(--sp-6); }
+.mt-8    { margin-top: var(--sp-8); }
+.mb-4    { margin-bottom: var(--sp-4); }
+.mb-6    { margin-bottom: var(--sp-6); }
+.mb-8    { margin-bottom: var(--sp-8); }
+
+/* -----------------------------------------------------------------------------
+   BACKGROUND UTILITIES
+----------------------------------------------------------------------------- */
+.bg-white      { background-color: var(--clr-surface); }
+.bg-primary    { background-color: var(--clr-primary); }
+.bg-dark       { background-color: var(--clr-dark); }
+.bg-gold       { background: var(--grad-gold); }
+.bg-primary-gradient { background: var(--grad-primary); }
+
+/* -----------------------------------------------------------------------------
+   BORDER UTILITIES
+----------------------------------------------------------------------------- */
+.border        { border: 1px solid var(--clr-border); }
+.border-top    { border-top: 1px solid var(--clr-border); }
+.border-bottom { border-bottom: 1px solid var(--clr-border); }
+.rounded-md    { border-radius: var(--radius-md); }
+.rounded-lg    { border-radius: var(--radius-lg); }
+.rounded-full  { border-radius: var(--radius-full); }
+
+/* -----------------------------------------------------------------------------
+   ASPECT RATIO
+----------------------------------------------------------------------------- */
+.aspect-video   { aspect-ratio: 16 / 9; }
+.aspect-square  { aspect-ratio: 1; }
+.aspect-3-4     { aspect-ratio: 3 / 4; }
+.aspect-4-3     { aspect-ratio: 4 / 3; }
+
+/* -----------------------------------------------------------------------------
+   OBJECT FIT
+----------------------------------------------------------------------------- */
+.object-cover   { object-fit: cover; }
+.object-contain { object-fit: contain; }
+.object-center  { object-position: center; }
+
+/* -----------------------------------------------------------------------------
+   REDUCED MOTION — Respect user preference
+   SRS Section 12.6
+----------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

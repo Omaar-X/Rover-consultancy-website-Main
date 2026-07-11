@@ -1,0 +1,305 @@
+/* =============================================================================
+   ROVER CONSULTANCY SERVICES
+   Premium Theme System — Dark / Light Mode
+   Version: 2.0.0
+   ============================================================================= */
+
+/* ─── LIGHT THEME (default) ─────────────────────────────────────────────── */
+:root,
+[data-theme="light"] {
+  --t-bg:              #F0F4FF;
+  --t-bg-alt:          #E8EEFF;
+  --t-surface:         #FFFFFF;
+  --t-surface-raised:  #FFFFFF;
+  --t-surface-subtle:  #F7F9FF;
+  --t-border:          rgba(27,58,140,0.10);
+  --t-border-strong:   rgba(27,58,140,0.18);
+  --t-text:            #0D1B4B;
+  --t-text-secondary:  #3D4E7A;
+  --t-text-muted:      #6B7AA0;
+  --t-text-inverse:    #FFFFFF;
+
+  --t-primary:         #1B3A8C;
+  --t-primary-hover:   #152E70;
+  --t-gold:            #C9A32A;
+  --t-gold-hover:      #A88318;
+
+  --t-card-shadow:     0 2px 12px rgba(27,58,140,0.08), 0 1px 3px rgba(0,0,0,0.04);
+  --t-card-shadow-hover: 0 12px 40px rgba(27,58,140,0.16), 0 4px 12px rgba(0,0,0,0.06);
+  --t-hero-overlay:    linear-gradient(160deg, rgba(9,18,58,0.90) 0%, rgba(20,45,110,0.75) 55%, rgba(9,18,58,0.65) 100%);
+
+  --t-stat-bg:         rgba(255,255,255,0.14);
+  --t-stat-border:     rgba(255,255,255,0.22);
+  --t-stat-text:       #FFFFFF;
+
+  --t-section-alt:     linear-gradient(180deg, #EDF1FF 0%, #F4F7FF 100%);
+  --t-nav-bg:          rgba(8,16,38,0.82);
+  --t-nav-bg-solid:    rgba(8,16,38,0.96);
+
+  --t-service-icon-bg: linear-gradient(135deg, #E8EEFF 0%, #D8E0FF 100%);
+  --t-service-icon-clr:#1B3A8C;
+
+  --t-visa-card-overlay: linear-gradient(180deg, rgba(9,18,58,0) 30%, rgba(9,18,58,0.88) 100%);
+  --t-input-bg:        #FFFFFF;
+  --t-input-border:    rgba(27,58,140,0.20);
+  --t-input-focus:     #1B3A8C;
+
+  --t-partner-filter:  grayscale(0.3) opacity(0.85);
+  --t-partner-filter-h:grayscale(0) opacity(1);
+
+  color-scheme: light;
+}
+
+/* ─── DARK THEME ─────────────────────────────────────────────────────────── */
+[data-theme="dark"] {
+  --t-bg:              #070D1F;
+  --t-bg-alt:          #0B1328;
+  --t-surface:         #0F1A35;
+  --t-surface-raised:  #172040;
+  --t-surface-subtle:  #0D1630;
+  --t-border:          rgba(120,150,255,0.10);
+  --t-border-strong:   rgba(120,150,255,0.18);
+  --t-text:            #E8EEFF;
+  --t-text-secondary:  #A0B0D8;
+  --t-text-muted:      #627090;
+  --t-text-inverse:    #0D1B4B;
+
+  --t-primary:         #4A7AE8;
+  --t-primary-hover:   #6090F0;
+  --t-gold:            #D4AC3A;
+  --t-gold-hover:      #E8C84A;
+
+  --t-card-shadow:     0 2px 16px rgba(0,0,0,0.30), 0 1px 4px rgba(0,0,0,0.20);
+  --t-card-shadow-hover: 0 12px 48px rgba(0,0,0,0.50), 0 4px 16px rgba(74,122,232,0.15);
+  --t-hero-overlay:    linear-gradient(160deg, rgba(4,8,24,0.92) 0%, rgba(10,20,55,0.80) 55%, rgba(4,8,24,0.70) 100%);
+
+  --t-stat-bg:         rgba(255,255,255,0.06);
+  --t-stat-border:     rgba(255,255,255,0.10);
+  --t-stat-text:       #FFFFFF;
+
+  --t-section-alt:     linear-gradient(180deg, #0B1328 0%, #070D1F 100%);
+  --t-nav-bg:          rgba(4,8,24,0.84);
+  --t-nav-bg-solid:    rgba(4,8,24,0.97);
+
+  --t-service-icon-bg: linear-gradient(135deg, rgba(74,122,232,0.15) 0%, rgba(74,122,232,0.08) 100%);
+  --t-service-icon-clr:#7AABFF;
+
+  --t-visa-card-overlay: linear-gradient(180deg, rgba(4,8,24,0) 25%, rgba(4,8,24,0.92) 100%);
+  --t-input-bg:        #0F1A35;
+  --t-input-border:    rgba(120,150,255,0.20);
+  --t-input-focus:     #4A7AE8;
+
+  --t-partner-filter:  grayscale(1) brightness(1.5) opacity(0.5);
+  --t-partner-filter-h:grayscale(0.5) brightness(1.3) opacity(0.8);
+
+  color-scheme: dark;
+}
+
+/* ─── THEME TRANSITION ───────────────────────────────────────────────────── */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color, box-shadow;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* But don't animate transforms / layout */
+.reveal, .hero__bg img, img, svg { transition-property: opacity, transform !important; }
+.btn { transition-property: background-color, border-color, color, box-shadow, transform !important; }
+
+/* ─── THEME TOGGLE BUTTON ────────────────────────────────────────────────── */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-width: 128px;
+  height: 42px;
+  padding: 0 0.9rem;
+  border-radius: 999px;
+  background: var(--t-stat-bg);
+  border: 1.5px solid var(--t-stat-border);
+  cursor: pointer;
+  color: #FFFFFF;
+  flex-shrink: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+.theme-toggle:hover {
+  background: rgba(255,255,255,0.20);
+  transform: translateY(-1px);
+}
+.theme-toggle svg { width: 18px; height: 18px; display: block; flex-shrink: 0; }
+.theme-toggle__label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
+}
+.theme-toggle .icon-moon { display: none; }
+.theme-toggle .icon-sun  { display: block; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
+[data-theme="dark"] .theme-toggle .icon-sun  { display: none; }
+
+@media (max-width: 640px) {
+  .theme-toggle {
+    min-width: 112px;
+    height: 40px;
+    padding: 0 0.75rem;
+  }
+  .theme-toggle__label {
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+  }
+}
+
+/* ─── BASE OVERRIDES WITH THEME VARS ────────────────────────────────────── */
+body {
+  background-color: var(--t-bg) !important;
+  color: var(--t-text) !important;
+}
+.section--light, .section--alt { background: var(--t-bg-alt) !important; }
+.section--white { background: var(--t-surface) !important; }
+[data-theme="dark"] .section--light { background: var(--t-bg-alt) !important; }
+[data-theme="dark"] .section--white { background: var(--t-surface) !important; }
+[data-theme="dark"] .section--alt   { background: var(--t-bg) !important; }
+
+/* Cards */
+.service-card, .content-panel,
+.faq-item, .testimonial-card,
+.partner-card, .visa-cat-card,
+.visa-card, .visa-featured-card,
+.why-us__item, .stat-info-card {
+  background: var(--t-surface) !important;
+  border-color: var(--t-border) !important;
+  box-shadow: var(--t-card-shadow) !important;
+}
+.service-card:hover, .visa-card:hover, .visa-featured-card:hover, .visa-cat-card:hover {
+  box-shadow: var(--t-card-shadow-hover) !important;
+}
+
+/* Text overrides */
+h1, h2, h3, h4, h5, h6 { color: var(--t-text) !important; }
+p, .section-subtitle, .service-card__desc,
+.why-us__item-desc, .visa-cat-card__desc,
+.faq-item__answer { color: var(--t-text-secondary) !important; }
+.text-muted, .text-sm.text-muted { color: var(--t-text-muted) !important; }
+
+/* Inputs */
+.form-control, .search-form__input {
+  background: var(--t-input-bg) !important;
+  border-color: var(--t-input-border) !important;
+  color: var(--t-text) !important;
+}
+.form-control:focus, .search-form__input:focus {
+  border-color: var(--t-input-focus) !important;
+  box-shadow: 0 0 0 3px rgba(74,122,232,0.15) !important;
+}
+[data-theme="dark"] .form-control::placeholder,
+[data-theme="dark"] .search-form__input::placeholder {
+  color: var(--t-text-muted) !important;
+}
+
+/* Nav */
+.site-header { background: var(--t-nav-bg) !important; }
+.site-header.is-sticky { background: var(--t-nav-bg-solid) !important; }
+
+/* Partner logos */
+.partner-card img { filter: var(--t-partner-filter) !important; transition: filter 0.3s !important; }
+.partner-card:hover img { filter: var(--t-partner-filter-h) !important; }
+
+/* FAQ dark mode */
+[data-theme="dark"] .faq-item__question { color: var(--t-text) !important; }
+[data-theme="dark"] .faq-item.is-open .faq-item__question { color: var(--t-primary) !important; }
+[data-theme="dark"] .faq-item__toggle svg { stroke: var(--t-text-muted) !important; }
+
+/* Why us item icon */
+[data-theme="dark"] .why-us__item-icon {
+  background: var(--t-service-icon-bg) !important;
+  color: var(--t-service-icon-clr) !important;
+}
+[data-theme="dark"] .why-us__item-icon svg { stroke: var(--t-service-icon-clr) !important; }
+
+/* Visa badge in dark */
+[data-theme="dark"] .badge-active    { background: rgba(16,185,129,0.15) !important; color: #34D399 !important; border-color: rgba(16,185,129,0.25) !important; }
+[data-theme="dark"] .badge-coming    { background: rgba(245,158,11,0.12) !important; color: #FBBF24 !important; border-color: rgba(245,158,11,0.20) !important; }
+[data-theme="dark"] .text-eyebrow--pill { background: rgba(74,122,232,0.15) !important; color: #7AABFF !important; border-color: rgba(74,122,232,0.25) !important; }
+
+/* Service card icon dark */
+[data-theme="dark"] .service-card__icon-wrap {
+  background: var(--t-service-icon-bg) !important;
+}
+[data-theme="dark"] .service-card__icon-wrap svg {
+  stroke: var(--t-service-icon-clr) !important;
+}
+
+/* Visa cat card number dark */
+[data-theme="dark"] .visa-cat-card__number { color: rgba(74,122,232,0.15) !important; }
+[data-theme="dark"] .visa-cat-card__title  { color: var(--t-text) !important; }
+
+/* Why us badge dark */
+[data-theme="dark"] .why-us__badge {
+  background: var(--t-surface-raised) !important;
+  border-color: var(--t-border) !important;
+}
+[data-theme="dark"] .why-us__badge-title { color: var(--t-gold) !important; }
+[data-theme="dark"] .why-us__badge-sub   { color: var(--t-text-secondary) !important; }
+[data-theme="dark"] .why-us__art {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(201,163,42,0.18), transparent 28%),
+    radial-gradient(circle at 82% 22%, rgba(74,122,232,0.16), transparent 26%),
+    linear-gradient(180deg, rgba(10,17,36,0.94), rgba(15,26,53,0.90)) !important;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.30) !important;
+}
+[data-theme="dark"] .why-us__art::after {
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), transparent 35%, rgba(255,255,255,0.02)) !important;
+}
+[data-theme="dark"] .why-us__art-svg {
+  filter: saturate(0.92) brightness(0.88);
+}
+
+/* Dark mode stat bar */
+[data-theme="dark"] .stat-card {
+  background: rgba(255,255,255,0.05) !important;
+  border-color: rgba(255,255,255,0.08) !important;
+}
+[data-theme="dark"] .stat-card__label { color: rgba(255,255,255,0.65) !important; }
+
+/* btn-outline dark */
+[data-theme="dark"] .btn-outline {
+  color: var(--t-text) !important;
+  border-color: var(--t-border-strong) !important;
+}
+[data-theme="dark"] .btn-outline:hover {
+  background: var(--t-surface-raised) !important;
+  border-color: var(--t-primary) !important;
+  color: var(--t-primary) !important;
+}
+
+/* Search results dark */
+[data-theme="dark"] .search-results-preview {
+  background: var(--t-surface-raised) !important;
+  border-color: var(--t-border) !important;
+}
+[data-theme="dark"] .search-result-item:hover {
+  background: var(--t-surface) !important;
+}
+[data-theme="dark"] .search-result-item { color: var(--t-text) !important; }
+
+/* Slider controls dark */
+[data-theme="dark"] .slider-arrow {
+  background: var(--t-surface-raised) !important;
+  border-color: var(--t-border) !important;
+  color: var(--t-text) !important;
+}
+
+/* visa summary strip dark */
+[data-theme="dark"] .visa-summary-strip {
+  background: var(--t-surface-raised) !important;
+  border-color: var(--t-border) !important;
+}
+
+/* page banner dark */
+[data-theme="dark"] .page-banner { background: linear-gradient(160deg, #04081A 0%, #0A1437 55%, #04081A 100%) !important; }
+
+/* Smooth scroll restored */
+html { scroll-behavior: smooth; }

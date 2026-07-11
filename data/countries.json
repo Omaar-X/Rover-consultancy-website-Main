@@ -1,0 +1,472 @@
+{
+  "countries": [
+    {
+      "country_id": "thailand",
+      "country_name": "Thailand",
+      "continent": "Asia",
+      "flag_emoji": "🇹🇭",
+      "visa_type": "E-Visa",
+      "visa_fee_display": "6,200",
+      "currency": "BDT",
+      "status": "active",
+      "processing_days": "5-7",
+      "featured": true,
+      "image_url": "/images/destinations/thailand.jpg"
+    },
+    {
+      "country_id": "singapore",
+      "country_name": "Singapore",
+      "continent": "Asia",
+      "flag_emoji": "🇸🇬",
+      "visa_type": "E-Visa",
+      "visa_fee_display": "5,000",
+      "currency": "BDT",
+      "status": "active",
+      "processing_days": "3-5",
+      "featured": true,
+      "image_url": "/images/destinations/singapore.jpg"
+    },
+    {
+      "country_id": "malaysia",
+      "country_name": "Malaysia",
+      "continent": "Asia",
+      "flag_emoji": "🇲🇾",
+      "visa_type": "E-Visa",
+      "visa_fee_display": "4,500",
+      "currency": "BDT",
+      "status": "active",
+      "processing_days": "3-5",
+      "featured": true,
+      "image_url": "/images/destinations/malaysia.jpg"
+    },
+    {
+      "country_id": "maldives",
+      "country_name": "Maldives",
+      "continent": "Asia",
+      "flag_emoji": "🇲🇻",
+      "visa_type": "Electronic Visa",
+      "visa_fee_display": "500",
+      "currency": "BDT",
+      "status": "active",
+      "processing_days": "1-2",
+      "featured": true,
+      "image_url": "/images/destinations/maldives.jpg"
+    },
+    {
+      "country_id": "sri-lanka",
+      "country_name": "Sri Lanka",
+      "continent": "Asia",
+      "flag_emoji": "🇱🇰",
+      "visa_type": "Electronic Visa",
+      "visa_fee_display": "500",
+      "currency": "BDT",
+      "status": "active",
+      "processing_days": "1-2",
+      "featured": false
+    },
+    {
+      "country_id": "nepal",
+      "country_name": "Nepal",
+      "continent": "Asia",
+      "flag_emoji": "🇳🇵",
+      "visa_type": "Electronic Visa",
+      "visa_fee_display": "500",
+      "currency": "BDT",
+      "status": "active",
+      "processing_days": "1-2",
+      "featured": false
+    },
+    {
+      "country_id": "turkey",
+      "country_name": "Turkey",
+      "continent": "Europe",
+      "flag_emoji": "🇹🇷",
+      "visa_type": "Sticker Visa",
+      "visa_fee_display": "9,000",
+      "currency": "BDT",
+      "status": "active",
+      "processing_days": "10-15",
+      "featured": true,
+      "image_url": "/images/destinations/turkey.jpg"
+    },
+    {
+      "country_id": "united-kingdom",
+      "country_name": "United Kingdom",
+      "continent": "Europe",
+      "flag_emoji": "🇬🇧",
+      "visa_fee_display": "135 + 8,000",
+      "visa_type": "E-Visa",
+      "currency": "GBP + BDT",
+      "status": "active",
+      "processing_days": "15-20",
+      "featured": true,
+      "image_url": "/images/destinations/united-kingdom.jpg"
+    },
+    {
+      "country_id": "usa",
+      "country_name": "United States",
+      "continent": "Americas",
+      "flag_emoji": "🇺🇸",
+      "visa_type": "Sticker Visa",
+      "visa_fee_display": "185 + 8,000",
+      "currency": "USD + BDT",
+      "status": "active",
+      "processing_days": "20-30",
+      "featured": true,
+      "image_url": "/images/destinations/usa.jpg"
+    },
+    {
+      "country_id": "canada",
+      "country_name": "Canada",
+      "continent": "Americas",
+      "flag_emoji": "🇨🇦",
+      "visa_type": "Sticker Visa",
+      "visa_fee_display": "Contact Us",
+      "currency": "CAD + BDT",
+      "status": "active",
+      "processing_days": "20-30",
+      "featured": false
+    },
+    {
+      "country_id": "australia",
+      "country_name": "Australia",
+      "continent": "Oceania",
+      "flag_emoji": "🇦🇺",
+      "visa_type": "E-Visa",
+      "visa_fee_display": "200 + 8,000",
+      "currency": "AUD + BDT",
+      "status": "active",
+      "processing_days": "15-20",
+      "featured": true,
+      "image_url": "/images/destinations/australia.jpg"
+    },
+    {
+      "country_id": "japan",
+      "country_name": "Japan",
+      "continent": "Asia",
+      "flag_emoji": "🇯🇵",
+      "visa_type": "Sticker Visa",
+      "visa_fee_display": "No Fee + 3,000",
+      "currency": "BDT",
+      "status": "active",
+      "processing_days": "7-10",
+      "featured": false
+    },
+    {
+      "country_id": "south-korea",
+      "country_name": "South Korea",
+      "continent": "Asia",
+      "flag_emoji": "🇰🇷",
+      "visa_type": "Sticker Visa",
+      "visa_fee_display": "Contact Us",
+      "currency": "BDT",
+      "status": "active",
+      "processing_days": "10-15",
+      "featured": false
+    },
+    {
+      "country_id": "france",
+      "country_name": "France",
+      "continent": "Europe",
+      "flag_emoji": "🇫🇷",
+      "visa_type": "Sticker Visa",
+      "visa_fee_display": "90 + 7,000",
+      "currency": "EUR + BDT",
+      "status": "active",
+      "processing_days": "15-20",
+      "featured": false
+    },
+    {
+      "country_id": "germany",
+      "country_name": "Germany",
+      "continent": "Europe",
+      "flag_emoji": "🇩🇪",
+      "visa_type": "Sticker Visa",
+      "visa_fee_display": "90 + 7,000",
+      "currency": "EUR + BDT",
+      "status": "active",
+      "processing_days": "15-20",
+      "featured": false
+    },
+    {
+      "country_id": "italy",
+      "country_name": "Italy",
+      "continent": "Europe",
+      "flag_emoji": "🇮🇹",
+      "visa_type": "Sticker Visa",
+      "visa_fee_display": "90 + 7,000",
+      "currency": "EUR + BDT",
+      "status": "active",
+      "processing_days": "15-20",
+      "featured": false
+    },
+    {
+      "country_id": "austria",
+      "country_name": "Austria",
+      "continent": "Europe",
+      "flag_emoji": "🇦🇹",
+      "visa_type": "Sticker Visa",
+      "visa_fee_display": "90 + 7,000",
+      "currency": "EUR + BDT",
+      "status": "active",
+      "processing_days": "15-20",
+      "featured": false
+    },
+    {
+      "country_id": "belgium",
+      "country_name": "Belgium",
+      "continent": "Europe",
+      "flag_emoji": "🇧🇪",
+      "visa_type": "Sticker Visa",
+      "visa_fee_display": "90 + 7,000",
+      "currency": "EUR + BDT",
+      "status": "active",
+      "processing_days": "15-20",
+      "featured": false
+    },
+    {
+      "country_id": "china",
+      "country_name": "China",
+      "continent": "Asia",
+      "flag_emoji": "🇨🇳",
+      "visa_type": "Sticker Visa",
+      "visa_fee_display": "Contact Us",
+      "currency": "BDT",
+      "status": "active",
+      "processing_days": "15-20",
+      "featured": false
+    },
+    {
+      "country_id": "czech-republic",
+      "country_name": "Czech Republic",
+      "continent": "Europe",
+      "flag_emoji": "🇨🇿",
+      "visa_type": "Sticker Visa",
+      "visa_fee_display": "90 + 7,000",
+      "currency": "EUR + BDT",
+      "status": "active",
+      "processing_days": "15-20",
+      "featured": false
+    },
+    {
+      "country_id": "egypt",
+      "country_name": "Egypt",
+      "continent": "Africa",
+      "flag_emoji": "🇪🇬",
+      "visa_type": "Sticker Visa",
+      "visa_fee_display": "Contact Us",
+      "currency": "BDT",
+      "status": "active",
+      "processing_days": "15-20",
+      "featured": false
+    },
+    {
+      "country_id": "greece",
+      "country_name": "Greece",
+      "continent": "Europe",
+      "flag_emoji": "🇬🇷",
+      "visa_type": "Sticker Visa",
+      "visa_fee_display": "90 + 7,000",
+      "currency": "EUR + BDT",
+      "status": "active",
+      "processing_days": "15-20",
+      "featured": false
+    },
+    {
+      "country_id": "indonesia",
+      "country_name": "Indonesia",
+      "continent": "Asia",
+      "flag_emoji": "🇮🇩",
+      "visa_type": "Sticker Visa",
+      "visa_fee_display": "Contact Us",
+      "currency": "BDT",
+      "status": "active",
+      "processing_days": "15-20",
+      "featured": false
+    },
+    {
+      "country_id": "netherlands",
+      "country_name": "Netherlands",
+      "continent": "Europe",
+      "flag_emoji": "🇳🇱",
+      "visa_type": "Sticker Visa",
+      "visa_fee_display": "90 + 7,000",
+      "currency": "EUR + BDT",
+      "status": "active",
+      "processing_days": "15-20",
+      "featured": false
+    },
+    {
+      "country_id": "norway",
+      "country_name": "Norway",
+      "continent": "Europe",
+      "flag_emoji": "🇳🇴",
+      "visa_type": "Sticker Visa",
+      "visa_fee_display": "90 + 7,000",
+      "currency": "EUR + BDT",
+      "status": "active",
+      "processing_days": "15-20",
+      "featured": false
+    },
+    {
+      "country_id": "philippines",
+      "country_name": "Philippines",
+      "continent": "Asia",
+      "flag_emoji": "🇵🇭",
+      "visa_type": "Sticker Visa",
+      "visa_fee_display": "Contact Us",
+      "currency": "BDT",
+      "status": "active",
+      "processing_days": "15-20",
+      "featured": false
+    },
+    {
+      "country_id": "portugal",
+      "country_name": "Portugal",
+      "continent": "Europe",
+      "flag_emoji": "🇵🇹",
+      "visa_type": "Sticker Visa",
+      "visa_fee_display": "90 + 7,000",
+      "currency": "EUR + BDT",
+      "status": "active",
+      "processing_days": "15-20",
+      "featured": false
+    },
+    {
+      "country_id": "spain",
+      "country_name": "Spain",
+      "continent": "Europe",
+      "flag_emoji": "🇪🇸",
+      "visa_type": "Sticker Visa",
+      "visa_fee_display": "90 + 7,000",
+      "currency": "EUR + BDT",
+      "status": "active",
+      "processing_days": "15-20",
+      "featured": false
+    },
+    {
+      "country_id": "switzerland",
+      "country_name": "Switzerland",
+      "continent": "Europe",
+      "flag_emoji": "🇨🇭",
+      "visa_type": "Sticker Visa",
+      "visa_fee_display": "90 + 7,000",
+      "currency": "EUR + BDT",
+      "status": "active",
+      "processing_days": "15-20",
+      "featured": false
+    },
+    {
+      "country_id": "vietnam",
+      "country_name": "Vietnam",
+      "continent": "Asia",
+      "flag_emoji": "🇻🇳",
+      "visa_type": "E-Visa",
+      "visa_fee_display": "N/A",
+      "currency": "BDT",
+      "status": "unavailable",
+      "processing_days": "N/A",
+      "featured": false
+    },
+    {
+      "country_id": "cambodia",
+      "country_name": "Cambodia",
+      "continent": "Asia",
+      "flag_emoji": "🇰🇭",
+      "visa_type": "E-Visa",
+      "visa_fee_display": "N/A",
+      "currency": "BDT",
+      "status": "unavailable",
+      "processing_days": "N/A",
+      "featured": false
+    },
+    {
+      "country_id": "uae",
+      "country_name": "United Arab Emirates",
+      "continent": "Middle East",
+      "flag_emoji": "🇦🇪",
+      "visa_type": "E-Visa",
+      "visa_fee_display": "N/A",
+      "currency": "BDT",
+      "status": "unavailable",
+      "processing_days": "N/A",
+      "featured": false
+    },
+    {
+      "country_id": "sweden",
+      "country_name": "Sweden",
+      "continent": "Europe",
+      "flag_emoji": "🇸🇪",
+      "visa_type": "Sticker Visa",
+      "visa_fee_display": "Coming Soon",
+      "currency": "EUR + BDT",
+      "status": "coming_soon",
+      "processing_days": "TBD",
+      "featured": false
+    },
+    {
+      "country_id": "poland",
+      "country_name": "Poland",
+      "continent": "Europe",
+      "flag_emoji": "🇵🇱",
+      "visa_type": "Sticker Visa",
+      "visa_fee_display": "Coming Soon",
+      "currency": "EUR + BDT",
+      "status": "coming_soon",
+      "processing_days": "TBD",
+      "featured": false
+    }
+  ],
+  "document_categories": {
+    "general": {
+      "label": "General",
+      "items": [
+        "Valid passport with at least 6 months of remaining validity",
+        "Recent passport-size photographs on a white background",
+        "Completed visa application form with accurate details",
+        "Bank statement or financial documents where required",
+        "Travel itinerary, booking confirmation, or invitation letter"
+      ]
+    },
+    "employed": {
+      "label": "Employed",
+      "items": [
+        "Employment letter or NOC from the employer",
+        "Recent salary slips or payroll proof",
+        "Personal bank statement for the required period",
+        "Copy of company ID card or business card",
+        "Supporting travel booking and accommodation details"
+      ]
+    },
+    "business": {
+      "label": "Business",
+      "items": [
+        "Trade licence or business registration documents",
+        "Business card and company letterhead if available",
+        "Recent bank statement for the business or applicant",
+        "Tax documents or VAT/TIN information where applicable",
+        "Travel plan and accommodation confirmation"
+      ]
+    },
+    "student": {
+      "label": "Student",
+      "items": [
+        "Student ID card or enrollment letter",
+        "Sponsor documents if the trip is financed by family",
+        "Bank statement or sponsorship financial proof",
+        "Institution leave letter when required",
+        "Travel booking and accommodation details"
+      ]
+    },
+    "family": {
+      "label": "Family",
+      "items": [
+        "Family relationship proof where relevant",
+        "Sponsor letter from the primary applicant",
+        "Recent bank statement or financial proof",
+        "Passport copy and photographs for each traveler",
+        "Travel itinerary and hotel/flight details"
+      ]
+    }
+  }
+}
