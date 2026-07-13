@@ -1326,3 +1326,52 @@ body.home-page footer {
   width: 100%;
   object-fit: cover;
 }
+
+/* ─── HERO ORBIT 2.0 — photo core, photo pins, orbiting plane ────────────── */
+.hero-visual-orbit__core {
+  overflow: hidden;
+  border: 2px solid rgba(244,213,106,0.55);
+  animation: corePulse 4s ease-in-out infinite;
+}
+.hero-visual-orbit__core img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  animation: coreDrift 16s ease-in-out infinite alternate;
+}
+@keyframes corePulse {
+  0%, 100% { box-shadow: 0 18px 48px rgba(27,58,140,0.34), 0 0 0 0 rgba(244,213,106,0.35); }
+  50%      { box-shadow: 0 18px 48px rgba(27,58,140,0.34), 0 0 0 14px rgba(244,213,106,0); }
+}
+@keyframes coreDrift {
+  0%   { transform: scale(1.0); }
+  100% { transform: scale(1.15); }
+}
+
+/* Plane flying around the outer ring */
+.hero-visual-orbit__plane {
+  position: absolute;
+  inset: 0;
+  animation: spinOrbit 14s linear infinite;
+  pointer-events: none;
+}
+.hero-visual-orbit__plane svg {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  margin-left: -13px;
+  color: #F4D56A;
+  transform: rotate(90deg);
+  filter: drop-shadow(0 3px 8px rgba(0,0,0,0.45));
+}
+
+/* Country photo pins (flag emojis render as letters on Windows) */
+.hero-visual-pin img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(244,213,106,0.55);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.30);
+}
