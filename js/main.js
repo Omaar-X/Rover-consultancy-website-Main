@@ -754,6 +754,31 @@
 
   function initInquiryForms() {
     const forms = qsa('[data-form="inquiry"]');
+    if (!forms.length) return;
+
+    // Prefill from Apply links (e.g. contact-us.html?service=visa&country=thailand)
+    // so the inquiry lands in the Google Sheet with the right service + country.
+    const urlParams = new URLSearchParams(window.location.search);
+    const prefillService = (urlParams.get('service') || '').trim();
+    const prefillCountry = (urlParams.get('country') || '').trim();
+
+    forms.forEach((form) => {
+      if (prefillService) {
+        const serviceField = qs('[name="service"]', form);
+        if (serviceField && qs(`option[value="${prefillService}"]`, serviceField)) {
+          serviceField.value = prefillService;
+        }
+      }
+      if (prefillCountry) {
+        const countryField = qs('[name="country"]', form);
+        if (countryField && !countryField.value) {
+          countryField.value = prefillCountry
+            .split('-')
+            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
+        }
+      }
+    });
 
     forms.forEach((form) => {
       form.addEventListener('submit', (e) => {

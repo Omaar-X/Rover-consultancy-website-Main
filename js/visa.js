@@ -1233,7 +1233,7 @@
   function bindChecklistDownload(country, scope = document) {
     qsa('[data-visa-download-hook]', scope).forEach((button) => {
       button.removeAttribute('aria-disabled');
-      button.textContent = 'Download Checklist';
+      button.textContent = 'Download PDF Checklist';
       button.onclick = () => downloadChecklist(country);
     });
   }
@@ -1243,7 +1243,11 @@
       <details class="visa-country-detail" data-visa-country-detail-card="${escapeHtml(country.country_id)}">
         <summary class="visa-country-detail__summary">
           <div class="visa-country-detail__summary-main">
-            <span class="visa-country-detail__flag" aria-hidden="true">${escapeHtml(country.flag_emoji)}</span>
+            <img class="visa-country-detail__thumb"
+                 src="${escapeHtml(resolveAssetUrl(country.image_url))}"
+                 alt="${escapeHtml(country.country_name)}"
+                 width="56" height="56" loading="lazy"
+                 onerror="this.onerror=null;this.src='${escapeHtml(resolveAssetUrl('images/hero/hero-bg.jpg'))}';">
             <div>
               <h3>${escapeHtml(country.country_name)}</h3>
               <p>${escapeHtml(country.continent)} • ${escapeHtml(country.visa_type)}</p>
@@ -1255,6 +1259,16 @@
           </div>
         </summary>
         <div class="visa-country-detail__body">
+          <div class="visa-country-detail__hero">
+            <img src="${escapeHtml(resolveAssetUrl(country.image_url))}"
+                 alt="${escapeHtml(country.country_name)} destination"
+                 loading="lazy"
+                 onerror="this.onerror=null;this.src='${escapeHtml(resolveAssetUrl('images/hero/hero-bg.jpg'))}';">
+            <div class="visa-country-detail__hero-overlay">
+              <h3>${escapeHtml(country.country_name)}</h3>
+              <p>${escapeHtml(country.summary)}</p>
+            </div>
+          </div>
           <div class="visa-country-detail__topline">
             ${renderStatusBadge(country.status)}
             ${renderVisaTypeBadge(country.visa_type)}
@@ -1266,12 +1280,24 @@
               <strong>${escapeHtml(country.visa_fee)}</strong>
             </div>
             <div class="visa-country-detail__info-card">
+              <span>Service charge</span>
+              <strong>${escapeHtml(country.service_charge)}</strong>
+            </div>
+            <div class="visa-country-detail__info-card">
+              <span>Estimated total</span>
+              <strong>${escapeHtml(country.total_cost)}</strong>
+            </div>
+            <div class="visa-country-detail__info-card">
               <span>Currency</span>
               <strong>${escapeHtml(country.currency_label)}</strong>
             </div>
             <div class="visa-country-detail__info-card">
               <span>Processing</span>
               <strong>${escapeHtml(formatWorkingDays(country.processing_days))}</strong>
+            </div>
+            <div class="visa-country-detail__info-card">
+              <span>Complexity</span>
+              <strong>${escapeHtml(country.processing_complexity)}</strong>
             </div>
             <div class="visa-country-detail__info-card">
               <span>Bank balance</span>

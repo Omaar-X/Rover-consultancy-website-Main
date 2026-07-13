@@ -1253,3 +1253,59 @@ body.home-page footer {
   box-shadow: var(--t-card-shadow) !important;
 }
 .visa-country-detail__summary { cursor: pointer; }
+
+/* ─── VISA DETAIL CARD 2.0 — photo thumb + hero banner ───────────────────── */
+.visa-country-detail__summary-main {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+.visa-country-detail__thumb {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid var(--t-border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+.visa-country-detail__hero {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 18px;
+  min-height: 180px;
+  max-height: 240px;
+}
+.visa-country-detail__hero img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+.visa-country-detail__hero-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px 22px;
+  background: linear-gradient(180deg, rgba(9,18,58,0) 20%, rgba(9,18,58,0.85) 100%);
+}
+.visa-country-detail__hero-overlay h3 {
+  color: #FFFFFF !important;
+  font-size: 1.5rem;
+  margin: 0 0 4px;
+}
+.visa-country-detail__hero-overlay p {
+  color: rgba(255,255,255,0.85) !important;
+  font-size: 0.9rem;
+  margin: 0;
+  max-width: 640px;
+}
+@media (max-width: 600px) {
+  .visa-country-detail__hero img { height: 170px; }
+  .visa-country-detail__hero-overlay h3 { font-size: 1.2rem; }
+  .visa-country-detail__hero-overlay p { font-size: 0.8rem; }
+}
