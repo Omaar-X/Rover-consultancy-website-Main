@@ -795,10 +795,12 @@
     const loading = qs('[data-visa-loading]');
     if (listView) {
       listView.hidden = false;
+      listView.classList.remove('hidden');
       listView.style.display = 'block';
     }
     if (detailView) {
       detailView.hidden = true;
+      detailView.classList.add('hidden');
       detailView.style.display = 'none';
     }
     if (loading) {
@@ -813,10 +815,12 @@
     const loading = qs('[data-visa-loading]');
     if (listView) {
       listView.hidden = true;
+      listView.classList.add('hidden');
       listView.style.display = 'none';
     }
     if (detailView) {
       detailView.hidden = false;
+      detailView.classList.remove('hidden');
       detailView.style.display = 'block';
     }
     if (loading) {
@@ -1415,7 +1419,13 @@
     setText('[data-visa-detail-photo]', country.photo_specs);
     setText('[data-visa-detail-bank]', country.bank_balance);
     setText('[data-visa-detail-notes]', country.special_notes);
-    setText('[data-visa-detail-flag]', country.flag_emoji);
+
+    // Flag emojis render as bare letters on Windows, so show a circular
+    // country photo in the hero instead.
+    const flagEl = qs('[data-visa-detail-flag]');
+    if (flagEl) {
+      flagEl.innerHTML = `<img src="${escapeHtml(resolveAssetUrl(country.image_url))}" alt="" width="88" height="88" loading="lazy" onerror="this.style.display='none';">`;
+    }
 
     if (imageEl) {
       imageEl.src = resolveAssetUrl(country.image_url);

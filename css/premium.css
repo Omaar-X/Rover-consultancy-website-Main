@@ -1309,3 +1309,20 @@ body.home-page footer {
   .visa-country-detail__hero-overlay h3 { font-size: 1.2rem; }
   .visa-country-detail__hero-overlay p { font-size: 0.8rem; }
 }
+
+/* ─── VISA DETAIL VIEW polish ────────────────────────────────────────────── */
+.visa-detail-hero__title { color: #FFFFFF !important; }
+.visa-detail-hero__subtitle { color: rgba(255,255,255,0.82) !important; }
+.visa-detail-hero__flag img {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255,255,255,0.35);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.35);
+}
+.visa-detail-image-wrap img {
+  border-radius: 16px;
+  width: 100%;
+  object-fit: cover;
+}
