@@ -14,6 +14,22 @@
  * ==============================================================================
  */
 
+var ROVER_SITE_BASE_PATH = (function () {
+  var pathname = window.location.pathname || '/';
+  var basePath = pathname.replace(/\/[^\/]*$/, '/');
+
+  if (/\/html\/?$/.test(basePath)) {
+    basePath = basePath.replace(/\/html\/?$/, '/');
+  }
+
+  if (!basePath) basePath = '/';
+  if (basePath.charAt(basePath.length - 1) !== '/') {
+    basePath += '/';
+  }
+
+  return basePath;
+})();
+
 window.ROVER_CONFIG = {
 
   /* ---------------------------------------------------------------------------
@@ -36,20 +52,9 @@ window.ROVER_CONFIG = {
       return raw;
     }
 
-    var pathname = window.location.pathname || '/';
-    var basePath = pathname.replace(/\/[^\/]*$/, '/');
-
-    if (/\/html\/?$/.test(basePath)) {
-      basePath = basePath.replace(/\/html\/?$/, '/');
-    }
-
-    if (!basePath) basePath = '/';
-    if (basePath.charAt(basePath.length - 1) !== '/') {
-      basePath += '/';
-    }
-
     raw = raw.replace(/^\/+/, '');
-    return basePath.replace(/\/+$/, '/') + raw;
+    if (raw.indexOf(ROVER_SITE_BASE_PATH) === 0) return raw;
+    return ROVER_SITE_BASE_PATH + raw;
   },
 
   /* ---------------------------------------------------------------------------
@@ -63,11 +68,7 @@ window.ROVER_CONFIG = {
      LOCAL DATA FILE PATHS
   --------------------------------------------------------------------------- */
   dataPaths: (function() {
-    // Auto-detect the root path so the site works from any sub-folder
-    var base = window.location.pathname.replace(/\/[^\/]*$/, '');
-    // If we are inside a sub-page folder (e.g. /visa-services/), go one level up
-    if (base && base !== '/') base = base.replace(/\/[^\/]+$/, '');
-    base = base || '';
+    var base = ROVER_SITE_BASE_PATH.replace(/\/$/, '');
     return {
       countries:    base + '/data/countries.json',
       testimonials: base + '/data/testimonials.json',

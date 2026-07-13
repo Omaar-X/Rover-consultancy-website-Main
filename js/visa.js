@@ -155,7 +155,7 @@
   }
 
   function getCountryImageUrl(slug) {
-    return resolveAssetUrl(`images/destinations/${slug}.jpg`);
+    return `images/destinations/${slug}.jpg`;
   }
 
   function getDefaultServiceCharge(visaType) {
@@ -362,7 +362,7 @@
       visa_type: country.visa_type || 'E-Visa',
       status: norm(country.status) || 'active',
       processing_days: country.processing_days || 'Contact us',
-      image_url: resolveAssetUrl(country.image_url || getCountryImageUrl(slug)),
+      image_url: country.image_url || getCountryImageUrl(slug),
       summary: inferSummary(country),
       pricing: feeInfo,
       visa_fee: formatPriceLabel(feeInfo.visaFee),
