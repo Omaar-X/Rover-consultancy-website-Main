@@ -863,7 +863,7 @@
           }
         });
       },
-      { threshold: 0.1, rootMargin: '0px 0px -20px 0px' }
+      { threshold: 0, rootMargin: '0px 0px -20px 0px' }
     );
     els.forEach((el) => observer.observe(el));
   }
@@ -1261,6 +1261,7 @@
       updateSummaryCounters(state.countries);
       bindFilterEvents();
       renderInitialMode();
+      revealInjectedElements(document.body);
 
       if (loadingEl) loadingEl.hidden = true;
     } catch (error) {
