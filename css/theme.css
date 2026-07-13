@@ -26,7 +26,7 @@
 
   --t-card-shadow:     0 2px 12px rgba(27,58,140,0.08), 0 1px 3px rgba(0,0,0,0.04);
   --t-card-shadow-hover: 0 12px 40px rgba(27,58,140,0.16), 0 4px 12px rgba(0,0,0,0.06);
-  --t-hero-overlay:    linear-gradient(160deg, rgba(9,18,58,0.90) 0%, rgba(20,45,110,0.75) 55%, rgba(9,18,58,0.65) 100%);
+  --t-hero-overlay:    linear-gradient(100deg, rgba(9,18,58,0.90) 0%, rgba(13,30,80,0.68) 50%, rgba(9,18,58,0.42) 100%);
 
   --t-stat-bg:         rgba(255,255,255,0.14);
   --t-stat-border:     rgba(255,255,255,0.22);
@@ -71,7 +71,7 @@
 
   --t-card-shadow:     0 2px 16px rgba(0,0,0,0.30), 0 1px 4px rgba(0,0,0,0.20);
   --t-card-shadow-hover: 0 12px 48px rgba(0,0,0,0.50), 0 4px 16px rgba(74,122,232,0.15);
-  --t-hero-overlay:    linear-gradient(160deg, rgba(4,8,24,0.92) 0%, rgba(10,20,55,0.80) 55%, rgba(4,8,24,0.70) 100%);
+  --t-hero-overlay:    linear-gradient(100deg, rgba(4,8,24,0.93) 0%, rgba(8,16,44,0.74) 50%, rgba(4,8,24,0.50) 100%);
 
   --t-stat-bg:         rgba(255,255,255,0.06);
   --t-stat-border:     rgba(255,255,255,0.10);

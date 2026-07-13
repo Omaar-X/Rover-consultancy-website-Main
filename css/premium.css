@@ -1170,3 +1170,86 @@ body.home-page footer {
   .cta-banner    { text-align: center; }
   .cta-banner__actions { justify-content: center; }
 }
+
+/* ─── VISA PAGE 2.0 — MODERN FACELIFT ────────────────────────────────────── */
+
+/* Banner: airport photo layered under the navy gradient */
+.page-banner--visa {
+  background:
+    linear-gradient(100deg, rgba(7,16,58,0.94) 0%, rgba(23,48,120,0.78) 55%, rgba(7,16,58,0.55) 100%),
+    url('https://images.unsplash.com/photo-1488085061387-422e29b40080?auto=format&fit=crop&w=1600&q=70') center 45% / cover no-repeat,
+    #07103A !important;
+}
+
+/* Filter toolbar: glass panel */
+.visa-toolbar {
+  background: var(--t-surface-raised, var(--t-surface)) !important;
+  border: 1px solid var(--t-border-strong) !important;
+  border-radius: 18px !important;
+  padding: 22px !important;
+  box-shadow: var(--t-card-shadow) !important;
+  backdrop-filter: blur(10px);
+}
+.visa-toolbar .form-control {
+  border-radius: 12px !important;
+  transition: border-color 0.25s, box-shadow 0.25s !important;
+}
+.visa-toolbar .form-control:focus {
+  border-color: var(--t-gold) !important;
+  box-shadow: 0 0 0 3px rgba(201,163,42,0.18) !important;
+}
+
+/* Country cards: lift + photo zoom */
+.visa-card {
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  border: 1px solid var(--t-border) !important;
+  transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s, border-color 0.35s !important;
+}
+.visa-card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: var(--t-card-shadow-hover) !important;
+  border-color: rgba(201,163,42,0.35) !important;
+}
+.visa-card__media { overflow: hidden; display: block; }
+.visa-card__image { transition: transform 0.6s cubic-bezier(0.22,1,0.36,1) !important; }
+.visa-card:hover .visa-card__image { transform: scale(1.07); }
+
+.visa-featured-card {
+  border-radius: 18px !important;
+  overflow: hidden !important;
+  border: 1px solid var(--t-border) !important;
+  transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s, border-color 0.35s !important;
+}
+.visa-featured-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: var(--t-card-shadow-hover) !important;
+  border-color: rgba(201,163,42,0.35) !important;
+}
+.visa-featured-card__media { overflow: hidden; display: block; }
+.visa-featured-card__image { transition: transform 0.6s cubic-bezier(0.22,1,0.36,1) !important; }
+.visa-featured-card:hover .visa-featured-card__image { transform: scale(1.07); }
+
+/* Summary strip: stat chips */
+.visa-summary-strip {
+  border-radius: 16px !important;
+  border: 1px solid var(--t-border) !important;
+  background: linear-gradient(120deg, rgba(27,58,140,0.06) 0%, rgba(201,163,42,0.06) 100%) !important;
+}
+.visa-summary-strip__value {
+  font-family: var(--font-display, inherit);
+  color: var(--t-primary) !important;
+}
+
+/* Expandable detail cards */
+.visa-country-detail {
+  border-radius: 16px !important;
+  border: 1px solid var(--t-border) !important;
+  overflow: hidden;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.visa-country-detail[open] {
+  border-color: rgba(201,163,42,0.35) !important;
+  box-shadow: var(--t-card-shadow) !important;
+}
+.visa-country-detail__summary { cursor: pointer; }

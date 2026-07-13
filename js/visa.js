@@ -1018,7 +1018,7 @@
     return lines.join('\n');
   }
 
-  function downloadChecklist(country) {
+  function downloadChecklistText(country) {
     const blob = new Blob([buildChecklistDownload(country)], { type: 'text/plain;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
@@ -1028,6 +1028,206 @@
     link.click();
     link.remove();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+
+  /* Rasterize the Rover SVG logo once so jsPDF (which cannot embed SVG)
+     can stamp it as the page header and watermark. */
+  let logoDataUrlPromise = null;
+  function getLogoDataUrl() {
+    if (!logoDataUrlPromise) {
+      logoDataUrlPromise = new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => {
+          try {
+            const canvas = document.createElement('canvas');
+            canvas.width = 960;
+            canvas.height = 240;
+            canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+            resolve(canvas.toDataURL('image/png'));
+          } catch (error) {
+            resolve(null);
+          }
+        };
+        img.onerror = () => resolve(null);
+        img.src = resolveAssetUrl('images/logo/rover-logo.svg');
+      });
+    }
+    return logoDataUrlPromise;
+  }
+
+  const PDF_PAGE = { width: 595.28, height: 841.89, margin: 48 };
+  const PDF_NAVY = [27, 58, 140];
+  const PDF_GOLD = [201, 163, 42];
+  const PDF_TEXT = [40, 48, 68];
+  const PDF_MUTED = [110, 120, 145];
+
+  function pdfStampWatermark(doc, logoDataUrl) {
+    doc.saveGraphicsState();
+    doc.setGState(new doc.GState({ opacity: 0.07 }));
+    if (logoDataUrl) {
+      const w = 420;
+      const h = w / 4; // logo aspect ratio 240x60
+      doc.addImage(
+        logoDataUrl, 'PNG',
+        (PDF_PAGE.width - w) / 2, (PDF_PAGE.height - h) / 2,
+        w, h, undefined, 'FAST', 30
+      );
+    } else {
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(52);
+      doc.setTextColor(PDF_NAVY[0], PDF_NAVY[1], PDF_NAVY[2]);
+      doc.text('ROVER CONSULTANCY', PDF_PAGE.width / 2, PDF_PAGE.height / 2, {
+        align: 'center', angle: 30
+      });
+    }
+    doc.restoreGraphicsState();
+  }
+
+  function pdfStampHeader(doc, logoDataUrl) {
+    doc.setFillColor(PDF_GOLD[0], PDF_GOLD[1], PDF_GOLD[2]);
+    doc.rect(0, 0, PDF_PAGE.width, 4, 'F');
+    if (logoDataUrl) {
+      doc.addImage(logoDataUrl, 'PNG', PDF_PAGE.margin, 22, 128, 32, undefined, 'FAST');
+    } else {
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(14);
+      doc.setTextColor(PDF_NAVY[0], PDF_NAVY[1], PDF_NAVY[2]);
+      doc.text('ROVER CONSULTANCY SERVICES', PDF_PAGE.margin, 42);
+    }
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(9);
+    doc.setTextColor(PDF_MUTED[0], PDF_MUTED[1], PDF_MUTED[2]);
+    doc.text(
+      new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }),
+      PDF_PAGE.width - PDF_PAGE.margin, 42, { align: 'right' }
+    );
+    doc.setDrawColor(225, 230, 242);
+    doc.setLineWidth(0.75);
+    doc.line(PDF_PAGE.margin, 64, PDF_PAGE.width - PDF_PAGE.margin, 64);
+  }
+
+  function pdfNewPage(doc, logoDataUrl) {
+    doc.addPage();
+    pdfStampWatermark(doc, logoDataUrl);
+    pdfStampHeader(doc, logoDataUrl);
+    return 92;
+  }
+
+  function buildChecklistPdf(country, logoDataUrl) {
+    const JsPDF = window.jspdf.jsPDF;
+    const doc = new JsPDF({ unit: 'pt', format: 'a4' });
+    const contentWidth = PDF_PAGE.width - PDF_PAGE.margin * 2;
+    const bottomLimit = PDF_PAGE.height - 72;
+    let y;
+
+    pdfStampWatermark(doc, logoDataUrl);
+    pdfStampHeader(doc, logoDataUrl);
+    y = 100;
+
+    // Title
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(22);
+    doc.setTextColor(PDF_NAVY[0], PDF_NAVY[1], PDF_NAVY[2]);
+    doc.text(`${country.country_name} Visa Checklist`, PDF_PAGE.margin, y);
+    y += 12;
+    doc.setFillColor(PDF_GOLD[0], PDF_GOLD[1], PDF_GOLD[2]);
+    doc.rect(PDF_PAGE.margin, y, 64, 3, 'F');
+    y += 24;
+
+    // Meta summary
+    const meta = [
+      ['Visa type', country.visa_type],
+      ['Processing time', formatWorkingDays(country.processing_days)],
+      ['Starting price', country.starting_price],
+      ['Currency', country.currency_label]
+    ].filter((pair) => pair[1]);
+    doc.setFontSize(10);
+    meta.forEach((pair) => {
+      doc.setFont('helvetica', 'bold');
+      doc.setTextColor(PDF_TEXT[0], PDF_TEXT[1], PDF_TEXT[2]);
+      doc.text(`${pair[0]}:`, PDF_PAGE.margin, y);
+      doc.setFont('helvetica', 'normal');
+      doc.setTextColor(PDF_MUTED[0], PDF_MUTED[1], PDF_MUTED[2]);
+      doc.text(String(pair[1]), PDF_PAGE.margin + 100, y);
+      y += 16;
+    });
+    y += 10;
+
+    // Checklist categories
+    const categories = getChecklistCategories(country);
+    categories.forEach((category) => {
+      if (y > bottomLimit - 40) y = pdfNewPage(doc, logoDataUrl);
+
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(13);
+      doc.setTextColor(PDF_NAVY[0], PDF_NAVY[1], PDF_NAVY[2]);
+      doc.text(category.label, PDF_PAGE.margin, y);
+      y += 18;
+
+      doc.setFontSize(10.5);
+      category.items.forEach((item, index) => {
+        const lines = doc.splitTextToSize(String(item), contentWidth - 26);
+        const blockHeight = lines.length * 14 + 6;
+        if (y + blockHeight > bottomLimit) y = pdfNewPage(doc, logoDataUrl);
+
+        doc.setFont('helvetica', 'bold');
+        doc.setTextColor(PDF_GOLD[0], PDF_GOLD[1], PDF_GOLD[2]);
+        doc.text(`${index + 1}.`, PDF_PAGE.margin, y);
+        doc.setFont('helvetica', 'normal');
+        doc.setTextColor(PDF_TEXT[0], PDF_TEXT[1], PDF_TEXT[2]);
+        doc.text(lines, PDF_PAGE.margin + 26, y);
+        y += blockHeight;
+      });
+      y += 12;
+    });
+
+    // Special notes
+    if (country.special_notes) {
+      if (y > bottomLimit - 60) y = pdfNewPage(doc, logoDataUrl);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(13);
+      doc.setTextColor(PDF_NAVY[0], PDF_NAVY[1], PDF_NAVY[2]);
+      doc.text('Special notes', PDF_PAGE.margin, y);
+      y += 18;
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(10.5);
+      doc.setTextColor(PDF_TEXT[0], PDF_TEXT[1], PDF_TEXT[2]);
+      const noteLines = doc.splitTextToSize(String(country.special_notes), contentWidth);
+      doc.text(noteLines, PDF_PAGE.margin, y);
+    }
+
+    // Footer on every page
+    const contact = CONFIG.contact || {};
+    const footerText = `Rover Consultancy Services  •  ${contact.phone || '01726-763326'}  •  ${contact.email || 'info@roverconsultancy.com'}`;
+    const pageCount = doc.getNumberOfPages();
+    for (let i = 1; i <= pageCount; i += 1) {
+      doc.setPage(i);
+      doc.setDrawColor(225, 230, 242);
+      doc.setLineWidth(0.75);
+      doc.line(PDF_PAGE.margin, PDF_PAGE.height - 52, PDF_PAGE.width - PDF_PAGE.margin, PDF_PAGE.height - 52);
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8.5);
+      doc.setTextColor(PDF_MUTED[0], PDF_MUTED[1], PDF_MUTED[2]);
+      doc.text(footerText, PDF_PAGE.margin, PDF_PAGE.height - 36);
+      doc.text(`Page ${i} of ${pageCount}`, PDF_PAGE.width - PDF_PAGE.margin, PDF_PAGE.height - 36, { align: 'right' });
+    }
+
+    return doc;
+  }
+
+  async function downloadChecklist(country) {
+    if (!(window.jspdf && window.jspdf.jsPDF)) {
+      downloadChecklistText(country);
+      return;
+    }
+    try {
+      const logoDataUrl = await getLogoDataUrl();
+      const doc = buildChecklistPdf(country, logoDataUrl);
+      doc.save(`${country.country_id || 'visa'}-visa-checklist.pdf`);
+    } catch (error) {
+      console.error('[Rover Visa] PDF generation failed, falling back to text:', error);
+      downloadChecklistText(country);
+    }
   }
 
   function bindChecklistDownload(country, scope = document) {

@@ -41,6 +41,14 @@ window.ROVER_CONFIG = {
   apiBaseUrl: '',
 
   /* ---------------------------------------------------------------------------
+     CONTACT FORM BACKEND — Google Apps Script Web App URL
+     Deploy apps-script/script.gs as a Web App (see instructions in that file),
+     then paste the ".../exec" URL here. Leave blank to keep the simulated
+     success flow (no data is sent anywhere).
+  --------------------------------------------------------------------------- */
+  contactWebhookUrl: '',
+
+  /* ---------------------------------------------------------------------------
      ASSET URL RESOLUTION
      GitHub Pages serves this project from a sub-path, so asset paths that start
      with "/" must be rewritten to the repo base path.

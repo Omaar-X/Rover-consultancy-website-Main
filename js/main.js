@@ -781,14 +781,9 @@
         const submitBtn = qs('button[type="submit"]', form);
         if (submitBtn) submitBtn.classList.add('btn--loading');
 
-        // PHASE 1A: Simulate network request.
-        // PHASE 1B: Replace this timeout with:
-        //   fetch(CONFIG.apiBaseUrl, { method: 'POST', body: new FormData(form) })
-        setTimeout(() => {
+        const showSuccess = (refNumber) => {
           if (submitBtn) submitBtn.classList.remove('btn--loading');
           const successBox = qs('[data-form-success]', form.parentElement) || qs('[data-form-success]');
-          const refNumber = 'RCS-' + new Date().getFullYear() + '-' + String(Math.floor(Math.random() * 90000) + 10000);
-
           if (successBox) {
             const refEl = qs('[data-ref-number]', successBox);
             if (refEl) refEl.textContent = refNumber;
@@ -798,7 +793,32 @@
             alert('Thank you! Your inquiry has been received. Reference: ' + refNumber);
             form.reset();
           }
-        }, 900);
+        };
+
+        const localRef = 'RCS-' + new Date().getFullYear() + '-' + String(Math.floor(Math.random() * 90000) + 10000);
+
+        if (CONFIG.contactWebhookUrl) {
+          // Live backend: POST to the Apps Script Web App (apps-script/script.gs).
+          // FormData keeps the request "simple" so no CORS preflight is needed.
+          const payload = new FormData(form);
+          payload.append('action', 'submitInquiry');
+          payload.append('page', window.location.pathname);
+
+          fetch(CONFIG.contactWebhookUrl, { method: 'POST', body: payload })
+            .then((res) => res.json())
+            .then((data) => {
+              if (!data || data.ok !== true) throw new Error((data && data.error) || 'Submission failed');
+              showSuccess(data.ref || localRef);
+            })
+            .catch((error) => {
+              console.error('[Rover] Inquiry submission failed:', error);
+              if (submitBtn) submitBtn.classList.remove('btn--loading');
+              alert('Sorry, something went wrong while sending your inquiry. Please try again, or call us at 01726-763326.');
+            });
+        } else {
+          // No backend configured yet: simulate a successful submission.
+          setTimeout(() => showSuccess(localRef), 900);
+        }
       });
 
       // Clear error state as user types
@@ -823,7 +843,9 @@
         }
         input.classList.remove('is-error');
         const btn = qs('button', form);
-        if (btn) {
+
+        const showSubscribed = () => {
+          if (!btn) return;
           const originalText = btn.textContent;
           btn.textContent = 'Subscribed ✓';
           btn.disabled = true;
@@ -832,6 +854,18 @@
             btn.disabled = false;
             form.reset();
           }, 2500);
+        };
+
+        if (CONFIG.contactWebhookUrl) {
+          const payload = new FormData();
+          payload.append('action', 'subscribeNewsletter');
+          payload.append('email', input.value.trim());
+          payload.append('page', window.location.pathname);
+          fetch(CONFIG.contactWebhookUrl, { method: 'POST', body: payload })
+            .catch((error) => console.error('[Rover] Newsletter signup failed:', error))
+            .finally(showSubscribed);
+        } else {
+          showSubscribed();
         }
       });
     });
