@@ -7,6 +7,9 @@
     : 'https://www.roverconsultancy.com';
   const SITE_BASE = SITE_ORIGIN.replace(/\/$/, '') + '/';
   const VISA_PAGE_URL = SITE_BASE + 'visa-services/';
+  const resolveAssetUrl = (window.ROVER_CONFIG && typeof window.ROVER_CONFIG.assetUrl === 'function')
+    ? window.ROVER_CONFIG.assetUrl
+    : (path) => path;
   let visaCatalogPromise = null;
   const requestJson = window.ROVER_REQUEST_JSON || function (path) {
     if (typeof fetch === 'function') {
@@ -152,7 +155,7 @@
   }
 
   function getCountryImageUrl(slug) {
-    return new URL(`../images/destinations/${slug}.jpg`, window.location.href).href;
+    return resolveAssetUrl(`images/destinations/${slug}.jpg`);
   }
 
   function getDefaultServiceCharge(visaType) {
@@ -359,7 +362,7 @@
       visa_type: country.visa_type || 'E-Visa',
       status: norm(country.status) || 'active',
       processing_days: country.processing_days || 'Contact us',
-      image_url: country.image_url || getCountryImageUrl(slug),
+      image_url: resolveAssetUrl(country.image_url || getCountryImageUrl(slug)),
       summary: inferSummary(country),
       pricing: feeInfo,
       visa_fee: formatPriceLabel(feeInfo.visaFee),
@@ -412,8 +415,8 @@
       ? `${VISA_PAGE_URL}?country=${encodeURIComponent(country.country_id)}`
       : VISA_PAGE_URL;
     const ogImage = isDetail
-      ? country.image_url
-      : new URL('../images/hero/og-homepage.jpg', window.location.href).href;
+      ? resolveAssetUrl(country.image_url)
+      : resolveAssetUrl('images/hero/og-homepage.jpg');
 
     document.title = pageTitle;
 
@@ -697,7 +700,7 @@
     return `
       <article class="visa-featured-card reveal">
         <a class="visa-featured-card__media" href="${detailUrl}" aria-label="View details for ${escapeHtml(country.country_name)}">
-          <img class="visa-featured-card__image" src="${escapeHtml(country.image_url)}" alt="${escapeHtml(country.country_name)} destination" width="320" height="200" loading="lazy" onerror="this.onerror=null;this.src='../images/hero/hero-bg.jpg';">
+          <img class="visa-featured-card__image" src="${escapeHtml(resolveAssetUrl(country.image_url))}" alt="${escapeHtml(country.country_name)} destination" width="320" height="200" loading="lazy" onerror="this.onerror=null;this.src='${escapeHtml(resolveAssetUrl('images/hero/hero-bg.jpg'))}';">
         </a>
         <div class="visa-featured-card__body">
           <div class="visa-featured-card__topline">
@@ -729,7 +732,7 @@
     return `
       <article class="visa-card reveal">
         <a class="visa-card__media" href="${detailUrl}" aria-label="View details for ${escapeHtml(country.country_name)}">
-          <img class="visa-card__image" src="${escapeHtml(country.image_url)}" alt="${escapeHtml(country.country_name)} destination" width="640" height="360" loading="lazy" onerror="this.onerror=null;this.src='../images/hero/hero-bg.jpg';">
+          <img class="visa-card__image" src="${escapeHtml(resolveAssetUrl(country.image_url))}" alt="${escapeHtml(country.country_name)} destination" width="640" height="360" loading="lazy" onerror="this.onerror=null;this.src='${escapeHtml(resolveAssetUrl('images/hero/hero-bg.jpg'))}';">
           <div class="visa-card__overlay"></div>
           <div class="visa-card__topline">
             ${renderStatusBadge(country.status)}
@@ -1186,11 +1189,11 @@
     setText('[data-visa-detail-flag]', country.flag_emoji);
 
     if (imageEl) {
-      imageEl.src = country.image_url;
+      imageEl.src = resolveAssetUrl(country.image_url);
       imageEl.alt = `${country.country_name} destination`;
       imageEl.onerror = () => {
         imageEl.onerror = null;
-        imageEl.src = '../images/hero/hero-bg.jpg';
+        imageEl.src = resolveAssetUrl('images/hero/hero-bg.jpg');
       };
     }
 

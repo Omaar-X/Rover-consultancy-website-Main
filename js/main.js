@@ -26,6 +26,9 @@
   'use strict';
 
   const CONFIG = window.ROVER_CONFIG || {};
+  const resolveAssetUrl = (window.ROVER_CONFIG && typeof window.ROVER_CONFIG.assetUrl === 'function')
+    ? window.ROVER_CONFIG.assetUrl
+    : (path) => path;
 
   /* ============================================================================
      1. UTILITY HELPERS
@@ -573,8 +576,8 @@
          aria-label="View ${escapeHtml(c.country_name)} visa information">
         <img
           class="dest-card__img"
-          src="images/destinations/${escapeHtml(c.country_id)}.jpg"
-          onerror="this.src='images/hero/hero-bg-premium.svg'"
+          src="${escapeHtml(resolveAssetUrl(`images/destinations/${c.country_id}.jpg`))}"
+          onerror="this.src='${escapeHtml(resolveAssetUrl('images/hero/hero-bg-premium.svg'))}'"
           alt="${escapeHtml(c.country_name)} travel destination"
           title="${escapeHtml(c.country_name)}"
           width="360" height="480"

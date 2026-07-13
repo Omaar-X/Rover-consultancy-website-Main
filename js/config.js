@@ -25,6 +25,34 @@ window.ROVER_CONFIG = {
   apiBaseUrl: '',
 
   /* ---------------------------------------------------------------------------
+     ASSET URL RESOLUTION
+     GitHub Pages serves this project from a sub-path, so asset paths that start
+     with "/" must be rewritten to the repo base path.
+  --------------------------------------------------------------------------- */
+  assetUrl: function(path) {
+    var raw = String(path || '').trim();
+    if (!raw) return raw;
+    if (/^(?:[a-z]+:)?\/\//i.test(raw) || raw.indexOf('data:') === 0 || raw.indexOf('blob:') === 0) {
+      return raw;
+    }
+
+    var pathname = window.location.pathname || '/';
+    var basePath = pathname.replace(/\/[^\/]*$/, '/');
+
+    if (/\/html\/?$/.test(basePath)) {
+      basePath = basePath.replace(/\/html\/?$/, '/');
+    }
+
+    if (!basePath) basePath = '/';
+    if (basePath.charAt(basePath.length - 1) !== '/') {
+      basePath += '/';
+    }
+
+    raw = raw.replace(/^\/+/, '');
+    return basePath.replace(/\/+$/, '/') + raw;
+  },
+
+  /* ---------------------------------------------------------------------------
      DATA SOURCE MODE
      'local'  -> reads JSON files from /assets/data/
      'api'    -> reads live data from apiBaseUrl above

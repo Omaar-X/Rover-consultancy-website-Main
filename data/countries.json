@@ -11,7 +11,7 @@
       "status": "active",
       "processing_days": "5-7",
       "featured": true,
-      "image_url": "/images/destinations/thailand.jpg"
+      "image_url": "images/destinations/thailand.jpg"
     },
     {
       "country_id": "singapore",
@@ -24,7 +24,7 @@
       "status": "active",
       "processing_days": "3-5",
       "featured": true,
-      "image_url": "/images/destinations/singapore.jpg"
+      "image_url": "images/destinations/singapore.jpg"
     },
     {
       "country_id": "malaysia",
@@ -37,7 +37,7 @@
       "status": "active",
       "processing_days": "3-5",
       "featured": true,
-      "image_url": "/images/destinations/malaysia.jpg"
+      "image_url": "images/destinations/malaysia.jpg"
     },
     {
       "country_id": "maldives",
@@ -50,7 +50,7 @@
       "status": "active",
       "processing_days": "1-2",
       "featured": true,
-      "image_url": "/images/destinations/maldives.jpg"
+      "image_url": "images/destinations/maldives.jpg"
     },
     {
       "country_id": "sri-lanka",
@@ -87,7 +87,7 @@
       "status": "active",
       "processing_days": "10-15",
       "featured": true,
-      "image_url": "/images/destinations/turkey.jpg"
+      "image_url": "images/destinations/turkey.jpg"
     },
     {
       "country_id": "united-kingdom",
@@ -100,7 +100,7 @@
       "status": "active",
       "processing_days": "15-20",
       "featured": true,
-      "image_url": "/images/destinations/united-kingdom.jpg"
+      "image_url": "images/destinations/united-kingdom.jpg"
     },
     {
       "country_id": "usa",
@@ -113,7 +113,7 @@
       "status": "active",
       "processing_days": "20-30",
       "featured": true,
-      "image_url": "/images/destinations/usa.jpg"
+      "image_url": "images/destinations/usa.jpg"
     },
     {
       "country_id": "canada",
@@ -138,7 +138,7 @@
       "status": "active",
       "processing_days": "15-20",
       "featured": true,
-      "image_url": "/images/destinations/australia.jpg"
+      "image_url": "images/destinations/australia.jpg"
     },
     {
       "country_id": "japan",
