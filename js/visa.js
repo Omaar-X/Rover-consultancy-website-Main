@@ -445,8 +445,8 @@
     }
     if (subtitleEl) {
       subtitleEl.textContent = isDetail
-        ? `${country.country_name} details are loaded from the shared JSON catalog, keeping the route extensible and SEO-friendly.`
-        : 'Search by country, region, or visa type. Each destination pulls from the shared JSON catalog so the module stays easy to expand.';
+        ? `Complete ${country.country_name} visa guidance — fees, processing time, required documents, and expert application support.`
+        : 'Search by country, region, or visa type to see fees, processing times, and complete document checklists.';
     }
     if (breadcrumbCurrentEl) {
       breadcrumbCurrentEl.textContent = isDetail ? country.country_name : 'All Countries';
@@ -789,10 +789,19 @@
     el.textContent = `${filtered.length} ${filtered.length === 1 ? 'country' : 'countries'} available`;
   }
 
+  function toggleListChrome(show) {
+    // Filter toolbar + stats strip only make sense while browsing the list.
+    ['.visa-toolbar', '.visa-summary-strip'].forEach((selector) => {
+      const el = qs(selector);
+      if (el) el.classList.toggle('hidden', !show);
+    });
+  }
+
   function showListMode() {
     const listView = qs('[data-visa-list-view]');
     const detailView = qs('[data-visa-detail-view]');
     const loading = qs('[data-visa-loading]');
+    toggleListChrome(true);
     if (listView) {
       listView.hidden = false;
       listView.classList.remove('hidden');
@@ -813,6 +822,7 @@
     const listView = qs('[data-visa-list-view]');
     const detailView = qs('[data-visa-detail-view]');
     const loading = qs('[data-visa-loading]');
+    toggleListChrome(false);
     if (listView) {
       listView.hidden = true;
       listView.classList.add('hidden');
