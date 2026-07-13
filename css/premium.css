@@ -1079,14 +1079,40 @@ body.home-page footer {
   transform: translateY(-3px) !important;
   box-shadow: var(--t-card-shadow-hover) !important;
 }
-.partner-card img {
-  max-height: 50px;
-  width: auto;
-  object-fit: contain;
-  filter: var(--t-partner-filter);
-  transition: filter 0.3s !important;
+.partner-card__name {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--t-text-secondary) !important;
+  white-space: nowrap;
+  transition: color 0.3s !important;
 }
-.partner-card:hover img { filter: var(--t-partner-filter-h) !important; }
+.partner-card__name svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--clr-gold);
+  transform: rotate(45deg);
+}
+.partner-card:hover .partner-card__name { color: var(--clr-primary) !important; }
+
+/* ─── TEAM AVATAR BADGE ──────────────────────────────────────────────────── */
+.team-avatar-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  background: var(--grad-primary);
+  color: #fff;
+  box-shadow: var(--shadow-md);
+}
 
 /* ─── FAQ PREMIUM ────────────────────────────────────────────────────────── */
 .faq-item {

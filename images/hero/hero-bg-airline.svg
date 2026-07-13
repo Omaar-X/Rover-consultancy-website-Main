@@ -1,0 +1,115 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Premium airline sky backdrop with jet silhouette and flight routes">
+  <defs>
+    <linearGradient id="skyMain" x1="168" y1="0" x2="1826" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#050B1E"/>
+      <stop offset="0.42" stop-color="#0F2456"/>
+      <stop offset="0.75" stop-color="#12306E"/>
+      <stop offset="1" stop-color="#061027"/>
+    </linearGradient>
+    <linearGradient id="glowGold" x1="1180" y1="120" x2="1720" y2="620" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F2D56E" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#C9A32A" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="glowBlue" x1="380" y1="700" x2="900" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4A7AE8" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#1B3A8C" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="jetBody" x1="-260" y1="0" x2="320" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#C9A32A"/>
+      <stop offset="0.55" stop-color="#F2D56E"/>
+      <stop offset="1" stop-color="#FFF7DE"/>
+    </linearGradient>
+    <radialGradient id="vignette" cx="50%" cy="42%" r="75%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="78%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#020610" stop-opacity="0.55"/>
+    </radialGradient>
+    <filter id="softBlur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="30"/>
+    </filter>
+    <filter id="cloudBlur" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+    <filter id="trailBlur" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+  </defs>
+
+  <!-- Sky base -->
+  <rect width="1920" height="1080" fill="url(#skyMain)"/>
+
+  <!-- Ambient glows -->
+  <circle cx="1560" cy="260" r="340" fill="url(#glowGold)" filter="url(#softBlur)"/>
+  <circle cx="560" cy="900" r="360" fill="url(#glowBlue)" filter="url(#softBlur)"/>
+  <circle cx="260" cy="180" r="200" fill="#0B1F54" opacity="0.65" filter="url(#softBlur)"/>
+
+  <!-- Altitude stars -->
+  <g opacity="0.55">
+    <circle cx="360" cy="150" r="2.4" fill="#FFFFFF"/>
+    <circle cx="480" cy="210" r="1.8" fill="#F2D56E"/>
+    <circle cx="620" cy="120" r="2.2" fill="#FFFFFF"/>
+    <circle cx="740" cy="190" r="1.6" fill="#4A7AE8"/>
+    <circle cx="900" cy="110" r="2" fill="#FFFFFF"/>
+    <circle cx="1040" cy="170" r="1.8" fill="#F2D56E"/>
+    <circle cx="220" cy="260" r="1.6" fill="#FFFFFF"/>
+    <circle cx="1660" cy="640" r="1.8" fill="#FFFFFF"/>
+    <circle cx="1740" cy="740" r="2" fill="#F2D56E"/>
+  </g>
+
+  <!-- Great-circle flight routes -->
+  <g opacity="0.4">
+    <path d="M-60 300C300 180 620 420 980 300C1340 180 1620 260 1980 160" stroke="#4A7AE8" stroke-width="2" stroke-dasharray="2 14" stroke-linecap="round"/>
+    <path d="M-60 520C360 640 700 460 1060 560C1420 660 1660 560 1980 620" stroke="#F2D56E" stroke-width="2" stroke-dasharray="2 14" stroke-linecap="round"/>
+  </g>
+
+  <!-- Primary route arc leading to the jet, with waypoint markers -->
+  <g opacity="0.85">
+    <path d="M120 900C460 820 820 620 1080 500C1200 445 1300 400 1373 368" stroke="url(#jetBody)" stroke-opacity="0.55" stroke-width="2.5" stroke-dasharray="1 12" stroke-linecap="round"/>
+    <circle cx="120" cy="900" r="6" fill="#F2D56E" opacity="0.9"/>
+    <circle cx="120" cy="900" r="12" fill="none" stroke="#F2D56E" stroke-opacity="0.4" stroke-width="1.5"/>
+    <circle cx="700" cy="670" r="4" fill="#FFFFFF" opacity="0.7"/>
+    <circle cx="1080" cy="500" r="4" fill="#FFFFFF" opacity="0.7"/>
+  </g>
+
+  <!-- Cloud layers -->
+  <g filter="url(#cloudBlur)" opacity="0.5">
+    <ellipse cx="300" cy="820" rx="260" ry="46" fill="#FFFFFF"/>
+    <ellipse cx="520" cy="870" rx="200" ry="36" fill="#FFFFFF"/>
+    <ellipse cx="140" cy="760" rx="150" ry="30" fill="#FFFFFF"/>
+  </g>
+  <g filter="url(#cloudBlur)" opacity="0.28">
+    <ellipse cx="1180" cy="900" rx="280" ry="50" fill="#FFFFFF"/>
+    <ellipse cx="1480" cy="960" rx="220" ry="40" fill="#FFFFFF"/>
+    <ellipse cx="900" cy="960" rx="180" ry="34" fill="#FFFFFF"/>
+  </g>
+  <g filter="url(#cloudBlur)" opacity="0.16">
+    <ellipse cx="1720" cy="360" rx="220" ry="40" fill="#FFFFFF"/>
+    <ellipse cx="260" cy="420" rx="180" ry="32" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Contrail behind the jet -->
+  <g filter="url(#trailBlur)" opacity="0.5">
+    <path d="M1050 540C1180 470 1290 415 1373 368" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+    <path d="M1100 600C1220 520 1320 450 1400 395" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/>
+  </g>
+
+  <!-- Jet silhouette, side profile cruising across the upper sky -->
+  <g transform="translate(1350,220) rotate(-9) scale(1.5)">
+    <!-- horizontal stabilizer -->
+    <path d="M40 105L0 140L18 138L60 108Z" fill="#FFFFFF" fill-opacity="0.75"/>
+    <!-- tail fin -->
+    <path d="M40 90L10 8L36 12L72 88Z" fill="#FFFFFF" fill-opacity="0.92"/>
+    <!-- fuselage -->
+    <path d="M0 100C0 84 40 72 120 68C220 63 320 66 380 86C398 93 400 97 400 100C400 103 398 107 380 114C320 134 220 137 120 132C40 128 0 116 0 100Z" fill="url(#jetBody)"/>
+    <!-- nose highlight -->
+    <path d="M340 74C368 79 392 89 400 100C392 111 368 121 340 126C356 118 366 109 366 100C366 91 356 82 340 74Z" fill="#FFFDF5" fill-opacity="0.95"/>
+    <!-- cabin window strip -->
+    <path d="M70 92C150 87 260 88 350 96" stroke="#0D1F52" stroke-opacity="0.3" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 9"/>
+    <!-- main wing, swept back -->
+    <path d="M210 112L70 214L112 219L250 132Z" fill="#FFFFFF" fill-opacity="0.95"/>
+    <!-- engine pod -->
+    <ellipse cx="150" cy="145" rx="24" ry="11" fill="#0D1F52" fill-opacity="0.45" transform="rotate(24 150 145)"/>
+  </g>
+
+  <rect width="1920" height="1080" fill="url(#vignette)"/>
+</svg>

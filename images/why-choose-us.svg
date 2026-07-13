@@ -1,0 +1,77 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a boarding pass and passport representing premium travel guidance">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0D1F52"/>
+      <stop offset="0.55" stop-color="#1B3A8C"/>
+      <stop offset="1" stop-color="#0A1638"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#EFD66A"/>
+      <stop offset="1" stop-color="#C9A32A"/>
+    </linearGradient>
+    <filter id="blur" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="34"/>
+    </filter>
+    <filter id="cardShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="20" stdDeviation="26" flood-color="#000000" flood-opacity="0.30"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <circle cx="180" cy="160" r="220" fill="#4A7AE8" opacity="0.22" filter="url(#blur)"/>
+  <circle cx="1040" cy="740" r="260" fill="#C9A32A" opacity="0.16" filter="url(#blur)"/>
+
+  <!-- route line across the scene -->
+  <path d="M100 700C320 620 460 560 640 520C820 480 940 420 1100 340" stroke="#FFFFFF" stroke-opacity="0.18" stroke-width="2" stroke-dasharray="2 14" stroke-linecap="round"/>
+  <circle cx="100" cy="700" r="6" fill="url(#gold)"/>
+  <circle cx="1100" cy="340" r="6" fill="url(#gold)"/>
+
+  <!-- passport booklet, tilted, behind the boarding pass -->
+  <g transform="translate(760,260) rotate(14)" filter="url(#cardShadow)">
+    <rect x="0" y="0" width="230" height="320" rx="14" fill="#0B1F54"/>
+    <rect x="10" y="10" width="210" height="300" rx="10" fill="none" stroke="url(#gold)" stroke-width="2" stroke-opacity="0.7"/>
+    <circle cx="115" cy="120" r="46" fill="none" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="3"/>
+    <path d="M115 78a42 42 0 0 1 0 84" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="2"/>
+    <rect x="60" y="196" width="110" height="10" rx="5" fill="#FFFFFF" fill-opacity="0.4"/>
+    <rect x="75" y="216" width="80" height="8" rx="4" fill="#FFFFFF" fill-opacity="0.28"/>
+  </g>
+
+  <!-- boarding pass card -->
+  <g transform="translate(210,330)" filter="url(#cardShadow)">
+    <rect x="0" y="0" width="560" height="230" rx="20" fill="#F8FAFF"/>
+    <rect x="0" y="0" width="560" height="230" rx="20" fill="url(#bg)" opacity="0.04"/>
+    <rect x="0" y="0" width="10" height="230" rx="5" fill="url(#gold)"/>
+
+    <text x="40" y="52" font-family="Georgia, 'Playfair Display', serif" font-size="26" font-weight="700" fill="#0D1F52">Boarding Pass</text>
+    <text x="40" y="80" font-family="Arial, sans-serif" font-size="13" letter-spacing="2" fill="#4B5563">ROVER CONSULTANCY SERVICES</text>
+
+    <text x="40" y="140" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#1B3A8C">DAC</text>
+    <path d="M120 128C150 100 190 100 220 128" stroke="#C9A32A" stroke-width="3" stroke-linecap="round"/>
+    <path d="M150 124L170 116L178 124L165 130Z" fill="#C9A32A"/>
+    <text x="234" y="140" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#1B3A8C">DXB</text>
+
+    <text x="40" y="175" font-family="Arial, sans-serif" font-size="12" letter-spacing="1.5" fill="#9CA3AF">PASSENGER</text>
+    <text x="40" y="195" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="#1A1A2E">Valued Traveler</text>
+
+    <text x="330" y="175" font-family="Arial, sans-serif" font-size="12" letter-spacing="1.5" fill="#9CA3AF">GATE</text>
+    <text x="330" y="195" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="#1A1A2E">A12</text>
+
+    <text x="440" y="175" font-family="Arial, sans-serif" font-size="12" letter-spacing="1.5" fill="#9CA3AF">SEAT</text>
+    <text x="440" y="195" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="#1A1A2E">14C</text>
+
+    <!-- perforation -->
+    <g stroke="#D1D5DB" stroke-width="2" stroke-dasharray="4 6">
+      <line x1="0" y1="190" x2="560" y2="190"/>
+    </g>
+    <circle cx="0" cy="190" r="10" fill="#0A1638"/>
+    <circle cx="560" cy="190" r="10" fill="#0A1638"/>
+  </g>
+
+  <!-- small altitude stars -->
+  <g opacity="0.5">
+    <circle cx="140" cy="120" r="2" fill="#FFFFFF"/>
+    <circle cx="230" cy="90" r="1.6" fill="#F2D56E"/>
+    <circle cx="1000" cy="160" r="2" fill="#FFFFFF"/>
+    <circle cx="1080" cy="220" r="1.6" fill="#F2D56E"/>
+  </g>
+</svg>

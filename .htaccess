@@ -17,19 +17,6 @@
   # Force non-www -> www (or comment out if you prefer non-www canonical)
   # RewriteCond %{HTTP_HOST} !^www\. [NC]
   # RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [L,R=301]
-
-  # Redirect legacy page-file URLs to canonical folder URLs.
-  RewriteRule ^about-us/(about-us|index)\.html$ /about-us/ [L,R=301,NC]
-  RewriteRule ^air-tickets/(air-tickets|index)\.html$ /air-tickets/ [L,R=301,NC]
-  RewriteRule ^blog/(blog|index)\.html$ /blog/ [L,R=301,NC]
-  RewriteRule ^contact-us/(contact-us|index)\.html$ /contact-us/ [L,R=301,NC]
-  RewriteRule ^hajj/(hajj|index)\.html$ /hajj/ [L,R=301,NC]
-  RewriteRule ^hotel-booking/(hotel-booking|index)\.html$ /hotel-booking/ [L,R=301,NC]
-  RewriteRule ^privacy-policy/(privacy-policy|index)\.html$ /privacy-policy/ [L,R=301,NC]
-  RewriteRule ^terms-of-service/(terms-of-service|index)\.html$ /terms-of-service/ [L,R=301,NC]
-  RewriteRule ^tour-packages/(tour-packages|index)\.html$ /tour-packages/ [L,R=301,NC]
-  RewriteRule ^umrah/(umrah|index)\.html$ /umrah/ [L,R=301,NC]
-  RewriteRule ^visa-services/(visa-services|index)\.html$ /visa-services/ [L,R=301,NC]
 </IfModule>
 
 # -----------------------------------------------------------------------------

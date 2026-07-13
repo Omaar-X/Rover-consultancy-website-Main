@@ -111,7 +111,11 @@
         // PHASE 1B: return fetch(`${CONFIG.apiBaseUrl}?action=getCountries`).then(r => r.json());
       }
       const data = await fetchLocalJson(CONFIG.dataPaths.countries);
-      return data ? data.countries : [];
+      const countries = data ? data.countries : [];
+      return countries.map((c) => ({
+        ...c,
+        image_url: c.image_url || `images/destinations/${c.country_id}.jpg`
+      }));
     },
     async getTestimonials() {
       const data = await fetchLocalJson(CONFIG.dataPaths.testimonials);
@@ -527,7 +531,7 @@
         }
 
         resultsBox.innerHTML = matches.map((c) => `
-          <a href="visa-services/?country=${encodeURIComponent(c.country_id)}" class="search-result-item">
+          <a href="${escapeHtml(resolveAssetUrl(`html/visa-services.html?country=${encodeURIComponent(c.country_id)}`))}" class="search-result-item">
             <span class="flag" aria-hidden="true">${c.flag_emoji}</span>
             <span class="search-result-item__info">
               <span class="search-result-item__name">${escapeHtml(c.country_name)}</span>
@@ -571,7 +575,7 @@
     const featured = countries.filter((c) => c.featured).slice(0, 8);
 
     grid.innerHTML = featured.map((c) => `
-      <a href="visa-services/?country=${encodeURIComponent(c.country_id)}"
+      <a href="${escapeHtml(resolveAssetUrl(`html/visa-services.html?country=${encodeURIComponent(c.country_id)}`))}"
          class="dest-card reveal"
          aria-label="View ${escapeHtml(c.country_name)} visa information">
         <img

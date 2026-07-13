@@ -822,10 +822,9 @@
   transform: translateY(-2px);
 }
 
-.partner-card img {
-  max-height: 48px;
-  width: auto;
-  object-fit: contain;
+.partner-card__name {
+  font-family: var(--font-display);
+  font-weight: 700;
 }
 
 

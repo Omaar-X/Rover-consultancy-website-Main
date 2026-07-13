@@ -203,9 +203,9 @@ p, .section-subtitle, .service-card__desc,
 .site-header { background: var(--t-nav-bg) !important; }
 .site-header.is-sticky { background: var(--t-nav-bg-solid) !important; }
 
-/* Partner logos */
-.partner-card img { filter: var(--t-partner-filter) !important; transition: filter 0.3s !important; }
-.partner-card:hover img { filter: var(--t-partner-filter-h) !important; }
+/* Partner wordmarks */
+.partner-card__name { color: var(--t-text-secondary) !important; }
+.partner-card:hover .partner-card__name { color: var(--t-primary) !important; }
 
 /* FAQ dark mode */
 [data-theme="dark"] .faq-item__question { color: var(--t-text) !important; }

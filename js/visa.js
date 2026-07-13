@@ -6,7 +6,7 @@
     ? window.location.origin
     : 'https://www.roverconsultancy.com';
   const SITE_BASE = SITE_ORIGIN.replace(/\/$/, '') + '/';
-  const VISA_PAGE_URL = SITE_BASE + 'visa-services/';
+  const VISA_PAGE_URL = SITE_BASE + 'html/visa-services.html';
   const resolveAssetUrl = (window.ROVER_CONFIG && typeof window.ROVER_CONFIG.assetUrl === 'function')
     ? window.ROVER_CONFIG.assetUrl
     : (path) => path;
@@ -549,7 +549,10 @@
 
       const path = (CONFIG.dataPaths && CONFIG.dataPaths.countries) || '../data/countries.json';
       const payload = await requestJson(path);
-      const countries = Array.isArray(payload.countries) ? payload.countries : [];
+      const countries = (Array.isArray(payload.countries) ? payload.countries : []).map((c) => ({
+        ...c,
+        image_url: c.image_url || `images/destinations/${c.country_id}.jpg`
+      }));
       const documentCategories = normalizeDocumentCategories(payload.document_categories);
       return {
         ...payload,
@@ -700,7 +703,7 @@
     return `
       <article class="visa-featured-card reveal">
         <a class="visa-featured-card__media" href="${detailUrl}" aria-label="View details for ${escapeHtml(country.country_name)}">
-          <img class="visa-featured-card__image" src="${escapeHtml(resolveAssetUrl(country.image_url))}" alt="${escapeHtml(country.country_name)} destination" width="320" height="200" loading="lazy" onerror="this.onerror=null;this.src='${escapeHtml(resolveAssetUrl('images/hero/hero-bg.jpg'))}';">
+          <img class="visa-featured-card__image" src="${escapeHtml(resolveAssetUrl(country.image_url))}" alt="${escapeHtml(country.country_name)} destination" width="320" height="200" loading="lazy" onerror="this.onerror=null;this.src='${escapeHtml(resolveAssetUrl('images/hero/hero-bg-premium.svg'))}';">
         </a>
         <div class="visa-featured-card__body">
           <div class="visa-featured-card__topline">
@@ -715,7 +718,7 @@
           </div>
           <div class="visa-card__actions">
             <a class="btn btn-outline btn-sm" href="${detailUrl}">View detail</a>
-            <a class="btn btn-primary btn-sm" href="../contact-us/?service=visa&country=${encodeURIComponent(country.country_id)}">Apply</a>
+            <a class="btn btn-primary btn-sm" href="contact-us.html?service=visa&country=${encodeURIComponent(country.country_id)}">Apply</a>
           </div>
         </div>
       </article>
@@ -724,7 +727,7 @@
 
   function renderCountryCard(country) {
     const detailUrl = `?country=${encodeURIComponent(country.country_id)}`;
-    const applyUrl = `../contact-us/?service=visa&country=${encodeURIComponent(country.country_id)}`;
+    const applyUrl = `contact-us.html?service=visa&country=${encodeURIComponent(country.country_id)}`;
     const featuredBadge = country.featured
       ? '<span class="badge badge-gold-solid">Featured</span>'
       : '';
@@ -732,7 +735,7 @@
     return `
       <article class="visa-card reveal">
         <a class="visa-card__media" href="${detailUrl}" aria-label="View details for ${escapeHtml(country.country_name)}">
-          <img class="visa-card__image" src="${escapeHtml(resolveAssetUrl(country.image_url))}" alt="${escapeHtml(country.country_name)} destination" width="640" height="360" loading="lazy" onerror="this.onerror=null;this.src='${escapeHtml(resolveAssetUrl('images/hero/hero-bg.jpg'))}';">
+          <img class="visa-card__image" src="${escapeHtml(resolveAssetUrl(country.image_url))}" alt="${escapeHtml(country.country_name)} destination" width="640" height="360" loading="lazy" onerror="this.onerror=null;this.src='${escapeHtml(resolveAssetUrl('images/hero/hero-bg-premium.svg'))}';">
           <div class="visa-card__overlay"></div>
           <div class="visa-card__topline">
             ${renderStatusBadge(country.status)}
@@ -1101,7 +1104,7 @@
               </div>
               <div class="visa-country-detail__actions">
                 <a href="?country=${encodeURIComponent(country.country_id)}" class="btn btn-primary btn-sm">Open full detail</a>
-                <a href="../contact-us/?service=visa&country=${encodeURIComponent(country.country_id)}" class="btn btn-outline btn-sm">Apply now</a>
+                <a href="contact-us.html?service=visa&country=${encodeURIComponent(country.country_id)}" class="btn btn-outline btn-sm">Apply now</a>
               </div>
             </div>
           </div>
@@ -1193,12 +1196,12 @@
       imageEl.alt = `${country.country_name} destination`;
       imageEl.onerror = () => {
         imageEl.onerror = null;
-        imageEl.src = resolveAssetUrl('images/hero/hero-bg.jpg');
+        imageEl.src = resolveAssetUrl('images/hero/hero-bg-premium.svg');
       };
     }
 
     if (applyLink) {
-      applyLink.href = `../contact-us/?service=visa&country=${encodeURIComponent(country.country_id)}`;
+      applyLink.href = `contact-us.html?service=visa&country=${encodeURIComponent(country.country_id)}`;
     }
 
     const whatsappLink = qs('[data-visa-whatsapp-link]');
@@ -1274,7 +1277,7 @@
         emptyState.innerHTML = `
           <h2>Visa data is temporarily unavailable</h2>
           <p>Please try again later or contact us directly for assistance.</p>
-          <a href="../contact-us/" class="btn btn-primary btn-sm">Contact Us</a>
+          <a href="contact-us.html" class="btn btn-primary btn-sm">Contact Us</a>
         `;
       }
       updateSeo(null, 'list');

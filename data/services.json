@@ -5,23 +5,15 @@
       "title": "Visa Services",
       "description": "Expert visa consultation and complete documentation support for 50+ countries worldwide, from E-Visa to Sticker Visa.",
       "icon": "passport",
-      "link": "visa-services/index.html",
+      "link": "html/visa-services.html",
       "cta": "Explore Visas"
-    },
-    {
-      "id": "tour-packages",
-      "title": "Tour Packages",
-      "description": "Curated domestic and international tour packages for families, honeymooners, and group travelers.",
-      "icon": "map",
-      "link": "tour-packages/index.html",
-      "cta": "View Packages"
     },
     {
       "id": "air-tickets",
       "title": "Air Tickets",
       "description": "Best-fare air ticket booking assistance to all major destinations with dedicated support.",
       "icon": "plane",
-      "link": "air-tickets/index.html",
+      "link": "html/air-tickets.html",
       "cta": "Book Tickets"
     },
     {
@@ -29,24 +21,16 @@
       "title": "Hotel Booking",
       "description": "Handpicked hotel reservations worldwide that fit your budget and comfort needs.",
       "icon": "building",
-      "link": "hotel-booking/index.html",
+      "link": "html/hotel-booking.html",
       "cta": "Find Hotels"
     },
     {
-      "id": "hajj",
-      "title": "Hajj Services",
-      "description": "Complete Hajj package guidance and visa processing with dedicated spiritual journey support.",
-      "icon": "kaaba",
-      "link": "hajj/index.html",
-      "cta": "Learn More"
-    },
-    {
-      "id": "umrah",
-      "title": "Umrah Services",
-      "description": "Affordable and reliable Umrah packages with full visa and documentation assistance.",
-      "icon": "mosque",
-      "link": "umrah/index.html",
-      "cta": "Learn More"
+      "id": "tour-packages",
+      "title": "Tour Packages",
+      "description": "Curated domestic and international tour packages for families, honeymooners, and group travelers.",
+      "icon": "map",
+      "link": "html/tour-packages.html",
+      "cta": "View Packages"
     }
   ]
 }
