@@ -1562,3 +1562,50 @@ body.home-page footer {
   color: var(--t-text-secondary) !important;
   border: 1px solid var(--t-border) !important;
 }
+
+/* ─── LIGHT-MODE READABILITY FIXES ───────────────────────────────────────── */
+
+/* Contact info panel is always navy — its text must stay white in BOTH
+   themes (theme.css h1-h6/p overrides paint it navy-on-navy in light). */
+.contact-info-card__title,
+.contact-info-card h2,
+.contact-info-card h3 { color: #FFFFFF !important; }
+.contact-info-card__desc,
+.contact-info-card p { color: rgba(255,255,255,0.85) !important; }
+.contact-info-card .contact-info-item span,
+.contact-info-card .contact-info-item strong { color: #FFFFFF !important; }
+.contact-info-card .contact-info-item small { color: rgba(255,255,255,0.65) !important; }
+
+/* Banner eyebrow pill: dark glass pill with gold text on photo banners
+   (was gold-on-gold and stretched full width). */
+.page-banner .section-note {
+  width: fit-content;
+  align-self: flex-start;
+  background: rgba(7,13,31,0.50) !important;
+  border: 1px solid rgba(244,213,106,0.40);
+  color: #F4D56A !important;
+  backdrop-filter: blur(6px);
+}
+
+/* ─── HERO VISUAL CLEANUP — two cards, no messy overlap ──────────────────── */
+.hero-visual-card--main {
+  top: 0;
+  right: 0;
+}
+.hero-visual-card--orbit {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: min(360px, 88%);
+  background: rgba(7,13,31,0.78);
+  backdrop-filter: blur(22px);
+}
+@media (max-width: 1200px) {
+  .hero-visual-card--orbit { width: min(320px, 88%); }
+}
+
+/* Keep the text card above the decorative orbit where they overlap */
+.hero-visual-card--main  { z-index: 2; }
+.hero-visual-card--orbit { z-index: 1; }
+/* UK pin sat in the overlap corner — move it to the orbit's lower right */
+.hero-visual-pin--2 { right: -8px; top: auto; bottom: 96px; }
