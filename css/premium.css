@@ -424,20 +424,6 @@ body.home-page footer {
   background-clip: text;
   position: relative;
 }
-/* Underline accent */
-.hero__title .accent::after {
-  content: '';
-  position: absolute;
-  left: 0; bottom: -4px; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #C9A32A, #E8C84A, #C9A32A);
-  border-radius: 2px;
-  animation: underlineGrow 1s ease 0.8s both;
-}
-@keyframes underlineGrow {
-  from { transform: scaleX(0); transform-origin: left; }
-  to   { transform: scaleX(1); }
-}
 
 .hero__subtitle {
   font-size: clamp(1rem, 2vw, 1.15rem);
