@@ -532,7 +532,10 @@
 
         resultsBox.innerHTML = matches.map((c) => `
           <a href="${escapeHtml(resolveAssetUrl(`html/visa-services.html?country=${encodeURIComponent(c.country_id)}`))}" class="search-result-item">
-            <span class="flag" aria-hidden="true">${c.flag_emoji}</span>
+            <img class="search-result-item__thumb" aria-hidden="true" alt=""
+                 src="${escapeHtml(resolveAssetUrl(`images/destinations/${c.country_id}.jpg`))}"
+                 width="34" height="34" loading="lazy"
+                 onerror="this.style.display='none';">
             <span class="search-result-item__info">
               <span class="search-result-item__name">${escapeHtml(c.country_name)}</span>
               <span class="search-result-item__type">${escapeHtml(c.visa_type)}</span>

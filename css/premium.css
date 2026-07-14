@@ -482,14 +482,17 @@ body.home-page footer {
 .search-form__input {
   flex: 1;
   padding: 14px 20px;
-  background: rgba(255,255,255,0.10) !important;
+  /* Solid white with dark text so typed text is readable over the bright
+     hero photo in BOTH themes */
+  background: rgba(255,255,255,0.97) !important;
   border: none !important;
-  color: #FFFFFF !important;
+  color: #0D1B4B !important;
   font-size: 0.95rem;
   border-radius: 0 !important;
   outline: none;
+  caret-color: #1B3A8C;
 }
-.search-form__input::placeholder { color: rgba(255,255,255,0.45) !important; }
+.search-form__input::placeholder { color: rgba(13,27,75,0.45) !important; }
 .search-form__btn {
   padding: 14px 22px;
   border-radius: 0 !important;
@@ -1700,3 +1703,15 @@ strong, b { color: inherit; }
 .why-us__art--photo::after {
   background: linear-gradient(180deg, rgba(9,18,58,0.05) 0%, transparent 40%, rgba(9,18,58,0.28) 100%);
 }
+
+/* Search result thumbs (flag emojis render as letters on Windows) */
+.search-result-item__thumb {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid rgba(201,163,42,0.45);
+}
+[data-theme="dark"] .search-result-item__name { color: var(--t-text) !important; }
+[data-theme="dark"] .search-result-item__type { color: var(--t-text-muted) !important; }
