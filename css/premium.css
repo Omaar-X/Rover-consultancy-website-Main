@@ -1686,3 +1686,17 @@ strong, b { color: inherit; }
 }
 .content-panel p, .content-panel li { color: var(--t-text-secondary); }
 .form-success-box__title { color: var(--t-text) !important; }
+
+/* Why-us: real photo variant */
+.why-us__art--photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.22,1,0.36,1);
+}
+.why-us__art--photo:hover img { transform: scale(1.05); }
+.why-us__art--photo::after {
+  background: linear-gradient(180deg, rgba(9,18,58,0.05) 0%, transparent 40%, rgba(9,18,58,0.28) 100%);
+}
