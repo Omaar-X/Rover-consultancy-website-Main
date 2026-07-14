@@ -1395,3 +1395,170 @@ body.home-page footer {
   gap: 8px;
   margin-top: 12px;
 }
+
+/* ─── SERVICE PAGES 2.0 — Tours / Hotels / Air Tickets ───────────────────── */
+
+/* Photo banners (local destination photos, no network dependency) */
+.page-banner--tours {
+  background:
+    linear-gradient(100deg, rgba(7,16,58,0.92) 0%, rgba(23,48,120,0.66) 55%, rgba(7,16,58,0.40) 100%),
+    url('../images/destinations/maldives.jpg') center 55% / cover no-repeat,
+    #07103A !important;
+}
+.page-banner--hotels {
+  background:
+    linear-gradient(100deg, rgba(7,16,58,0.92) 0%, rgba(23,48,120,0.66) 55%, rgba(7,16,58,0.40) 100%),
+    url('../images/destinations/uae.jpg') center 40% / cover no-repeat,
+    #07103A !important;
+}
+.page-banner--air {
+  background:
+    linear-gradient(100deg, rgba(7,16,58,0.92) 0%, rgba(23,48,120,0.66) 55%, rgba(7,16,58,0.40) 100%),
+    url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=75') center 45% / cover no-repeat,
+    #07103A !important;
+}
+
+/* Banner subtitle must stay readable on photo banners in BOTH themes */
+.page-banner .section-subtitle,
+.page-banner__lead {
+  max-width: 760px;
+  color: rgba(255,255,255,0.92) !important;
+  text-shadow: 0 1px 8px rgba(4,8,24,0.55);
+}
+.page-banner .section-note { color: #F4D56A !important; }
+
+/* Tour / stay photo cards */
+.tour-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.tour-grid--4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 1024px) { .tour-grid, .tour-grid--4 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px)  { .tour-grid, .tour-grid--4 { grid-template-columns: 1fr; } }
+
+.tour-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--t-surface);
+  border: 1px solid var(--t-border);
+  box-shadow: var(--t-card-shadow);
+  transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s, border-color 0.35s;
+}
+.tour-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--t-card-shadow-hover);
+  border-color: rgba(201,163,42,0.35);
+}
+.tour-card__media {
+  position: relative;
+  height: 190px;
+  overflow: hidden;
+}
+.tour-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
+}
+.tour-card:hover .tour-card__media img { transform: scale(1.07); }
+.tour-card__badge { position: absolute; top: 14px; left: 14px; }
+.tour-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 22px;
+  flex: 1;
+}
+.tour-card__title { color: var(--t-text); font-size: 1.22rem; margin: 0; }
+.tour-card__desc  { color: var(--t-text-secondary); font-size: 0.92rem; line-height: 1.65; margin: 0; }
+.tour-card__meta  { color: var(--t-text-muted); font-size: 0.8rem; letter-spacing: 0.02em; }
+.tour-card__cta   { margin-top: auto; align-self: flex-start; }
+
+/* Route cards (air tickets + hotel styles) */
+.route-grid { display: grid; gap: 16px; }
+.route-grid--wide { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+@media (max-width: 900px) { .route-grid--wide { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .route-grid--wide { grid-template-columns: 1fr; } }
+
+.route-card {
+  background: var(--t-surface) !important;
+  border: 1px solid var(--t-border) !important;
+  border-radius: 16px !important;
+  padding: 20px !important;
+  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s, border-color 0.3s;
+}
+.route-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--t-card-shadow-hover);
+  border-color: rgba(201,163,42,0.35) !important;
+}
+.route-card__route {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-weight: 700;
+  font-size: 1.02rem;
+  color: var(--t-text) !important;
+  margin-bottom: 10px;
+}
+.route-card__plane { color: var(--t-gold); flex-shrink: 0; }
+.route-card__badge { margin-bottom: 10px; display: inline-flex; }
+.route-card p { margin: 0; font-size: 0.9rem; line-height: 1.6; }
+
+/* How-it-works step strip */
+.step-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 900px) { .step-strip { grid-template-columns: 1fr; } }
+.step-card {
+  background: var(--t-surface);
+  border: 1px solid var(--t-border);
+  border-radius: 18px;
+  padding: 28px 26px;
+  box-shadow: var(--t-card-shadow);
+}
+.step-card__num {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1B3A8C, #C9A32A);
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.15rem;
+  margin-bottom: 16px;
+}
+.step-card h3 { color: var(--t-text); font-size: 1.12rem; margin: 0 0 8px; }
+.step-card p  { color: var(--t-text-secondary); font-size: 0.92rem; line-height: 1.65; margin: 0; }
+
+/* Aside callout */
+.panel-callout {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba(201,163,42,0.10);
+  border: 1px solid rgba(201,163,42,0.28);
+  color: var(--t-text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.panel-callout strong { color: var(--t-gold); }
+
+/* Theme text safety — make sure copy reads in BOTH modes */
+.content-panel .panel-heading { color: var(--t-text) !important; }
+.content-panel .feature-list li,
+.content-panel p.text-secondary,
+.route-card .text-secondary { color: var(--t-text-secondary) !important; }
+.pill {
+  background: var(--t-surface-subtle) !important;
+  color: var(--t-text-secondary) !important;
+  border: 1px solid var(--t-border) !important;
+}
