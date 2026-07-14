@@ -199,7 +199,7 @@
           <span class="section-note">50+ destinations worldwide</span>
           <h1 class="page-banner__title text-display-2" data-visa-page-title>Visa services for 50+ countries</h1>
           <p class="section-subtitle" data-visa-page-subtitle style="max-width: 780px; color: rgba(255,255,255,0.82);">
-            Search by country, region, or visa type to see fees, processing times, and complete document checklists.
+            Explore fees, processing times, and complete document checklists for every destination we support.
           </p>
         </div>
       </div>
@@ -208,89 +208,14 @@
     <section class="section section--white">
       <div class="container">
         <div class="visa-shell content-panel reveal">
-          <div class="visa-toolbar" aria-label="Visa filters">
-            <div class="form-group visa-toolbar__field visa-toolbar__field--search">
-              <label for="visaSearch" class="form-label">Search countries</label>
-              <input id="visaSearch" type="search" class="form-control" placeholder="Try Thailand, UK, Australia..." autocomplete="off" data-visa-search>
-            </div>
-
-            <div class="form-group visa-toolbar__field">
-              <label for="visaRegionFilter" class="form-label">Region</label>
-              <select id="visaRegionFilter" class="form-control" data-visa-region>
-                <option value="all">All regions</option>
-              </select>
-            </div>
-
-            <div class="form-group visa-toolbar__field">
-              <label for="visaTypeFilter" class="form-label">Visa type</label>
-              <select id="visaTypeFilter" class="form-control" data-visa-type>
-                <option value="all">All visa types</option>
-              </select>
-            </div>
-
-            <div class="form-group visa-toolbar__field">
-              <label for="visaFeaturedFilter" class="form-label">Featured</label>
-              <select id="visaFeaturedFilter" class="form-control" data-visa-featured>
-                <option value="all">All countries</option>
-                <option value="featured">Featured only</option>
-                <option value="not_featured">Not featured</option>
-              </select>
-            </div>
-
-            <div class="form-group visa-toolbar__field">
-              <label for="visaSort" class="form-label">Sort</label>
-              <select id="visaSort" class="form-control" data-visa-sort>
-                <option value="recommended">Recommended</option>
-                <option value="price-asc">Price: Low to High</option>
-                <option value="price-desc">Price: High to Low</option>
-                <option value="alphabetical-asc">Alphabetical: A to Z</option>
-                <option value="alphabetical-desc">Alphabetical: Z to A</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="visa-summary-strip" aria-live="polite">
-            <div class="visa-summary-strip__item">
-              <span class="visa-summary-strip__label">Countries</span>
-              <strong class="visa-summary-strip__value" data-visa-total>0</strong>
-            </div>
-            <div class="visa-summary-strip__item">
-              <span class="visa-summary-strip__label">Active</span>
-              <strong class="visa-summary-strip__value" data-visa-active>0</strong>
-            </div>
-            <div class="visa-summary-strip__item">
-              <span class="visa-summary-strip__label">Coming soon</span>
-              <strong class="visa-summary-strip__value" data-visa-coming-soon>0</strong>
-            </div>
-            <div class="visa-summary-strip__item visa-summary-strip__item--wide">
-              <span class="visa-summary-strip__label">Results</span>
-              <strong class="visa-summary-strip__value" data-visa-results>Loading country data...</strong>
-            </div>
-          </div>
-
           <div class="visa-loading-state" data-visa-loading>
             <div class="content-panel" style="text-align:center;">
-              <h2 class="panel-heading">Loading visa catalog</h2>
-              <p class="panel-subheading" style="max-width: 680px; margin-inline:auto;">We are preparing the latest country data, pricing, processing times, and document checklists from the shared catalog.</p>
-              <div class="visa-summary-strip" style="margin-top: var(--sp-6);">
-                <div class="visa-summary-strip__item"><span class="visa-summary-strip__label">Status</span><strong class="visa-summary-strip__value">Syncing</strong></div>
-                <div class="visa-summary-strip__item"><span class="visa-summary-strip__label">Source</span><strong class="visa-summary-strip__value">countries.json</strong></div>
-                <div class="visa-summary-strip__item visa-summary-strip__item--wide"><span class="visa-summary-strip__label">Please wait</span><strong class="visa-summary-strip__value">Preparing country profiles</strong></div>
-              </div>
+              <h2 class="panel-heading">Loading destinations…</h2>
+              <p class="panel-subheading" style="max-width: 680px; margin-inline:auto;">Preparing the latest pricing, processing times, and document checklists for you.</p>
             </div>
           </div>
 
           <div class="visa-list-view" data-visa-list-view hidden>
-            <section class="content-panel visa-all-details-section reveal" data-visa-all-details-section hidden>
-              <div class="visa-section-heading">
-                <div>
-                  <h2 class="panel-heading">All country visa checklist details</h2>
-                  <p class="panel-subheading">Open any country to see visa fee, processing time, photo requirements, bank balance guidance, and profession-based checklist details.</p>
-                </div>
-                <span class="visa-all-details-count" data-visa-all-details-count>0 countries</span>
-              </div>
-              <div class="visa-all-details-grid" data-visa-all-details-grid></div>
-            </section>
             <section class="content-panel visa-featured-section reveal" data-visa-featured-section>
               <div class="visa-section-heading">
                 <div>
@@ -301,6 +226,16 @@
               <div class="visa-grid visa-grid--featured" data-visa-featured-grid aria-live="polite"></div>
             </section>
             <div class="visa-grid" data-visa-grid aria-live="polite"></div>
+            <section class="content-panel visa-all-details-section reveal" data-visa-all-details-section hidden>
+              <div class="visa-section-heading">
+                <div>
+                  <h2 class="panel-heading">All country visa checklist details</h2>
+                  <p class="panel-subheading">Open any country to see visa fee, processing time, photo requirements, bank balance guidance, and profession-based checklist details.</p>
+                </div>
+                <span class="visa-all-details-count" data-visa-all-details-count>0 countries</span>
+              </div>
+              <div class="visa-all-details-grid" data-visa-all-details-grid></div>
+            </section>
             <div class="visa-empty-state hidden" data-visa-empty>
               <h2>No countries match your filters</h2>
               <p>Try clearing the search term or changing the region and visa type filters.</p>

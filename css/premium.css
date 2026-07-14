@@ -1173,11 +1173,11 @@ body.home-page footer {
 
 /* ─── VISA PAGE 2.0 — MODERN FACELIFT ────────────────────────────────────── */
 
-/* Banner: airport photo layered under the navy gradient */
+/* Banner: airplane photo layered under the navy gradient */
 .page-banner--visa {
   background:
-    linear-gradient(100deg, rgba(7,16,58,0.94) 0%, rgba(23,48,120,0.78) 55%, rgba(7,16,58,0.55) 100%),
-    url('https://images.unsplash.com/photo-1488085061387-422e29b40080?auto=format&fit=crop&w=1600&q=70') center 45% / cover no-repeat,
+    linear-gradient(100deg, rgba(7,16,58,0.92) 0%, rgba(23,48,120,0.66) 55%, rgba(7,16,58,0.38) 100%),
+    url('https://images.unsplash.com/photo-1556388158-158ea5ccacbd?auto=format&fit=crop&w=1600&q=75') center 55% / cover no-repeat,
     #07103A !important;
 }
 

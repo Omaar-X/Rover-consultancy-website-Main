@@ -446,7 +446,7 @@
     if (subtitleEl) {
       subtitleEl.textContent = isDetail
         ? `Complete ${country.country_name} visa guidance — fees, processing time, required documents, and expert application support.`
-        : 'Search by country, region, or visa type to see fees, processing times, and complete document checklists.';
+        : 'Explore fees, processing times, and complete document checklists for every destination we support.';
     }
     if (breadcrumbCurrentEl) {
       breadcrumbCurrentEl.textContent = isDetail ? country.country_name : 'All Countries';
