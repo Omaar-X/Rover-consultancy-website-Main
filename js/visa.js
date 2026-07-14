@@ -160,9 +160,11 @@
 
   function getDefaultServiceCharge(visaType) {
     const map = {
-      'e-visa': '8,000 BDT',
-      'electronic visa': '3,000 BDT',
-      'sticker visa': '8,000 BDT'
+      tourist: '8,000 BDT',
+      business: '8,000 BDT',
+      medical: '8,000 BDT',
+      family: '8,000 BDT',
+      transit: '5,000 BDT'
     };
     return map[norm(visaType)] || '8,000 BDT';
   }
@@ -251,9 +253,20 @@
 
   function getVisaTypeBadgeClass(visaType) {
     const key = norm(visaType);
-    if (key.includes('sticker')) return 'badge-sticker';
-    if (key.includes('electronic')) return 'badge-electronic';
-    return 'badge-evisa';
+    if (key.includes('business')) return 'badge-business';
+    if (key.includes('medical')) return 'badge-medical';
+    if (key.includes('transit')) return 'badge-transit';
+    if (key.includes('family')) return 'badge-family';
+    return 'badge-tourist';
+  }
+
+  function renderCategoryBadges(country) {
+    const categories = Array.isArray(country.visa_categories) && country.visa_categories.length
+      ? country.visa_categories
+      : [country.visa_type];
+    return categories
+      .map((category) => `<span class="badge ${getVisaTypeBadgeClass(category)}">${escapeHtml(category)}</span>`)
+      .join('');
   }
 
   function parseNumbers(text) {
@@ -359,7 +372,10 @@
       country_name: country.country_name || slugToTitle(slug),
       continent: country.continent || 'Asia',
       flag_emoji: country.flag_emoji || '🏳️',
-      visa_type: country.visa_type || 'E-Visa',
+      visa_type: country.visa_type || 'Tourist',
+      visa_categories: Array.isArray(country.visa_categories) && country.visa_categories.length
+        ? country.visa_categories
+        : ['Tourist', 'Business', 'Family'],
       status: norm(country.status) || 'active',
       processing_days: country.processing_days || 'Contact us',
       image_url: country.image_url || getCountryImageUrl(slug),
@@ -708,7 +724,7 @@
         <div class="visa-featured-card__body">
           <div class="visa-featured-card__topline">
             ${renderStatusBadge(country.status)}
-            ${renderVisaTypeBadge(country.visa_type)}
+            ${renderCategoryBadges(country)}
           </div>
           <h3 class="visa-featured-card__title">${escapeHtml(country.country_name)}</h3>
           <p class="visa-featured-card__meta">${escapeHtml(country.continent)} • ${escapeHtml(formatWorkingDays(country.processing_days))}</p>
@@ -739,7 +755,7 @@
           <div class="visa-card__overlay"></div>
           <div class="visa-card__topline">
             ${renderStatusBadge(country.status)}
-            ${renderVisaTypeBadge(country.visa_type)}
+            ${renderCategoryBadges(country)}
             ${featuredBadge}
           </div>
           <div class="visa-card__copy">
@@ -1285,7 +1301,7 @@
           </div>
           <div class="visa-country-detail__topline">
             ${renderStatusBadge(country.status)}
-            ${renderVisaTypeBadge(country.visa_type)}
+            ${renderCategoryBadges(country)}
             ${country.featured ? '<span class="badge badge-gold-solid">Featured</span>' : ''}
           </div>
           <div class="visa-country-detail__info-grid">
@@ -1429,6 +1445,9 @@
     setText('[data-visa-detail-photo]', country.photo_specs);
     setText('[data-visa-detail-bank]', country.bank_balance);
     setText('[data-visa-detail-notes]', country.special_notes);
+
+    const categoriesEl = qs('[data-visa-detail-categories]');
+    if (categoriesEl) categoriesEl.innerHTML = renderCategoryBadges(country);
 
     // Flag emojis render as bare letters on Windows, so show a circular
     // country photo in the hero instead.

@@ -560,11 +560,13 @@
 
   function visaTypeBadge(type) {
     const map = {
-      'E-Visa': 'badge-evisa',
-      'Sticker Visa': 'badge-sticker',
-      'Electronic Visa': 'badge-electronic'
+      Tourist: 'badge-tourist',
+      Business: 'badge-business',
+      Medical: 'badge-medical',
+      Transit: 'badge-transit',
+      Family: 'badge-family'
     };
-    const cls = map[type] || 'badge-evisa';
+    const cls = map[type] || 'badge-tourist';
     return `<span class="badge ${cls}">${escapeHtml(type)}</span>`;
   }
 

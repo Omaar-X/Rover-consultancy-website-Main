@@ -1375,3 +1375,23 @@ body.home-page footer {
   border: 2px solid rgba(244,213,106,0.55);
   box-shadow: 0 4px 10px rgba(0,0,0,0.30);
 }
+
+/* ─── VISA CATEGORY BADGES — Tourist / Business / Medical / Transit / Family ─ */
+.badge-tourist  { background: rgba(27,58,140,0.10);  color: #1B3A8C; border: 1px solid rgba(27,58,140,0.22); }
+.badge-business { background: rgba(13,27,75,0.10);   color: #0D1B4B; border: 1px solid rgba(13,27,75,0.24); }
+.badge-medical  { background: rgba(22,130,93,0.12);  color: #16825D; border: 1px solid rgba(22,130,93,0.26); }
+.badge-transit  { background: rgba(109,74,196,0.12); color: #6D4AC4; border: 1px solid rgba(109,74,196,0.26); }
+.badge-family   { background: rgba(201,163,42,0.14); color: #8A6D14; border: 1px solid rgba(201,163,42,0.32); }
+
+[data-theme="dark"] .badge-tourist  { background: rgba(96,144,240,0.16); color: #9DB8F5; border-color: rgba(96,144,240,0.30); }
+[data-theme="dark"] .badge-business { background: rgba(160,176,216,0.14); color: #C4D0EE; border-color: rgba(160,176,216,0.28); }
+[data-theme="dark"] .badge-medical  { background: rgba(63,185,140,0.14); color: #7BDDB6; border-color: rgba(63,185,140,0.30); }
+[data-theme="dark"] .badge-transit  { background: rgba(150,120,230,0.16); color: #C0A8F5; border-color: rgba(150,120,230,0.30); }
+[data-theme="dark"] .badge-family   { background: rgba(232,200,74,0.14);  color: #EFD786; border-color: rgba(232,200,74,0.30); }
+
+.visa-detail-hero__categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
