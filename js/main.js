@@ -318,6 +318,60 @@
   }
 
   /* ============================================================================
+     6B2. HERO HEADLINE TYPEWRITER
+     Rotates the gold accent word ("Confidence" → "Ease" → ...) with a
+     type-and-delete effect. Static text remains for no-JS / reduced motion.
+  ============================================================================ */
+
+  function initHeroWordRotator() {
+    const el = qs('[data-rotate-words]');
+    if (!el) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    let words;
+    try {
+      words = JSON.parse(el.getAttribute('data-rotate-words'));
+    } catch (error) {
+      return;
+    }
+    if (!Array.isArray(words) || words.length < 2) return;
+
+    el.classList.add('is-typing');
+
+    let wordIndex = 0;
+    let charIndex = words[0].length;
+    let deleting = true;
+
+    const tick = () => {
+      const word = words[wordIndex];
+
+      if (deleting) {
+        charIndex -= 1;
+        el.textContent = word.slice(0, Math.max(charIndex, 1)); // keep 1 char so the line never collapses
+        if (charIndex <= 1) {
+          deleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+          setTimeout(tick, 380);
+          return;
+        }
+        setTimeout(tick, 45);
+      } else {
+        const next = words[wordIndex];
+        charIndex += 1;
+        el.textContent = next.slice(0, charIndex);
+        if (charIndex >= next.length) {
+          deleting = true;
+          setTimeout(tick, 2600); // hold the full word
+          return;
+        }
+        setTimeout(tick, 90);
+      }
+    };
+
+    setTimeout(tick, 2600);
+  }
+
+  /* ============================================================================
      6C. PAGE NAV / HERO TWEAKS
   ============================================================================ */
 
@@ -913,6 +967,7 @@
     initFloatingButtons();
     initScrollReveal();
     initHeroParticles();
+    initHeroWordRotator();
     initPageTweaks();
     initInquiryForms();
     initNewsletterForms();
