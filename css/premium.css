@@ -1609,3 +1609,80 @@ body.home-page footer {
 .hero-visual-card--orbit { z-index: 1; }
 /* UK pin sat in the overlap corner — move it to the orbit's lower right */
 .hero-visual-pin--2 { right: -8px; top: auto; bottom: 96px; }
+
+/* ─── HERO VISUAL 3.0 — premium animation pass ───────────────────────────── */
+
+/* Replace the rotated gray glass plate with soft breathing glow blobs */
+.hero__visual::before {
+  inset: 4%;
+  background:
+    radial-gradient(circle at 28% 28%, rgba(201,163,42,0.30) 0%, transparent 45%),
+    radial-gradient(circle at 72% 70%, rgba(74,122,232,0.34) 0%, transparent 50%);
+  border: none;
+  border-radius: 48px;
+  box-shadow: none;
+  backdrop-filter: none;
+  transform: none;
+  filter: blur(34px);
+  animation: heroGlow 9s ease-in-out infinite alternate;
+}
+@keyframes heroGlow {
+  from { opacity: 0.65; transform: scale(0.96); }
+  to   { opacity: 1;    transform: scale(1.05); }
+}
+
+/* Gold sheen sweeping across the stats card every few seconds */
+.hero-visual-card--main::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 32%, rgba(255,255,255,0.10) 48%, rgba(244,213,106,0.12) 52%, transparent 68%);
+  transform: translateX(-120%);
+  animation: cardSheen 7s ease-in-out infinite;
+}
+@keyframes cardSheen {
+  0%, 55%   { transform: translateX(-120%); }
+  80%, 100% { transform: translateX(120%); }
+}
+
+/* Gold ring pulse on the stat values */
+.hero-visual-card__meta div {
+  transition: background 0.3s, transform 0.3s;
+}
+.hero-visual-card__meta div:hover {
+  background: rgba(244,213,106,0.12);
+  transform: translateY(-2px);
+}
+
+/* Tighter composition — less dead space above/below the cards */
+.hero { min-height: min(100svh, 920px); }
+.hero__content { padding: 116px 0 72px; }
+.hero__visual { min-height: 600px; }
+.hero-visual-card--main { animation-duration: 8s; }
+.hero-visual-card--orbit { animation-duration: 11s; }
+
+/* ─── GLOBAL THEME TEXT SAFETY — every page, both modes ──────────────────── */
+.text-secondary { color: var(--t-text-secondary) !important; }
+.form-label { color: var(--t-text) !important; }
+.section-header h2, .panel-heading { color: var(--t-text) !important; }
+.section-subtitle, .panel-subheading { color: var(--t-text-secondary) !important; }
+strong, b { color: inherit; }
+
+/* Banner/breadcrumb text always sits on navy photo banners → keep white */
+.page-banner .breadcrumbs a { color: rgba(255,255,255,0.75) !important; }
+.page-banner .breadcrumbs .current { color: #FFFFFF !important; }
+.page-banner .breadcrumbs .sep { color: rgba(255,255,255,0.45) !important; }
+.page-banner__title { color: #FFFFFF !important; }
+
+/* Dark-navy panels that never change theme keep white copy */
+.cta-banner__title { color: #FFFFFF !important; }
+.cta-banner__subtitle { color: rgba(255,255,255,0.80) !important; }
+
+/* Cards and panels inherit surface/text vars in both themes */
+.content-panel, .contact-form-card {
+  background: var(--t-surface) !important;
+  border-color: var(--t-border) !important;
+}
+.content-panel p, .content-panel li { color: var(--t-text-secondary); }
+.form-success-box__title { color: var(--t-text) !important; }
