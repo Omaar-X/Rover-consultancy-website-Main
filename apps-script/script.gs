@@ -2,9 +2,12 @@
  * =============================================================================
  * ROVER CONSULTANCY SERVICES — Google Apps Script Backend
  * =============================================================================
- * Handles inquiry (contact) form submissions and newsletter signups from the
- * static website. Saves every submission to a Google Sheet, emails the office
- * a notification, and sends the customer an auto-reply with a reference number.
+ * Handles inquiry (contact) form submissions and newsletter signups from
+ * EVERY page on the static website (Home, Contact Us, Hotel Booking, Air
+ * Tickets, Hajj, Umrah — anywhere a `data-form="inquiry"` form exists).
+ * Saves every submission to a Google Sheet (color-coded by service so the
+ * sheet is easy to scan at a glance), emails the office a notification, and
+ * sends the customer an auto-reply with a reference number.
  *
  * ── DEPLOY KORAR NIYOM (one time) ────────────────────────────────────────────
  *  1. https://sheets.new — ekta notun Google Sheet banan (nam: "Rover Website Data").
@@ -38,7 +41,66 @@ var CONFIG = {
 
   // Sheet tab names.
   INQUIRY_SHEET: 'Inquiries',
-  NEWSLETTER_SHEET: 'Newsletter'
+  NEWSLETTER_SHEET: 'Newsletter',
+
+  // Header row styling (matches the site's brand navy).
+  HEADER_BG: '#1B3A8C',
+  HEADER_FONT_COLOR: '#FFFFFF',
+
+  // Row background color per service category — this is what makes the
+  // sheet "colorful": every inquiry lands in a tinted row based on which
+  // service/page it came from, so staff can scan the sheet at a glance.
+  CATEGORY_COLORS: {
+    visa:    '#D6E9FF',
+    tour:    '#DAF2DE',
+    air:     '#EADDF7',
+    hotel:   '#D3F3F5',
+    hajj:    '#FCEFC7',
+    umrah:   '#FBDCE7',
+    general: '#E9EBEF'
+  },
+
+  // Friendly labels shown in the "Category" column.
+  CATEGORY_LABELS: {
+    visa:    'Visa Services',
+    tour:    'Tour Packages',
+    air:     'Air Tickets',
+    hotel:   'Hotel Booking',
+    hajj:    'Hajj',
+    umrah:   'Umrah',
+    general: 'General Inquiry'
+  },
+
+  // Soft zebra striping for the Newsletter sheet (no category there).
+  NEWSLETTER_ROW_COLORS: ['#FFFFFF', '#E9F1FF']
+};
+
+// Which page a submission came from → friendly label + default category.
+// Checked in order, so more specific paths (hotel-booking) must come before
+// generic fallbacks (home "/").
+var PAGE_MAP = [
+  { test: /hotel-booking/i,        label: 'Hotel Booking', category: 'hotel' },
+  { test: /air-tickets/i,          label: 'Air Tickets',   category: 'air' },
+  { test: /tour-packages/i,        label: 'Tour Packages', category: 'tour' },
+  { test: /hajj/i,                 label: 'Hajj',          category: 'hajj' },
+  { test: /umrah/i,                label: 'Umrah',         category: 'umrah' },
+  { test: /visa-services/i,        label: 'Visa Services', category: 'visa' },
+  { test: /contact-us/i,           label: 'Contact Us',    category: null }, // category comes from the "service" field
+  { test: /about-us/i,             label: 'About Us',      category: 'general' },
+  { test: /blog/i,                 label: 'Blog',          category: 'general' },
+  { test: /(^\/?$|index\.html)/i,  label: 'Home',           category: null } // category comes from the "service" field
+];
+
+// Fallback when a page's form doesn't set its own fixed category (Home /
+// Contact Us offer a full service dropdown) — keyed by the form's "service" value.
+var SERVICE_CATEGORY_MAP = {
+  visa: 'visa',
+  tour: 'tour',
+  'air-ticket': 'air',
+  hotel: 'hotel',
+  hajj: 'hajj',
+  umrah: 'umrah',
+  general: 'general'
 };
 
 /* ─── ENTRY POINTS ─────────────────────────────────────────────────────────── */
@@ -56,7 +118,8 @@ function doGet() {
 
 /**
  * Website theke POST asha request handle kore.
- * Frontend FormData pathay (action=submitInquiry | subscribeNewsletter).
+ * Frontend FormData pathay (action=submitInquiry | subscribeNewsletter),
+ * je form-e submit hoyeche shei page-er path-o thake (params.page).
  */
 function doPost(e) {
   var lock = LockService.getScriptLock();
@@ -77,7 +140,7 @@ function doPost(e) {
   }
 }
 
-/* ─── INQUIRY (CONTACT FORM) ───────────────────────────────────────────────── */
+/* ─── INQUIRY (CONTACT FORM — used by every page's inquiry form) ───────────── */
 
 function handleInquiry(params) {
   var name = clean(params.name);
@@ -96,29 +159,35 @@ function handleInquiry(params) {
     return jsonResponse({ ok: false, error: 'Invalid email address.' });
   }
 
+  var pageInfo = resolvePageInfo(page, service);
   var ref = generateRef();
   var sheet = getSheet(CONFIG.INQUIRY_SHEET, [
     'Timestamp', 'Reference', 'Name', 'Email', 'Phone',
-    'Service', 'Country', 'Preferred Contact', 'Message', 'Source Page'
+    'Service', 'Category', 'Country', 'Preferred Contact', 'Message', 'Page'
   ]);
 
   sheet.appendRow([
-    new Date(), ref, name, email, phone, service, country, contactMethod, message, page
+    new Date(), ref, name, email, phone, service,
+    CONFIG.CATEGORY_LABELS[pageInfo.category] || pageInfo.category,
+    country, contactMethod, message, pageInfo.label
   ]);
+
+  colorizeRow(sheet, sheet.getLastRow(), 11, CONFIG.CATEGORY_COLORS[pageInfo.category] || CONFIG.CATEGORY_COLORS.general);
 
   // Office notification
   safeSendEmail(
     CONFIG.NOTIFY_EMAIL,
-    '[' + ref + '] New website inquiry — ' + name + ' (' + service + ')',
+    '[' + ref + '] New website inquiry — ' + name + ' (' + (CONFIG.CATEGORY_LABELS[pageInfo.category] || service) + ')',
     'New inquiry from the website:\n\n' +
     'Reference : ' + ref + '\n' +
     'Name      : ' + name + '\n' +
     'Email     : ' + email + '\n' +
     'Phone     : ' + (phone || '-') + '\n' +
     'Service   : ' + service + '\n' +
+    'Category  : ' + (CONFIG.CATEGORY_LABELS[pageInfo.category] || pageInfo.category) + '\n' +
     'Country   : ' + (country || '-') + '\n' +
     'Contact   : ' + (contactMethod || '-') + '\n' +
-    'Page      : ' + (page || '-') + '\n\n' +
+    'Page      : ' + pageInfo.label + '\n\n' +
     'Message:\n' + (message || '-') + '\n'
   );
 
@@ -141,7 +210,7 @@ function handleInquiry(params) {
   return jsonResponse({ ok: true, ref: ref });
 }
 
-/* ─── NEWSLETTER ───────────────────────────────────────────────────────────── */
+/* ─── NEWSLETTER (footer form — present on every page) ─────────────────────── */
 
 function handleNewsletter(params) {
   var email = clean(params.email);
@@ -149,7 +218,9 @@ function handleNewsletter(params) {
     return jsonResponse({ ok: false, error: 'Invalid email address.' });
   }
 
-  var sheet = getSheet(CONFIG.NEWSLETTER_SHEET, ['Timestamp', 'Email', 'Source Page']);
+  var page = clean(params.page);
+  var pageInfo = resolvePageInfo(page, '');
+  var sheet = getSheet(CONFIG.NEWSLETTER_SHEET, ['Timestamp', 'Email', 'Page']);
 
   // Duplicate check — same email dubara add hobe na.
   var emails = sheet.getRange(1, 2, sheet.getLastRow() || 1, 1).getValues();
@@ -159,11 +230,40 @@ function handleNewsletter(params) {
     }
   }
 
-  sheet.appendRow([new Date(), email, clean(params.page)]);
+  sheet.appendRow([new Date(), email, pageInfo.label]);
+
+  var rowIndex = sheet.getLastRow();
+  var stripeColor = CONFIG.NEWSLETTER_ROW_COLORS[rowIndex % CONFIG.NEWSLETTER_ROW_COLORS.length];
+  colorizeRow(sheet, rowIndex, 3, stripeColor);
+
   return jsonResponse({ ok: true });
 }
 
 /* ─── HELPERS ──────────────────────────────────────────────────────────────── */
+
+// Figures out which page an inquiry came from (friendly label) and which
+// service category it belongs to (for row coloring). Pages with a fixed
+// single-service form (Hotel Booking, Air Tickets, Hajj, Umrah, Visa
+// Services) get their category from the page itself; pages with a full
+// service dropdown (Home, Contact Us) get it from the submitted "service" field.
+function resolvePageInfo(pagePath, service) {
+  var path = String(pagePath || '').toLowerCase();
+  var match = null;
+
+  for (var i = 0; i < PAGE_MAP.length; i++) {
+    if (PAGE_MAP[i].test.test(path)) {
+      match = PAGE_MAP[i];
+      break;
+    }
+  }
+
+  var label = match ? match.label : (pagePath || 'Website');
+  var category = (match && match.category)
+    || SERVICE_CATEGORY_MAP[String(service || '').toLowerCase()]
+    || 'general';
+
+  return { label: label, category: category };
+}
 
 function getSpreadsheet() {
   if (CONFIG.SHEET_ID) {
@@ -182,10 +282,26 @@ function getSheet(name, headers) {
   if (!sheet) {
     sheet = ss.insertSheet(name);
     sheet.appendRow(headers);
-    sheet.getRange(1, 1, 1, headers.length).setFontWeight('bold');
+    sheet.getRange(1, 1, 1, headers.length)
+      .setFontWeight('bold')
+      .setBackground(CONFIG.HEADER_BG)
+      .setFontColor(CONFIG.HEADER_FONT_COLOR)
+      .setHorizontalAlignment('center')
+      .setVerticalAlignment('middle');
     sheet.setFrozenRows(1);
+    sheet.setRowHeight(1, 32);
+    sheet.autoResizeColumns(1, headers.length);
   }
   return sheet;
+}
+
+// Paints an entire row (columns 1..lastCol) a solid background color and
+// gives it a thin border — this is what keeps the sheet visually color-coded
+// as new inquiries/newsletter signups come in.
+function colorizeRow(sheet, rowIndex, lastCol, color) {
+  var range = sheet.getRange(rowIndex, 1, 1, lastCol);
+  range.setBackground(color).setBorder(true, true, true, true, false, false, '#C7CCD6', SpreadsheetApp.BorderStyle.SOLID);
+  sheet.getRange(rowIndex, 2).setFontWeight('bold'); // Reference / Email column stands out
 }
 
 function generateRef() {
