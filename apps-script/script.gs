@@ -86,6 +86,7 @@ function handleInquiry(params) {
   var service = clean(params.service) || 'general';
   var country = clean(params.country);
   var message = clean(params.message);
+  var contactMethod = clean(params.source);   // "Preferred Contact Method" select on hotel/air/contact forms
   var page = clean(params.page);
 
   if (!name || !email) {
@@ -98,11 +99,11 @@ function handleInquiry(params) {
   var ref = generateRef();
   var sheet = getSheet(CONFIG.INQUIRY_SHEET, [
     'Timestamp', 'Reference', 'Name', 'Email', 'Phone',
-    'Service', 'Country', 'Message', 'Source Page'
+    'Service', 'Country', 'Preferred Contact', 'Message', 'Source Page'
   ]);
 
   sheet.appendRow([
-    new Date(), ref, name, email, phone, service, country, message, page
+    new Date(), ref, name, email, phone, service, country, contactMethod, message, page
   ]);
 
   // Office notification
@@ -116,6 +117,7 @@ function handleInquiry(params) {
     'Phone     : ' + (phone || '-') + '\n' +
     'Service   : ' + service + '\n' +
     'Country   : ' + (country || '-') + '\n' +
+    'Contact   : ' + (contactMethod || '-') + '\n' +
     'Page      : ' + (page || '-') + '\n\n' +
     'Message:\n' + (message || '-') + '\n'
   );

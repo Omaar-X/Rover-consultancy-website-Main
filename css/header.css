@@ -21,7 +21,7 @@
     box-shadow var(--transition-base),
     backdrop-filter var(--transition-base);
   background: linear-gradient(180deg, rgba(4,8,24,0.60) 0%, rgba(4,8,24,0.18) 100%);
-  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
@@ -29,7 +29,7 @@
 /* Scrolled state — refined glass with dark polish */
 .site-header.scrolled {
   background: rgba(6, 11, 28, 0.88);
-  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   box-shadow: 0 8px 30px rgba(0,0,0,0.22);
   border-bottom-color: rgba(255,255,255,0.06);
@@ -522,7 +522,7 @@
   position: absolute;
   inset: 0;
   background: rgba(13, 27, 76, 0.65);
-  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   opacity: 0;
   transition: opacity var(--transition-base);

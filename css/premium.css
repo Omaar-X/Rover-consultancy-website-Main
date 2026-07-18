@@ -160,7 +160,7 @@ body.home-page footer {
     linear-gradient(160deg, rgba(255,255,255,0.10), rgba(255,255,255,0.03));
   border: 1px solid rgba(255,255,255,0.14);
   border-radius: 32px;
-  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
   box-shadow: 0 32px 80px rgba(0,0,0,0.28);
   transform: rotate(-4deg);
 }
@@ -170,7 +170,7 @@ body.home-page footer {
   border-radius: 24px;
   border: 1px solid rgba(255,255,255,0.16);
   background: rgba(7,13,31,0.52);
-  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px);
   box-shadow: 0 20px 60px rgba(0,0,0,0.26);
   overflow: hidden;
 }
@@ -403,7 +403,7 @@ body.home-page footer {
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
   margin-bottom: 24px;
   animation: heroTextIn 0.7s var(--ease-out, ease) 0.1s both;
 }
@@ -463,7 +463,7 @@ body.home-page footer {
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(0,0,0,0.30), 0 0 0 1px rgba(255,255,255,0.10);
-  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
 }
 .search-form__input {
   flex: 1;
@@ -502,7 +502,7 @@ body.home-page footer {
   border: 1px solid rgba(255,255,255,0.12);
   padding: 10px 16px;
   border-radius: 999px;
-  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
 }
 
 .hero__scroll-hint svg {
@@ -586,7 +586,7 @@ body.home-page footer {
   border-radius: 20px;
   background: linear-gradient(135deg, rgba(7,13,31,0.82), rgba(27,58,140,0.72));
   color: #fff;
-  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
   box-shadow: 0 18px 50px rgba(0,0,0,0.22);
 }
 
@@ -651,7 +651,7 @@ body.home-page footer {
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.06);
-  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
 }
 .stat-card {
   padding: 28px 24px;
@@ -1177,7 +1177,7 @@ body.home-page footer {
   border-radius: 18px !important;
   padding: 22px !important;
   box-shadow: var(--t-card-shadow) !important;
-  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
 }
 .visa-toolbar .form-control {
   border-radius: 12px !important;
@@ -1573,7 +1573,7 @@ body.home-page footer {
   background: rgba(7,13,31,0.50) !important;
   border: 1px solid rgba(244,213,106,0.40);
   color: #F4D56A !important;
-  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
 }
 
 /* ─── HERO VISUAL CLEANUP — two cards, no messy overlap ──────────────────── */
@@ -1587,7 +1587,7 @@ body.home-page footer {
   left: 0;
   width: min(360px, 88%);
   background: rgba(7,13,31,0.78);
-  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px); backdrop-filter: blur(22px);
 }
 @media (max-width: 1200px) {
   .hero-visual-card--orbit { width: min(320px, 88%); }
@@ -1610,7 +1610,7 @@ body.home-page footer {
   border: none;
   border-radius: 48px;
   box-shadow: none;
-  backdrop-filter: none;
+  -webkit-backdrop-filter: none; backdrop-filter: none;
   transform: none;
   filter: blur(34px);
   animation: heroGlow 9s ease-in-out infinite alternate;
@@ -1716,3 +1716,70 @@ strong, b { color: inherit; }
   animation: caretBlink 1.1s steps(1) infinite;
 }
 @keyframes caretBlink { 50% { opacity: 0; } }
+
+/* =============================================================================
+   SITEWIDE SMOOTHNESS — every device: iOS / Android / tablet / laptop / desktop
+   ============================================================================= */
+
+/* Rendering quality + native-feel touch */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Gentle page entrance on every page */
+main {
+  animation: pageFadeIn 0.5s ease both;
+}
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Buttons: smooth hover + tactile press feedback (feels native on touch) */
+.btn {
+  transition: transform 0.22s cubic-bezier(0.22,1,0.36,1), box-shadow 0.22s, background 0.22s, color 0.22s, border-color 0.22s !important;
+  touch-action: manipulation;
+}
+.btn:active { transform: scale(0.965); }
+a, button { touch-action: manipulation; }
+
+/* Interactive cards get a subtle press on touch devices */
+.tour-card:active, .visa-card:active, .visa-featured-card:active,
+.dest-card:active, .service-card:active, .route-card:active { transform: scale(0.985); }
+
+/* Comfortable tap targets on touch screens */
+@media (pointer: coarse) {
+  .btn-sm { padding-top: 10px !important; padding-bottom: 10px !important; }
+  .nav-link, .mobile-nav-link, .footer-link { padding-top: 6px; padding-bottom: 6px; }
+}
+
+/* Never allow sideways page scroll on small screens */
+html, body { overflow-x: clip; }
+
+/* ── Mobile performance: drop the heaviest effects on phones ─────────────── */
+@media (max-width: 768px) {
+  .hero__bg img { animation: none; transform: scale(1.04); }      /* no constant repaint of a huge photo */
+  .hero-visual-card--main::after { animation: none; display: none; } /* sheen off */
+  .hero__visual::before { animation: none; filter: blur(24px); }
+  body.home-page::before, body.home-page::after { display: none; }  /* fixed blur blobs are costly */
+  .hero-visual-card, .visa-toolbar, .page-banner .section-note {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);                                    /* lighter glass */
+  }
+}
+
+/* ── Accessibility: respect users who turn animations off ────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
