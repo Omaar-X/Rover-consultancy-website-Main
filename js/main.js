@@ -644,7 +644,7 @@
           alt="${escapeHtml(c.country_name)} travel destination"
           title="${escapeHtml(c.country_name)}"
           width="360" height="480"
-          loading="eager"
+          loading="lazy"
           decoding="async" />
         <div class="dest-card__overlay"></div>
         <div class="dest-card__badges">
