@@ -15,25 +15,14 @@
     var btn = document.getElementById('themeToggle');
     if (!btn) return;
 
-    var label = btn.querySelector('.theme-toggle__label');
-    if (!label) {
-      label = document.createElement('span');
-      label.className = 'theme-toggle__label';
-      label.setAttribute('aria-hidden', 'true');
-
-      var moonIcon = btn.querySelector('.icon-moon');
-      if (moonIcon && moonIcon.parentNode === btn) {
-        btn.insertBefore(label, moonIcon);
-      } else {
-        btn.appendChild(label);
-      }
-    }
+    // Icon-only toggle: remove any previously injected text label.
+    var oldLabel = btn.querySelector('.theme-toggle__label');
+    if (oldLabel) oldLabel.remove();
 
     function setTheme(theme) {
       document.documentElement.setAttribute('data-theme', theme);
       localStorage.setItem('rover-theme', theme);
       var nextLabel = theme === 'dark' ? 'Light mode' : 'Dark mode';
-      label.textContent = nextLabel;
       btn.setAttribute('aria-label', 'Switch to ' + nextLabel.toLowerCase());
       btn.setAttribute('title', nextLabel);
       btn.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
