@@ -1783,3 +1783,48 @@ html, body { overflow-x: clip; }
     scroll-behavior: auto !important;
   }
 }
+
+/* ─── COMPACT FOOTER (all pages) ─────────────────────────────────────────── */
+.footer-main { padding-block: 40px 28px !important; }
+.footer-grid { gap: 28px !important; }
+
+.footer-logo__img { height: 42px !important; width: auto !important; }
+.footer-brand__desc {
+  font-size: 0.86rem !important;
+  line-height: 1.6 !important;
+  margin-block: 12px 14px !important;
+  max-width: 300px;
+}
+
+.footer-contact-list { gap: 8px !important; }
+.footer-contact-item { gap: 10px !important; font-size: 0.86rem !important; }
+.footer-contact-item__icon {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 10px !important;
+}
+.footer-contact-item__icon svg { width: 15px !important; height: 15px !important; }
+
+.footer-social { margin-top: 14px !important; gap: 8px !important; }
+.footer-social__link { width: 34px !important; height: 34px !important; }
+
+.footer-col-title {
+  font-size: 0.92rem !important;
+  margin-bottom: 12px !important;
+  padding-bottom: 8px !important;
+}
+.footer-links { gap: 4px !important; }
+.footer-link { font-size: 0.86rem !important; padding: 3px 0 !important; }
+
+.footer-newsletter__desc { font-size: 0.86rem !important; margin-bottom: 10px !important; }
+.newsletter-form .form-control { padding-block: 10px !important; }
+.footer-map { margin-top: 14px !important; font-size: 0.82rem !important; }
+
+.footer-bottom { padding-block: 14px !important; }
+.footer-copyright { font-size: 0.8rem !important; }
+.footer-legal-link { font-size: 0.8rem !important; }
+
+@media (max-width: 640px) {
+  .footer-main { padding-block: 32px 22px !important; }
+  .footer-grid { gap: 22px !important; }
+}
