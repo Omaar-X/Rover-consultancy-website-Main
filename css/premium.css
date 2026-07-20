@@ -1828,3 +1828,22 @@ html, body { overflow-x: clip; }
   .footer-main { padding-block: 32px 22px !important; }
   .footer-grid { gap: 22px !important; }
 }
+
+/* ─── FOOTER TEXT — always light (footer is always navy, both themes) ────── */
+.site-footer .footer-col-title,
+.site-footer h2, .site-footer h3, .site-footer h4 { color: #FFFFFF !important; }
+.site-footer p,
+.footer-brand__desc,
+.footer-newsletter__desc { color: rgba(255,255,255,0.72) !important; }
+.footer-link,
+.footer-contact-item,
+.footer-contact-item span,
+.footer-map,
+.footer-map__text { color: rgba(255,255,255,0.78) !important; }
+.footer-link:hover,
+.footer-contact-item:hover { color: #F4D56A !important; }
+.footer-copyright,
+.footer-copyright a,
+.footer-legal-link { color: rgba(255,255,255,0.62) !important; }
+.footer-copyright a:hover,
+.footer-legal-link:hover { color: #F4D56A !important; }
